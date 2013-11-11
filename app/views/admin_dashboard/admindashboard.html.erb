@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<% provide(:title, 'Admin Dashboard') %>
+
+<div class="row">
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">    	
+            <div class="panel panel-info">
+				<div class="panel-heading"><center><strong><%= link_to "JumpSquares", jumpsquares_path, class: 'linkpanel' %></strong></center></div>
+              		<div class="panel-body">   		
+              			<ul class="list-group">
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @jumpsquare_count %></span>
+		                  JumpSquare Count
+		              </ul>
+          			</div>
+     		</div>  
+   		  </div>
+   		  
+   		  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">    	
+            <div class="panel panel-info">
+				<div class="panel-heading"><center><strong><%= link_to "Tags", tags_path, class: 'linkpanel' %></strong></center></div>
+              		<div class="panel-body">   		
+              			<ul class="list-group">
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @tags_count %></span>
+		                  Tag Count
+		              </ul>
+          			</div>
+     		</div>  
+   		  </div>
+   		  
+          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">    	
+            <div class="panel panel-info">
+				<div class="panel-heading"><center><strong><%= link_to "AppTypes", apptypes_path, class: 'linkpanel' %></strong></center></div>
+              		<div class="panel-body">   		
+              			<ul class="list-group">
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @apptypes_count %></span>
+		                  AppType Count
+		                </li>
+		                
+		                </li>
+		              </ul>
+          			</div>
+     		</div>  
+   		  </div>
+
+</div>
+   		  

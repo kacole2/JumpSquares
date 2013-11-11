@@ -15,7 +15,7 @@ LabSquares::Application.routes.draw do
   match '/contact', to: 'static_pages#contact', via: 'get', as: :contact
   match '/about', to: 'static_pages#about', via: 'get', as: :about
   match '/jumpsquares', to: 'jumpsquares#index', via: 'get', as: :userroot
-
+  match 'admin_dashboard/admindashboard', to: 'admin_dashboard#admindashboard', via: 'get', as: :admindashboard
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
