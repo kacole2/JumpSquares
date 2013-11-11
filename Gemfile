@@ -7,8 +7,9 @@ gem "mini_magick"
 gem 'therubyracer'
 gem 'thin'
 gem 'will_paginate-bootstrap'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+# Use postgresql as the database for Active Record
+gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

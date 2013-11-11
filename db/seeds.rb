@@ -6,3 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+#create the jumpsize settings
+Jumpsize.create(:size => "medium", :length1 => 20, :length2 => 22, :itemsperpage => 100)
+puts "creating the first jumpsize"

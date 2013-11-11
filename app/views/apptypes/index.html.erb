@@ -8,16 +8,13 @@
     						<%= text_field_tag :search, params[:search], {:class => "form-control col-lg-8", :placeholder => "Search"} %>
 					  <% end %>  
 	 </div>	
+	 <div class="col-xs-6 col-sm-4 col-md-2">
+  		<%= link_to "Create a New Application Type", new_apptype_path, class: "btn btn-info", :method => :get %>
+     </div>
+	 
 </div>
 	
-<br>
-
-<div class="row">
-	<div class="col-xs-4 col-sm-4 col-md-2">
-		<%= button_to "Create a New Application Type", new_apptype_path, class: "btn btn-info", :method => :get %>
-		<br>
-	</div>
-</div>
+<br>	
 
 <div id="apptypes" >
   
