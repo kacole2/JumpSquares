@@ -4,6 +4,17 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include ApplicationHelper 
   
+
+  def after_sign_in_path_for(user)
+    jumpsquares_path
+  end
+
+  
+  rescue_from CanCan::AccessDenied do |exception|
+    flash[:alert] = "Sorry, but you do not have permission. Access denied."
+    redirect_to :userroot
+  end
+
   private
   #called to sort the table. taking in case insensitive  
     def sort_order(default)

@@ -37,12 +37,109 @@
 		                  <span class="badge"><%= @apptypes_count %></span>
 		                  AppType Count
 		                </li>
-		                
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @open_requests_count %></span>
+		                  Open Requests
+		                </li>
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @closed_requests_count %></span>
+		                  Closed Requests
+		                </li>
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @all_request_count %></span>
+		                  Total Requests
 		                </li>
 		              </ul>
           			</div>
      		</div>  
    		  </div>
-
+   		  
+   		  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">    	
+            <div class="panel panel-info">
+				<div class="panel-heading"><center><strong><%= link_to "Users", users_path, class: 'linkpanel' %></strong></center></div>
+              		<div class="panel-body">   		
+              			<ul class="list-group">
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @users_count %></span>
+		                  Total Users
+		                </li>
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @admin_count %></span>
+		                  Admin Users
+		                </li>
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @users_unconfirmed_count %></span>
+		                  Unconfirmed Users
+		                </li>
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @users_confirmed_count %></span>
+		                  Confirmed Users
+		                </li>
+		              </ul>
+          			</div>
+     		</div>  
+   		  </div>
 </div>
+
+<div class="row"></div>
+<div class="row"></div>
+<div class="row">
+	 <div class="col-xs-6 col-sm-4 col-md-2">
+	 <div class="clearfix visible-xs"></div>
+	 	<%= form_tag :admindashboard, :method => :get do %>
+                      		<%= hidden_field_tag :direction, params[:direction] %>
+  							<%= hidden_field_tag :sort, params[:sort] %> 							
+    						<%= text_field_tag :search, params[:search], {:class => "form-control col-lg-8", :placeholder => "Search"} %>
+					  <% end %>  
+	 </div>	
+	 <div class="col-xs-6 col-sm-4 col-md-2">	      
+		<div class="btn-toolbar">
+			<div class="btn-group">
+				<button class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="100">Sort By <b class="caret"></b></button>
+					<ul class="dropdown-menu">
+						<li><%= sort_link 'Email', :email %></li>
+						<li><%= sort_link 'JumpSquares', @userjscount %></li>
+						<li><%= sort_link 'Tags', @usertagcount %></li>
+						<li><%= sort_link 'AppRequests', @userappreqcount %></li>
+					</ul>
+			</div>                   
+	   </div>
+  </div>	
+</div>
+<br>
+<div class="row">
+          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 ">
+            <div class="bs-example">
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>User</th>
+
+                    <th>JumpSquares</th>
+                    <th>Tags</th>
+                    <th>Open Requests</th>
+                  </tr>
+                </thead>
+                
+                	<tbody>
+					    <% @users.each do |user| %>
+					      <tr>
+					        <td><%= user.email %></td>
+
+					        <td><%= @userjscount = Jumpsquare.count(:all, :conditions => { :jscreator => user.email }) %></td>
+					        <td><%= @usertagcount = Tag.count(:all, :conditions => { :tagcreator => user.email }) %></td>
+					        <td><%= @userappreqcount = ApptypeRequest.count(:all, :conditions => { :apprequestor => user.email }) %></td>
+					      </tr>
+					    <% end %>
+					  </tbody>
+                  
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+       <center><%= will_paginate @users, renderer: BootstrapPagination::Rails %></center>
+       
+</html>
    		  

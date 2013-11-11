@@ -5,15 +5,26 @@ gem 'rails', '4.0.0'
 gem 'carrierwave'
 gem "mini_magick"
 gem 'therubyracer'
-gem 'thin'
+#thin only used with appliance model
+#gem 'thin'
+gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'will_paginate-bootstrap'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+#only needed for heroku
+#gem 'rails_12factor', group: :production
+#gem 'unicorn'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'bootstrap-sass-rails'
+
+# authentication
+gem 'devise'
+gem 'cancan'
+gem 'rolify'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'

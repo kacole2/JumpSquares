@@ -1,10 +1,17 @@
 class JumpsizesController < ApplicationController
   before_action :set_jumpsize, only: [:show, :edit, :update, :destroy]   
 
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /jumpsizes
   # GET /jumpsizes.json
   def index
-    @jumpsizes = Jumpsize.all
+    if current_user.has_role? :admin
+      @jumpsizes = Jumpsize.paginate(:page => params[:page], :per_page => 100).search(params[:search]).find(:all, :order => sort_order('id'))
+    else
+      @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
+    end
+    
   end
 
   # GET /jumpsizes/1
@@ -13,10 +20,9 @@ class JumpsizesController < ApplicationController
   end
 
   # GET /jumpsizes/new
-  # NO MORE NEW SIZES
-  #def new
-  #  @jumpsize = Jumpsize.new
-  #end
+  def new
+    @jumpsize = Jumpsize.new
+  end
 
   # GET /jumpsizes/1/edit
   def edit
@@ -24,8 +30,6 @@ class JumpsizesController < ApplicationController
 
   # POST /jumpsizes
   # POST /jumpsizes.json
-  # NO MORE NEW ONES
-=begin
   def create
     @jumpsize = Jumpsize.new(jumpsize_params)
 
@@ -39,7 +43,6 @@ class JumpsizesController < ApplicationController
       end
     end
   end
-=end
 
   # PATCH/PUT /jumpsizes/1
   # PATCH/PUT /jumpsizes/1.json
@@ -57,8 +60,6 @@ class JumpsizesController < ApplicationController
 
   # DELETE /jumpsizes/1
   # DELETE /jumpsizes/1.json
-  # DON'T BE STUPID AND DELETE THIS
-=begin  
   def destroy
     @jumpsize.destroy
     respond_to do |format|
@@ -66,7 +67,6 @@ class JumpsizesController < ApplicationController
       format.json { head :no_content }
     end
   end
-=end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -76,6 +76,6 @@ class JumpsizesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jumpsize_params
-      params.require(:jumpsize).permit(:size, :length1, :length2, :itemsperpage)
+      params.require(:jumpsize).permit(:size, :length1, :length2, :itemsperpage, :jumpsizecreator)
     end
 end

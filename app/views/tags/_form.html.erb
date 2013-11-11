@@ -25,7 +25,8 @@
                   </div>                                                
                   <br>
                   <center>
-	                  <div class="form-group">	                    
+	                  <div class="form-group">
+	                  	  <%= f.hidden_field :tagcreator, :value => current_user.email %>                    
 	                      <%= f.submit class: 'btn btn-primary' %>
 	                  </div>
 	                  <%= link_to 'Back', tags_path %> |
@@ -39,5 +40,3 @@
 <% end %>
 
 </html>
-
-

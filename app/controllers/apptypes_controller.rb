@@ -1,9 +1,13 @@
 class ApptypesController < ApplicationController
   before_action :set_apptype, only: [:show, :edit, :update, :destroy]
+  before_action :load_apptype, only: :create
+  
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /apptypes
   # GET /apptypes.json
   def index
-   @jumpsizes = Jumpsize.all
+   @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
    #grabs the search function and displays it all by name
    @apptypes = Apptype.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('lower(name)'))
   end
@@ -71,7 +75,11 @@ class ApptypesController < ApplicationController
     def set_apptype
       @apptype = Apptype.find(params[:id])
     end
-
+    
+    def load_apptype
+      @apptype = Apptype.new(apptype_params)
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def apptype_params
       params.require(:apptype).permit(:name, :image)

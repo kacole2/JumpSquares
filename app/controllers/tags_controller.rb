@@ -1,19 +1,31 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
-
+  before_action :load_tag, only: :create
+  
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /tags
   # GET /tags.json
-  def index
-    @jumpsizes = Jumpsize.all
-    @tags = Tag.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('tagname'))
-  end
 
+  def index 
+    @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
+    if current_user.has_role? :admin
+      @tags = Tag.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('tagname'))
+    else
+      @tags = Tag.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :conditions => { :tagcreator => current_user.email })
+    end
+  end
+  
   # GET /tags/1
   # GET /tags/1.json
-  def show
-    @jumpsizes = Jumpsize.all
-    @jumpsquares = Jumpsquare.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('name'))
-    @tags = Tag.all
+  def show   
+    @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
+    @jumpsquares = Jumpsquare.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :conditions => { :jscreator => current_user.email }, :order => sort_order('name'))
+    if current_user.has_role? :admin
+      @tags = Tag.all
+    else
+      @tags = Tag.find(:all, :conditions => { :tagcreator => current_user.email })
+    end
   end
 
   # GET /tags/new
@@ -70,10 +82,14 @@ class TagsController < ApplicationController
     def set_tag
       @tag = Tag.find(params[:id])
     end
-
+    
+    def load_tag
+      @tag = Tag.new(tag_params)
+    end
+  
     # Never trust parameters from the scary internet, only allow the white list through.
     def tag_params
-      params.require(:tag).permit(:tagname)
+      params.require(:tag).permit(:tagname, :tagcreator)
     end
     
 end

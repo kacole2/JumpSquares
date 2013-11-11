@@ -51,7 +51,7 @@
                   <div class="form-group">
                   	<%= f.label :tag, "Choose a tag (optional)", :class => "col-lg-4 control-label" %>
                     <div class="col-lg-7">
-                      		<%= select_tag :tag, options_from_collection_for_select(Tag.find(:all).sort_by{|p| p.tagname.downcase}, :id, :tagname, @jumpsquare.tags.map{ |j| j.id }).html_safe, multiple: true, class: 'form-control' %>                   
+                      		<%= select_tag :tag, options_from_collection_for_select(Tag.find(:all, :conditions => { :tagcreator => current_user.email }).sort_by{|p| p.tagname.downcase}, :id, :tagname, @jumpsquare.tags.map{ |j| j.id }).html_safe, multiple: true, class: 'form-control' %>                   
                     </div>
                   </div>
                   <br>
@@ -63,7 +63,8 @@
                   </div>
 
                   <center>
-	                  <div class="form-group">	                  	                  
+	                  <div class="form-group">	 
+	                  	  <%= f.hidden_field :jscreator, :value => current_user.email %>                  	                  
 	                      <%= f.submit class: 'btn btn-primary'%>	                    
 	                  </div> 
 <% end %>	                              

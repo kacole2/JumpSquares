@@ -1,4 +1,19 @@
 LabSquares::Application.routes.draw do
+  
+  resources :apptype_requests
+
+  authenticated :user do
+    root :to => "jumpsquares#index"
+  end
+  
+  unauthenticated :user do
+    devise_scope :user do 
+      get "/" => "static_pages#home"
+    end
+  end
+  
+  devise_for :users, :path_names => { :sign_up => "register"}, :controllers => { :registrations => "registrations" }
+  
   resources :jumpsizes
   
   resources :tags
@@ -16,58 +31,10 @@ LabSquares::Application.routes.draw do
   match '/about', to: 'static_pages#about', via: 'get', as: :about
   match '/jumpsquares', to: 'jumpsquares#index', via: 'get', as: :userroot
   match 'admin_dashboard/admindashboard', to: 'admin_dashboard#admindashboard', via: 'get', as: :admindashboard
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-  root 'jumpsquares#index'
-
-  # Example of regular route:
-  #   get 'products/:id' => 'catalog#view'
-
-  # Example of named route that can be invoked with purchase_url(id: product.id)
-  #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-  # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
-
-  # Example resource route with options:
-  #   resources :products do
-  #     member do
-  #       get 'short'
-  #       post 'toggle'
-  #     end
-  #
-  #     collection do
-  #       get 'sold'
-  #     end
-  #   end
-
-  # Example resource route with sub-resources:
-  #   resources :products do
-  #     resources :comments, :sales
-  #     resource :seller
-  #   end
-
-  # Example resource route with more complex sub-resources:
-  #   resources :products do
-  #     resources :comments
-  #     resources :sales do
-  #       get 'recent', on: :collection
-  #     end
-  #   end
   
-  # Example resource route with concerns:
-  #   concern :toggleable do
-  #     post 'toggle'
-  #   end
-  #   resources :posts, concerns: :toggleable
-  #   resources :photos, concerns: :toggleable
+  post 'users/:id/makeadmin' => 'users#makeadmin', as: :makeadmin
+  post 'users/:id/removeadmin' => 'users#removeadmin', as: :removeadmin
 
-  # Example resource route within a namespace:
-  #   namespace :admin do
-  #     # Directs /admin/products/* to Admin::ProductsController
-  #     # (app/controllers/admin/products_controller.rb)
-  #     resources :products
-  #   end
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :destroy_user
+ 
 end

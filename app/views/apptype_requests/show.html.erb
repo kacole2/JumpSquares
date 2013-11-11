@@ -1,0 +1,30 @@
+<div class="row">
+          <div class="col-lg-6 col-lg-offset-3">
+            <div class="well">
+				<p>
+				  <strong>AppType Requester:</strong>
+				  <%= @apptype_request.apprequestor %>
+				</p>
+				<p>
+				  <strong>Application Name:</strong>
+				  <%= @apptype_request.appname %>
+				</p>
+				<p>
+				  <strong>Image URL:</strong>
+				  <%= @apptype_request.imageurl %>
+				</p>
+				<% if current_user.has_role? :admin %>
+				<p>
+				  <strong>Completed?:</strong>
+				  <%= @apptype_request.completed %>
+				</p>
+				<% else %>
+                <% end %>
+			<center>
+				<%= link_to 'Edit', edit_apptype_request_path(@apptype_request) %> |
+				<%= link_to 'Back', :back %> |
+				<%= link_to 'AppType Requests', apptype_requests_path %>
+			</center>
+			</div>
+		</div>
+	</div>	

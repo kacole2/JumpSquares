@@ -12,17 +12,21 @@
  	<div class="navbar-inner">
       <div class="container">
         <div class="navbar-header">
-         <a class="navbar-brand" href="/">JumpSquares</a>
+	         <% if user_signed_in? %>
+	        	<a class="navbar-brand" href="/jumpsquares">JumpSquares</a>
+	       	 <% else %>
+	        	<a class="navbar-brand" href="/">JumpSquares</a>
+	         <% end %>
+         
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-
         </div>
         
         
-        
+      <% if user_signed_in? %>
         <div class="navbar-collapse collapse pull-right nav-collapse" id="navbar-main">              
           <ul class="nav navbar-nav">
 			<li class="dropdown">
@@ -41,15 +45,34 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings">Settings <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="settings">
-              	<li><%= link_to "Admin Dashboard", :admindashboard %></li>
               	<li><%= link_to "AppTypes", apptypes_path %></li>
               	<li><%= link_to "Tags", tags_path %></li>
               	<li><%= link_to "JumpSquare Size", jumpsizes_path %></li>
+              	<% if current_user.has_role? :admin %>
+		        <li><a href="/apptype_requests">All AppType Requests <span class="badge"><%= ApptypeRequest.count(:all, :conditions => { :completed => false }).to_i %></span></a></li>
+		        <% else %>
+		        <li><a href="/apptype_requests">AppType Requests <span class="badge"><%= ApptypeRequest.count(:all, :conditions => { :apprequestor => current_user.email, :completed => false }).to_i %></span></a></li>
+		        <% end %>	
+		        <li><%= link_to "Manage Account", edit_user_registration_path %></li>
+		        <% if current_user.has_role? :admin %>
+		        <li><%= link_to "Manage Users", users_path %></li>
+		        <li><%= link_to "Admin Dashboard", :admindashboard %></li>
+		        <% else %>
+		        <% end %>            
               </ul>
             </li>
-			
+		 </ul>	
         </div>
-      
+        
+      <% else %>
+	   <div class="navbar-collapse collapse pull-right" id="navbar-main">              
+		  <ul class="nav navbar-nav">      		 
+	          <li><%= link_to "Register", new_user_registration_path %></li>
+		      <li><%= link_to "Login", new_user_session_path %></li>		            	
+		  </ul> 
+	   </div>
+      <% end %>
+     
       </div>
     </div>
   </div>

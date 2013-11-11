@@ -3,10 +3,10 @@ class Tag < ActiveRecord::Base
   #default_scope :order => 'tags.tagname ASC'
   default_scope order: 'lower(tagname)'
   validates_presence_of :tagname
-  
+
   def self.search(search)
     if search
-      where('tagname LIKE ?', "%#{search}%")
+      where('tagname LIKE ? OR tagcreator LIKE ?', "%#{search}%", "%#{search}%")
     else
       scoped
     end

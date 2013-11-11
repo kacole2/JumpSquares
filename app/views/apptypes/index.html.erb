@@ -8,8 +8,13 @@
     						<%= text_field_tag :search, params[:search], {:class => "form-control col-lg-8", :placeholder => "Search"} %>
 					  <% end %>  
 	 </div>	
+	 <% if current_user.has_role? :admin %>
 	 <div class="col-xs-6 col-sm-4 col-md-2">
   		<%= link_to "Create a New Application Type", new_apptype_path, class: "btn btn-info", :method => :get %>
+     	<% else %>
+		AppTypes are Read-Only. Request a New Application Type if you do not see one listed.
+		<%= link_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info", :method => :get %>
+		<% end %>
      </div>
 	 
 </div>
@@ -38,6 +43,7 @@
       <%= simple_format truncate(realapptype.name, :length => @jumpsizes.first.length1) %>
       
       <center><%= image_tag realapptype.image_url(@jumpsizes.first.size) %>
+      <% if current_user.has_role? :admin %>
       	<br>
       JumpSquares:  <span class="badge"><%= @appcount = Jumpsquare.count(:conditions => ['apptype = ?', realapptype.id]).to_i %></span>
       </div>
@@ -57,6 +63,8 @@
         <%= link_to_if @appcount == 0, "remove", realapptype, method: :delete, data: {confirm: "Delete '#{realapptype.name}' AppType? "} %>
       
       </div>
+      <% else %>
+      <% end %>
     </div>
     	
   <% end %>

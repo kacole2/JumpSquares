@@ -1,25 +1,36 @@
 class JumpsquaresController < ApplicationController
   before_action :set_jumpsquare, only: [:show, :edit, :update, :destroy]
-
+  before_action :load_jumpsquare, only: :create
+  
+  before_filter :authenticate_user!
+  load_and_authorize_resource
   # GET /jumpsquares
   # GET /jumpsquares.json
   def index
-  @tags = Tag.all
-  @jumpsizes = Jumpsize.all
-  @jumpsquares = Jumpsquare.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('name'))
+   @tags = Tag.find(:all, :conditions => { :tagcreator => current_user.email })
+   @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
+  
+   if current_user.has_role? :admin
+      #uncomment to see ALL jumpsquares
+      #@jumpsquares = Jumpsquare.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('name'))
+      @jumpsquares = Jumpsquare.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :conditions => { :jscreator => current_user.email }, :order => sort_order('name'))
+    else
+      @jumpsquares = Jumpsquare.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :conditions => { :jscreator => current_user.email }, :order => sort_order('name'))
+    end 
+
   end
   
   # GET /jumpsquares/1
   # GET /jumpsquares/1.json
   def show
-    @jumpsizes = Jumpsize.all
+    @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
   end
 
   # GET /jumpsquares/new
   def new
     @jumpsquare = Jumpsquare.new
-    @tags = Tag.all
-    @jumpsizes = Jumpsize.all
+    @tags = Tag.find(:all, :conditions => { :tagcreator => current_user.email })
+    @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
   end
 
   # GET /jumpsquares/1/edit
@@ -84,10 +95,14 @@ class JumpsquaresController < ApplicationController
     def set_jumpsquare
       @jumpsquare = Jumpsquare.find(params[:id])
     end
-
+    
+    def load_jumpsquare
+      @jumpsquare = Jumpsquare.new(jumpsquare_params)
+    end
+    
     # Never trust parameters from the scary internet, only allow the white list through.
     def jumpsquare_params
-      params.require(:jumpsquare).permit(:name, :apptype, :url, :ipordns, :description, :tag)
+      params.require(:jumpsquare).permit(:name, :apptype, :url, :ipordns, :description, :tag, :jscreator)
     end
 
 end

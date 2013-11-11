@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+		<div class="row">
+          <div class="col-lg-6 col-lg-offset-3">
+            <div class="well">
+            	<%= form_for @apptype_request, html: {:class => "form-horizontal" } do |f| %>
+				  <% if @apptype_request.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@apptype_request.errors.count, "error") %> prohibited this apptype_request from being saved:</h2>
+				
+				      <ul>
+				      <% @apptype_request.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>	
+                <fieldset>               	
+                  <legend>AppType</legend>
+                  <div class="form-group">
+                  	<%= f.label :apprequestor, "Requester:", :class => "col-lg-3 control-label" %>        
+                    <div class="col-lg-7">
+                      <%= f.text_field :apprequestor, :value=> current_user.email, :class => "form-control", :disabled => ""  %>	 
+                    </div>
+                  </div>
+                  <div class="form-group">                 	
+                  	<%= f.label :appname, "AppType Name", :class => "col-lg-3 control-label" %>
+                    <div class="col-lg-7">
+                      <% if @apptype_request.completed == false %>
+                      <%= f.text_field :appname, :class => "form-control" %> 
+                      <% else %>     
+                      <%= f.text_field :appname, :class => "form-control", :disabled => "" %>    
+                      <% end %>          	 
+                    </div>
+                  </div>                                                
+                  <br>
+                  <div class="form-group">
+                  	<%= f.label :imageurl, "URL to Image (optional)", :class => "col-lg-3 control-label" %>     
+                    <div class="col-lg-7">
+                      <% if @apptype_request.completed == false %>	
+                      <%= f.text_field :imageurl, :class => "form-control" %>    
+                      <% else %>                  	 
+                      <%= f.text_field :imageurl, :class => "form-control", :disabled => "" %>   
+                      <% end %>      
+                    </div>
+                  </div>                                                
+                  <br>
+                  
+                  <% if current_user.has_role? :admin %>             
+                  <div class="form-group">
+                  	<%= f.label :completed, "Complete", :class => "col-lg-3 control-label" %>     
+                    <div class="col-lg-7">
+                      <%= f.check_box :completed, :class => "form-control" %>                   	 
+                    </div>
+                  </div>                                                
+                  <br>
+                  <% else %>
+                  <% end %>
+                  
+                  <center>
+	                  <div class="form-group">                
+	                      <%= f.submit class: 'btn btn-primary' %>
+	                  </div>
+	                  <%= link_to 'Back', :back %> |
+					  <%= link_to 'Home', :userroot %> | 
+					  <%= link_to 'AppType Requests', apptype_requests_path %>
+                  </center>	 
+                </fieldset>
+              
+            </div>
+          </div>
+        </div>
+<% end %>
+
+</html>
