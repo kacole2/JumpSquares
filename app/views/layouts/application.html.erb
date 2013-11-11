@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%# <link href="assets/stylesheets/bootstrap.css.scss" rel="stylesheet"> %>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+		<%= render 'layouts/header' %>
+    <div class="container">
+      	
+      	<center>  	 
+	      	<div class="alert alert-warning alert-dismissable hide" style="width:400px">
+	            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+	            <%= notice %><%= alert %>
+	        </div>
+       </center>
+       
+      	<%= yield %>
+      	<script>
+	      $(function (){
+	      	$('.dropdown-toggle').dropdown();
+	        $('.popover-with-html').popover({ html: true, trigger: "hover", delay: 250});
+	        
+			$(".alert").delay(400).addClass("in");
+	      });
+	    </script>
+      	
+    </div>
+   		<%= render 'layouts/footer' %>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<% provide(:title, "JumpSquare Size") %>
+
+
+<div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="tables">Customize JumpSquare Size</h1>
+            </div>
+            <div class="bs-example">
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Image and Text Size</th>
+				    <th>Truncated Characters for Name Length</th>
+				    <th>Truncated Characters for IP/DNS Length</th>
+				    <th>JumpSquares/Tags/AppTypes Per Page</th>
+				    
+                  </tr>
+                </thead>
+                
+                	<tbody>
+					    <% @jumpsizes.each do |jumpsize| %>
+						      <tr>
+						        <td><%= jumpsize.size %></td>
+						        <td><%= jumpsize.length1 %></td>
+						        <td><%= jumpsize.length2 %></td>
+						        <td><%= jumpsize.itemsperpage %></td>
+						        <td><%= link_to 'Edit', edit_jumpsize_path(jumpsize) %></td>
+						        
+						      </tr>
+						    <% end %>
+					  </tbody>
+                  
+                
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+</html>

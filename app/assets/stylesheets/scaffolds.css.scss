@@ -1,0 +1,167 @@
+a img {
+  border: none;
+}
+
+a {
+  color: #2c3e50;
+}
+
+.clear {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}
+
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
+.fieldWithErrors {
+  display: inline;
+}
+
+.error_messages {
+  width: 400px;
+  border: 2px solid #CF0000;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  font-size: 12px;
+}
+
+.error_messages h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 12px;
+  margin: 0;
+  background-color: #c00;
+  color: #fff;
+}
+
+.error_messages p {
+  margin: 8px 10px;
+}
+
+.error_messages ul {
+  margin: 0;
+}
+
+.apptype {
+  border: solid 2px #CCC;
+  padding: 5px 5px;
+  float: none;
+  margin-right: 15px;
+  margin-bottom: 15px;
+}
+
+.apptype .name {
+  color: #2c3e50;
+  font-size: 14px;
+  padding-top: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.apptype .image_placeholder {
+  width: 100px;
+  height: 100px;
+  background-color: #B6B6B6;
+}
+
+.apptype .actions {
+  font-size: 10px;
+  text-align: center;
+  color: #324554;
+}
+
+.apptype .xsmallname {
+  color: #2c3e50;
+  font-size: 10px;
+  padding-top: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.apptype .xsmallactions {
+  font-size: 7px;
+  text-align: center;
+  color: #324554;
+}
+
+.apptype .smallname {
+  color: #2c3e50;
+  font-size: 12px;
+  padding-top: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.apptype .smallactions {
+  font-size: 9px;
+  text-align: center;
+  color: #324554;
+}
+
+.apptype .mediumname {
+  color: #2c3e50;
+  font-size: 14px;
+  padding-top: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.apptype .mediumactions {
+  font-size: 10px;
+  text-align: center;
+  color: #324554;
+}
+
+.apptype .largename {
+  color: #2c3e50;
+  font-size: 16px;
+  padding-top: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.apptype .largeactions {
+  font-size: 12px;
+  text-align: center;
+  color: #324554;
+}
+
+.apptype .xlargename {
+  color: #2c3e50;
+  font-size: 18px;
+  padding-top: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.apptype .xlargeactions {
+  font-size: 14px;
+  text-align: center;
+  color: #324554;
+}

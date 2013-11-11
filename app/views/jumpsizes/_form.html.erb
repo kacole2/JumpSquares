@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+		<div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="well">
+           
+              <%= form_for @jumpsize, :html => {:class => "form-horizontal"} do |f| %>
+				  <% if @jumpsize.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@jumpsize.errors.count, "error") %> prohibited this jumpsize from being saved:</h2>
+				
+				      <ul>
+				      <% @jumpsize.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>     
+                <fieldset>
+                  <legend>JumpSquare</legend>
+                  <div class="form-group">
+                  	<%= f.label :size, "JumpSquare Image and Text Size", :class => "col-lg-4 control-label" %>   
+                    <div class="col-lg-7">
+                      <%= f.select :size, ["xsmall", "small", "medium", "large", "xlarge"], {}, html_options = {:class => "form-control"} %>
+                    </div>
+                  </div>
+                  <br>                  
+                  <div class="form-group">
+                  	<%= f.label :length1, "Truncated Characters for Name Length", :class => "col-lg-4 control-label" %>
+                    <div class="col-lg-7">
+                      <%= f.number_field :length1, :class => "form-control" %>
+                    </div>
+                  </div>                 
+                  <br>                 
+                  <div class="form-group">
+                  	<%= f.label :length2, "Truncated Characters for IP/DNS Length", :class => "col-lg-4 control-label" %>                  	
+                    <div class="col-lg-7">
+                      <%= f.number_field :length2, :class => "form-control" %>
+                    </div>
+                  </div>   
+                  <br>                 
+                  <div class="form-group">
+                  	<%= f.label :itemsperpage, "How many JumpSquares/Tags/AppTypes to show per page?", :class => "col-lg-4 control-label" %>                  	
+                    <div class="col-lg-7">
+                      <%= f.number_field :itemsperpage, :class => "form-control" %>
+                    </div>
+                  </div>               
+                  <center>
+	                  <div class="form-group">	                  	                  
+	                      <%= f.submit "Update JumpSquare Size", class: 'btn btn-primary'%>	                    
+	                  </div> 
+<% end %>	                              
+	                  <%= link_to 'Back', :back %> |
+					  <%= link_to 'Home', :userroot %>       
+                  </center>
+                </fieldset>
+             
+            </div>
+          </div>
+        </div>
+
+</html>
+

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+		<div class="row">
+          <div class="col-lg-8 col-lg-offset-2">
+            <div class="well">
+           
+              <%= form_for @jumpsquare, :html => {:class => "form-horizontal"} do |f| %>
+				  <% if @jumpsquare.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@jumpsquare.errors.count, "error") %> prohibited this jumpsquare from being saved:</h2>
+				
+				      <ul>
+				      <% @jumpsquare.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>        
+                <fieldset>
+                  <legend>JumpSquare</legend>
+                  <div class="form-group">
+                  	<%= f.label :name, "Application Name:", :class => "col-lg-4 control-label" %>     
+                    <div class="col-lg-7">
+                      <%= f.text_field :name, :class => "form-control" %>	 
+                    </div>
+                  </div>
+                  <br>                  
+                  <div class="form-group">
+                  	<%= f.label :apptype, "Choose an application type:", :class => "col-lg-4 control-label" %>
+                    <div class="col-lg-7">
+                      <%= f.collection_select :apptype, Apptype.find(:all).sort_by{|p| p.name.downcase},:id, :name, {include_blank: false}, {class: "form-control"} %>
+                    </div>
+                  </div>                 
+                  <br>                 
+                  <div class="form-group">
+                  	<%= f.label :url, "Enter the Jump Location:", :class => "col-lg-4 control-label" %>
+                  	
+                    <div class="col-lg-7">
+                      <%= f.text_field :url, :class => "form-control" %>
+                      <span class="help-block"><i>Web: include http:// or https:// <br>
+                      SSH: include ssh:// (browser requires <a href="http://firessh.net/">FireSSH</a> plugin. Available for Firefox and Chrome)</i></span>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                  	<%= f.label :ipordns, "Enter the IP Address or DNS Name of the server:", :class => "col-lg-4 control-label" %>
+                    <div class="col-lg-7">
+                      <%= f.text_field :ipordns, :class => "form-control" %>
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                  	<%= f.label :tag, "Choose a tag (optional)", :class => "col-lg-4 control-label" %>
+                    <div class="col-lg-7">
+                      		<%= select_tag :tag, options_from_collection_for_select(Tag.find(:all).sort_by{|p| p.tagname.downcase}, :id, :tagname, @jumpsquare.tags.map{ |j| j.id }).html_safe, multiple: true, class: 'form-control' %>                   
+                    </div>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                  	<%= f.label :description, "Enter a description for the application", :class => "col-lg-4 control-label" %>
+                    <div class="col-lg-7">
+                      <%= f.text_area :description, :class => "form-control" %>                     
+                    </div>
+                  </div>
+
+                  <center>
+	                  <div class="form-group">	                  	                  
+	                      <%= f.submit class: 'btn btn-primary'%>	                    
+	                  </div> 
+<% end %>	                              
+	                  <%= link_to 'Back', :back %> |
+					  <%= link_to 'Home', :userroot %>       
+                  </center>
+                </fieldset>
+             
+            </div>
+          </div>
+        </div>
+
+</html>

@@ -1,0 +1,77 @@
+<% provide(:title, 'AppType Settings') %>
+<div class="row">
+	 <div class="col-xs-6 col-sm-4 col-md-2">
+	 <div class="clearfix visible-xs"></div>
+	 	<%= form_tag apptypes_path, :method => :get do %>
+                      		<%= hidden_field_tag :direction, params[:direction] %>
+  							<%= hidden_field_tag :sort, params[:sort] %> 							
+    						<%= text_field_tag :search, params[:search], {:class => "form-control col-lg-8", :placeholder => "Search"} %>
+					  <% end %>  
+	 </div>	
+</div>
+	
+<br>
+
+<div class="row">
+	<div class="col-xs-4 col-sm-4 col-md-2">
+		<%= button_to "Create a New Application Type", new_apptype_path, class: "btn btn-info", :method => :get %>
+		<br>
+	</div>
+</div>
+
+<div id="apptypes" >
+  
+ 
+  <% @apptypes.each do |realapptype| %>
+  		
+    <div class="apptype" style="float: left">
+			    	
+			     <% if @jumpsizes.first.size == "xsmall" %>
+					<div class="xsmallname">
+				 <% elsif @jumpsizes.first.size == "small" %>
+					<div class="smallname">
+				 <% elsif @jumpsizes.first.size == "medium" %>
+					<div class="mediumname">
+				 <% elsif @jumpsizes.first.size == "large" %>
+					<div class="largename">
+				 <% elsif @jumpsizes.first.size == "xlarge" %>
+					<div class="xlargename">
+				 <% end %>
+    	
+      <%= simple_format truncate(realapptype.name, :length => @jumpsizes.first.length1) %>
+      
+      <center><%= image_tag realapptype.image_url(@jumpsizes.first.size) %>
+      	<br>
+      JumpSquares:  <span class="badge"><%= @appcount = Jumpsquare.count(:conditions => ['apptype = ?', realapptype.id]).to_i %></span>
+      </div>
+      </center>
+      <% if @jumpsizes.first.size == "xsmall" %>
+					<div class="xsmallactions">
+				 <% elsif @jumpsizes.first.size == "small" %>
+					<div class="smallactions">
+				 <% elsif @jumpsizes.first.size == "medium" %>
+					<div class="mediumactions">
+				 <% elsif @jumpsizes.first.size == "large" %>
+					<div class="largeactions">
+				 <% elsif @jumpsizes.first.size == "xlarge" %>
+					<div class="xlargeactions">
+				 <% end %>
+        <%= link_to "edit", edit_apptype_path(realapptype) %> | 
+        <%= link_to_if @appcount == 0, "remove", realapptype, method: :delete, data: {confirm: "Delete '#{realapptype.name}' AppType? "} %>
+      
+      </div>
+    </div>
+    	
+  <% end %>
+	
+	
+      
+    
+      
+      
+  <div class="clear"></div>
+</div>
+<center><%= will_paginate @apptypes, renderer: BootstrapPagination::Rails %></center>
+
+
+

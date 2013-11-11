@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<% provide(:title, 'Home') %>
+    
+<div class="row">
+	 <div class="col-xs-6 col-sm-4 col-md-2">
+	 <div class="clearfix visible-xs"></div>
+	 	<%= form_tag jumpsquares_path, :method => :get do %>
+                      		<%= hidden_field_tag :direction, params[:direction] %>
+  							<%= hidden_field_tag :sort, params[:sort] %> 							
+    						<%= text_field_tag :search, params[:search], {:class => "form-control col-lg-8", :placeholder => "Search"} %>
+					  <% end %>  
+	 </div>	
+	 <div class="col-xs-6 col-sm-4 col-md-2">	      
+		<div class="btn-toolbar">
+			<div class="btn-group">
+				<button class="btn dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-delay="100">Sort By <b class="caret"></b></button>
+					<ul class="dropdown-menu">
+						<li><%= sort_link 'Name', :name %></li>
+						<li><%= sort_link 'Application Type', :apptype %></li>
+						<li><%= sort_link 'IP or DNS', :ipordns %></li>
+						<li><%= sort_link 'Jump URL', :url %></li>
+					</ul>
+			</div>                   
+	   </div>
+  </div>	
+</div>
+	
+<br>
+<div class="row">
+	<div class="col-xs-4 col-sm-2 col-md-2"
+		 <strong>Tags</strong>
+	 	<% @tags.each do |tag| %>
+	      <tr>    
+	        <% tagcount = tag.jumpsquares.count %>
+	        <% if tagcount > 0 %>
+	        	<td><%= button_to tag.tagname + " [" + tag.jumpsquares.count.to_s + "]", tag_path(tag.id), class: "btn btn-success btn-xs", :method => :get  %></td>
+	        <% else %>
+	        <% end %>									        
+	      </tr>
+	    <% end %>
+    
+	</div>
+
+	<div class="col-xs-8 col-sm-10 col-md-10">
+	<div id="apptypes">
+		
+				
+			<% @jumpsquares.each do |jumpsquare| %>
+			    <div class="apptype" style="float: left">
+			    	
+			     <% if @jumpsizes.first.size == "xsmall" %>
+					<div class="xsmallname">
+				 <% elsif @jumpsizes.first.size == "small" %>
+					<div class="smallname">
+				 <% elsif @jumpsizes.first.size == "medium" %>
+					<div class="mediumname">
+				 <% elsif @jumpsizes.first.size == "large" %>
+					<div class="largename">
+				 <% elsif @jumpsizes.first.size == "xlarge" %>
+					<div class="xlargename">
+				 <% end %>
+				 
+						<%= link_to(truncate(jumpsquare.name, :length => @jumpsizes.first.length1), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>		
+					</div>
+			      	<center>
+			      		<% apptype_id = Apptype.find(jumpsquare.apptype) %>
+			      		<%= link_to(image_tag(apptype_id.image_url(@jumpsizes.first.size)), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>
+			      	</center>     	
+			     
+			     <% if @jumpsizes.first.size == "xsmall" %>
+					<div class="xsmallactions">
+				 <% elsif @jumpsizes.first.size == "small" %>
+					<div class="smallactions">
+				 <% elsif @jumpsizes.first.size == "medium" %>
+					<div class="mediumactions">
+				 <% elsif @jumpsizes.first.size == "large" %>
+					<div class="largeactions">
+				 <% elsif @jumpsizes.first.size == "xlarge" %>
+					<div class="xlargeactions">
+				 <% end %>	
+			      
+				    	<%= simple_format truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
+				        <%= link_to "edit", edit_jumpsquare_path(jumpsquare) %> 	|
+				        <%= link_to "remove", jumpsquare, method: :delete, data: {confirm: "Delete '#{jumpsquare.name}' JumpSquare? "} %>
+			      	</div>
+			    </div>	
+			  <% end %>	
+	   
+	  <div class="clearfix"></div>
+	  	      
+	</div>
+	</div>
+</div>
+<center><%= will_paginate @jumpsquares, renderer: BootstrapPagination::Rails %></center>
+<br>
+</html>

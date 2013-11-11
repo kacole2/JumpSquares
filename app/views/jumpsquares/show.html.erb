@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<% provide(:title, @jumpsquare.name) %>
+<div class="row">
+	<div class="col-xs-6 col-sm-6 col-md-6 col-md-offset-5 col-sm-offset-5 col-xs-offset-5">
+	<center><div id="apptypes">
+			    <div class="apptype" style="float: left">
+			    	
+			     <% if @jumpsizes.first.size == "xsmall" %>
+					<div class="xsmallname">
+				 <% elsif @jumpsizes.first.size == "small" %>
+					<div class="smallname">
+				 <% elsif @jumpsizes.first.size == "medium" %>
+					<div class="mediumname">
+				 <% elsif @jumpsizes.first.size == "large" %>
+					<div class="largename">
+				 <% elsif @jumpsizes.first.size == "xlarge" %>
+					<div class="xlargename">
+				 <% end %>
+				 
+						<%= link_to(truncate(@jumpsquare.name, :length => @jumpsizes.first.length1), @jumpsquare.url, :class => "popover-with-html", :title => @jumpsquare.url, "data-content" => @jumpsquare.description, :target => "_blank") %>		
+					</div>
+			      	<center>
+			      		<% apptype_id = Apptype.find(@jumpsquare.apptype) %>
+			      		<%= link_to(image_tag(apptype_id.image_url(@jumpsizes.first.size)), @jumpsquare.url, :class => "popover-with-html", :title => @jumpsquare.url, "data-content" => @jumpsquare.description, :target => "_blank") %>
+			      	</center>     	
+			     
+			     <% if @jumpsizes.first.size == "xsmall" %>
+					<div class="xsmallactions">
+				 <% elsif @jumpsizes.first.size == "small" %>
+					<div class="smallactions">
+				 <% elsif @jumpsizes.first.size == "medium" %>
+					<div class="mediumactions">
+				 <% elsif @jumpsizes.first.size == "large" %>
+					<div class="largeactions">
+				 <% elsif @jumpsizes.first.size == "xlarge" %>
+					<div class="xlargeactions">
+				 <% end %>	
+			      
+				    	<%= simple_format truncate(@jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
+				        <%= link_to "edit", edit_jumpsquare_path(@jumpsquare) %> 	|
+				        <%= link_to "remove", @jumpsquare, method: :delete, data: {confirm: "Delete '#{@jumpsquare.name}' JumpSquare? "} %>
+			      	</div>
+			    </div>	
+			  
+		
+			  
+			   
+	  <div class="clearfix"></div>
+	     
+	</div></center>
+	</div>
+</div>
+<div class="row">
+	<center>
+		<%= link_to "Edit " + @jumpsquare.name.to_s, edit_jumpsquare_path(@jumpsquare) %> |==|
+		<%= link_to "Home", jumpsquares_path %>
+	</center>
+</div>
+
+<br>
+</html>
+

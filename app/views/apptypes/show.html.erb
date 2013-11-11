@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<% provide(:title, @apptype.name) %>
+<div class="row">
+<div class="col-xs-6 col-sm-6 col-md-6 col-md-offset-4 col-sm-offset-4 col-xs-offset-4">
+<div id="apptypes" >
+    
+     <div class="apptype" style="float: left">
+      <div class="name"><%= @apptype.name %></div>
+      <center><%= image_tag @apptype.image_url(:medium) %></center>
+     <div class="actions">
+     	<%= link_to "edit " + @apptype.name.to_s, edit_apptype_path(@apptype) %> |==|
+        <%= link_to "apptypes", apptypes_path %> |==|
+        <%= link_to "home", jumpsquares_path %>
+        
+      </div>
+    </div>
+	
+	<div class="clear"></div>
+</div>
+</div>
+</div>
+</html>

@@ -1,0 +1,2 @@
+module ApptypesHelper
+end

@@ -1,0 +1,21 @@
+<% provide(:title, 'Contact') %>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><% :title %>	</title>
+  </head>
+  <body>
+    <h2>Contact Information</h2>
+    <br>
+    <center>
+    <div class="row">
+	  <div class="col-md-3"><%=link_to image_tag("rss_150.png", :height => '150', :width => '150'), "http://www.kendrickcoleman.com"  %><br><%=link_to "www.kendrickcoleman.com", "http://www.kendrickcoleman.com"  %> </div>
+	  <div class="col-md-3"><%=link_to image_tag("twitter_150.png", :height => '150', :width => '150'), "https://twitter.com/KendrickColeman" %><br><%=link_to "@kendrickcoleman","https://twitter.com/KendrickColeman" %>  </div>
+	  <div class="col-md-3"><%=link_to image_tag("facebook_150.png", :height => '150', :width => '150'), "https://www.facebook.com/pages/kendrickcolemancom/148077885252956"  %><br><%=link_to "kendrickcoleman.com","https://www.facebook.com/pages/kendrickcolemancom/148077885252956" %> </div>
+	  <div class="col-md-3"><%=link_to image_tag("github_150.png", :height => '150', :width => '150'), "https://github.com/kacole2"  %><br><%=link_to "kacole2", "https://github.com/kacole2" %> </div>
+	</div>
+	</center>
+    
+  </body>
+</html>

@@ -1,0 +1,13 @@
+== README
+
+JumpSquares is an application to create a landing page or a jump page for every web based application in your enterprise.
+
+required gems:
+gem 'rails', '4.0.0'
+gem 'carrierwave'
+gem "mini_magick"
+gem 'bootstrap-sass-rails'
+gem 'therubyracer'
+gem 'thin'
+
+Install RMagick to make the image uploads work correctly.

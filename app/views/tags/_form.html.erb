@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+		<div class="row">
+          <div class="col-lg-6 col-lg-offset-3">
+            <div class="well">
+            	<%= form_for @tag, html: {:class => "form-horizontal" } do |f| %>
+				  <% if @tag.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@tag.errors.count, "error") %> prohibited this tag from being saved:</h2>
+				
+				      <ul>
+				      <% @tag.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+            	
+                <fieldset>
+                  <legend>Tag</legend>
+                  <div class="form-group">
+                  	<%= f.label :tagname, "Tag Name", :class => "col-lg-3 control-label" %>     
+                    <div class="col-lg-7">
+                      <%= f.text_field :tagname, :class => "form-control" %>                   	 
+                    </div>
+                  </div>                                                
+                  <br>
+                  <center>
+	                  <div class="form-group">	                    
+	                      <%= f.submit class: 'btn btn-primary' %>
+	                  </div>
+	                  <%= link_to 'Back', tags_path %> |
+					  <%= link_to 'Home', :userroot %>
+                  </center>	 
+                </fieldset>
+              
+            </div>
+          </div>
+        </div>
+<% end %>
+
+</html>
+
+
