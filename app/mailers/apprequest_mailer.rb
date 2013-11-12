@@ -18,4 +18,12 @@ class ApprequestMailer < Devise::Mailer
     mail(:to => @apptype_request.apprequestor, :subject => "Your JumpSquare AppType Has Been Added")
   end
   
+  def admin_up(newadmin)
+    mail(:to => newadmin.email, :subject => "You're now an Admin on JumpSquares.net")
+  end
+  
+  def admin_down(removeadmin)
+    mail(:to => removeadmin.email, :subject => "Your Admin right have been revoked on JumpSquares.net")
+  end
+  
 end

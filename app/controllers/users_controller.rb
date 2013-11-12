@@ -11,13 +11,15 @@ class UsersController < ApplicationController
   
   def makeadmin
     newadmin = User.find(params[:id])
-    newadmin.add_role :admin
+    newadmin.add_role :admin    
+    ApprequestMailer.admin_up(newadmin).deliver    
     redirect_to :back
   end
   
   def removeadmin
     removeadmin = User.find(params[:id])
     removeadmin.remove_role :admin
+    ApprequestMailer.admin_down(removeadmin).deliver
     redirect_to :back
   end
   
