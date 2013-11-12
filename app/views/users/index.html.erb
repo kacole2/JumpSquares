@@ -40,7 +40,6 @@
                     <th>Last Sign In</th>
                     <th>Sign In Count</th>
                     <th>Type of User</th>
-                    <th>Edit User</th>
                     <th>Remove User</th>
                   </tr>
                 </thead>
@@ -67,8 +66,6 @@
 							        <%= link_to 'Make Admin', makeadmin_path(user), :method => :post %>			        
 					        <% end %>
 					        </td>
-					        
-					        <td><%= link_to 'Edit', edit_user_registration_path(user) %></td>		
 					        		        
 					       	<td><%= link_to "Destroy", destroy_user_path(user), method: :delete, data: { confirm: "Are You sure?" } %></td>
 					      </tr>
