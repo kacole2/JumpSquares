@@ -6,11 +6,6 @@
   							<%= hidden_field_tag :sort, params[:sort] %> 							
     						<%= text_field_tag :search, params[:search], {:class => "form-control col-lg-8", :placeholder => "Search"} %>
 					  <% end %>  
-	 <br><br><br>
-	 <div style="float: left">
-	  <%= button_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info", :method => :get %>
-	  </div>
-	  
 	 </div>	
 	 <div class="col-xs-6 col-sm-4 col-md-2">	      
 		<div class="btn-toolbar">
@@ -23,8 +18,10 @@
 					</ul>
 			</div>                   
 	   </div>
-	   <br>
-  </div>	
+  	</div>	
+  	<div class="col-xs-6 col-sm-4 col-md-2">
+  		<%= link_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info" %>
+   </div>
 </div>
 
 <div class="row">

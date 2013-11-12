@@ -18,7 +18,7 @@ class ApptypeRequestsControllerTest < ActionController::TestCase
 
   test "should create apptype_request" do
     assert_difference('ApptypeRequest.count') do
-      post :create, apptype_request: {  }
+      post :create, apptype_request: { appname: @apptype_request.appname, apprequestor: @apptype_request.apprequestor, completed: @apptype_request.completed, imageurl: @apptype_request.imageurl }
     end
 
     assert_redirected_to apptype_request_path(assigns(:apptype_request))
@@ -35,7 +35,7 @@ class ApptypeRequestsControllerTest < ActionController::TestCase
   end
 
   test "should update apptype_request" do
-    patch :update, id: @apptype_request, apptype_request: {  }
+    patch :update, id: @apptype_request, apptype_request: { appname: @apptype_request.appname, apprequestor: @apptype_request.apprequestor, completed: @apptype_request.completed, imageurl: @apptype_request.imageurl }
     assert_redirected_to apptype_request_path(assigns(:apptype_request))
   end
 

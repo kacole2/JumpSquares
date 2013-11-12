@@ -15,7 +15,7 @@ LabSquares::Application.routes.draw do
   devise_for :users, :path_names => { :sign_up => "register"}, :controllers => { :registrations => "registrations" }
   
   resources :jumpsizes
-  
+  resources :users
   resources :tags
 
   get "static_pages/help"
