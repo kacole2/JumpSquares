@@ -7,6 +7,7 @@ class JumpsquaresController < ApplicationController
   # GET /jumpsquares
   # GET /jumpsquares.json
   def index
+
    @tags = Tag.find(:all, :conditions => { :tagcreator => current_user.email })
    @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
   

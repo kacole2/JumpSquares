@@ -12,7 +12,7 @@ class TagsController < ApplicationController
     if current_user.has_role? :admin
       @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('tagname'))
     else
-      @tags = Tag.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :conditions => { :tagcreator => current_user.email })
+      @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :conditions => { :tagcreator => current_user.email })
     end
   end
   
