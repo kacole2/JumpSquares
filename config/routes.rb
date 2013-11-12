@@ -1,6 +1,5 @@
 LabSquares::Application.routes.draw do
   
-  resources :apptype_requests
 
   authenticated :user do
     root :to => "jumpsquares#index"
@@ -12,12 +11,13 @@ LabSquares::Application.routes.draw do
     end
   end
   
-  devise_for :users, :path_names => { :sign_up => "register"}, :controllers => { :registrations => "registrations" }
+  devise_for :users, :path_names => { :sign_up => "register"}
   
   resources :jumpsizes
   resources :users
   resources :tags
-
+  resources :apptype_requests
+  
   get "static_pages/help"
   get "static_pages/about"
   get "static_pages/contact"
@@ -31,7 +31,6 @@ LabSquares::Application.routes.draw do
   match '/about', to: 'static_pages#about', via: 'get', as: :about
   match '/jumpsquares', to: 'jumpsquares#index', via: 'get', as: :userroot
   match 'admin_dashboard/admindashboard', to: 'admin_dashboard#admindashboard', via: 'get', as: :admindashboard
-  
   post 'users/:id/makeadmin' => 'users#makeadmin', as: :makeadmin
   post 'users/:id/removeadmin' => 'users#removeadmin', as: :removeadmin
 
