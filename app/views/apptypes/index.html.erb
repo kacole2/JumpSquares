@@ -12,8 +12,9 @@
 	 <div class="col-xs-6 col-sm-4 col-md-2">
   		<%= link_to "Create a New Application Type", new_apptype_path, class: "btn btn-info", :method => :get %>
      	<% else %>
-		AppTypes are Read-Only. Request a New Application Type if you do not see one listed.
 		<%= link_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info", :method => :get %>
+		</div>
+		<div class="row">AppTypes are Read-Only. Request a New Application Type if you do not see one listed.</div>
 		<% end %>
      </div>
 	 
