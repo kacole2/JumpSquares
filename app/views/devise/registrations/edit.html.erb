@@ -11,7 +11,11 @@
                   <div class="form-group">
                   	<%= f.label :email, "Email Address:", :class => "col-lg-3 control-label" %>        
                     <div class="col-lg-7">
-                      <%= f.email_field :email, :autofocus => true, :class => "form-control", :placeholder => "Email", :disabled => ""  %>	 
+                      <% if current_user.has_role? :admin %>
+                      <%= f.email_field :email, :class => "form-control" %>
+                      <% else %>
+                      <%= f.email_field :email, :autofocus => true, :class => "form-control", :placeholder => "Email", :disabled => ""  %>
+                      <% end %>
                     </div>
                   </div>
                                    
