@@ -1,4 +1,4 @@
-class RegistrationsController < ApplicationController
+class RegistrationsController < Devise::RegistrationsController
 def create
     if !verify_recaptcha
       flash.delete :recaptcha_error
