@@ -1,23 +1,27 @@
-<p>
-  <strong>Size:</strong>
-  <%= @jumpsize.size %>
-</p>
-
-<p>
-  <strong>Characters for Name Length:</strong>
-  <%= @jumpsize.length1 %>
-</p>
-
-<p>
-  <strong>Characters for IP/DNS Length:</strong>
-  <%= @jumpsize.length2 %>
-</p>
-
-<p>
-  <strong>JumpSquares/Tags/AppTypes to show per page:</strong>
-  <%= @jumpsize.itemsperpage %>
-</p>
-
-<%= link_to 'Edit', edit_jumpsize_path(@jumpsize) %> |
-<%= link_to 'Back', jumpsizes_path %> | 
-<%= link_to 'Home', :root %>
+<div class="row">
+          <div class="col-lg-6 col-lg-offset-3">
+            <div class="well">
+				<p>
+				  <strong>Size:</strong>
+				  <%= @jumpsize.size %>
+				</p>
+				<p>
+				  <strong>Characters for Name Length:</strong>
+				  <%= @jumpsize.length1 %>
+				</p>
+				<p>
+				  <strong>Characters for IP/DNS Length:</strong>
+				  <%= @jumpsize.length2 %>
+				</p>
+				<p>
+				  <strong>JumpSquares/Tags/AppTypes to show per page:</strong>
+				  <%= @jumpsize.itemsperpage %>
+				</p>
+			<center>
+				<%= link_to 'Edit', edit_jumpsize_path(@jumpsize) %> |
+				<%= link_to 'Back', jumpsizes_path %> | 
+				<%= link_to 'Home', :root %>
+			</center>
+			</div>
+		</div>
+	</div>	

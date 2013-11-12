@@ -18,7 +18,7 @@
 *.pyc
 *.pyo
 # Ignore recaptha settings 
-./config/initializers/recaptcha.rb
+/config/initializers/recaptcha.rb
 # Ignore my SMTP un&pw
 /config/initializers/app_env_vars.rb
 
