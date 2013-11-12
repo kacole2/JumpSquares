@@ -14,8 +14,8 @@ gem 'will_paginate-bootstrap'
 gem 'pg'
 
 #only needed for heroku
-#gem 'rails_12factor', group: :production
-#gem 'unicorn'
+gem 'rails_12factor', group: :production
+gem 'unicorn'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
