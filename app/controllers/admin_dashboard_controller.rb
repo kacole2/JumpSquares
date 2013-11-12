@@ -14,7 +14,7 @@ class AdminDashboardController < ApplicationController
       @admins = User.with_role :admin
       @admin_count = @admins.count
       @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
-      @users = User.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('email'))
+      @users = User.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('email'))
       @users_unconfirmed_count = User.count(:all, :conditions => { :confirmed_at => nil }) 
       @users_confirmed_count = @users.count.to_i - @users_unconfirmed_count
       
