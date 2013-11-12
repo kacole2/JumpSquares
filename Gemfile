@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0'
 gem 'carrierwave'
 gem "mini_magick"
-gem 'therubyracer'
+#gem 'therubyracer'
 #thin only used with appliance model
 #gem 'thin'
 gem 'recaptcha', :require => 'recaptcha/rails'
