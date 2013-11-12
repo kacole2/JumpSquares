@@ -13,13 +13,12 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
+/log/development.log
 /tmp
 *.class
 *.pyc
 *.pyo
-# Ignore recaptha settings 
-/config/initializers/recaptcha.rb
-# Ignore my SMTP un&pw
+# Ignore my SMTP un&pw and recaptcha keys
 /config/initializers/app_env_vars.rb
 
 #ignore uploaded pictures
