@@ -12,7 +12,7 @@ LabSquares::Application.routes.draw do
     end
   end
   
-  devise_for :users, :path_names => { :sign_up => "register"}, :controllers => { :registrations => "registrations" }
+  devise_for :users, :path_names => { :sign_up => "register"}
   
   resources :jumpsizes
   resources :users
