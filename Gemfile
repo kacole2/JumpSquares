@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -16,6 +16,7 @@ gem 'pg'
 #only needed for heroku
 gem 'rails_12factor', group: :production
 gem 'unicorn'
+gem "fog", "~> 1.3.1"
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

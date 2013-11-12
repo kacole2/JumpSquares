@@ -2,7 +2,7 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">    	
             <div class="bs-example">
               <div class="jumbotron"> 
-				
+				<center><%= link_to image_tag("https://s3.amazonaws.com/jumpsquares/medium_jumpsquares_logo.png", confirmation_url(@resource, :confirmation_token => @token)) %></center>
 				<p>Welcome to JumpSquares <%= @email %>!</p>
 				
 				<p>You have 5 days to confirm your account email through the link below. If you do not confirm your account then your token will expire.</p>
