@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   
   def index
    @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
-   @users = User.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('id'))
+   @users = User.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('id'))
  #  @users = User.all
   end
   

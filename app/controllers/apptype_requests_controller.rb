@@ -10,9 +10,9 @@ class ApptypeRequestsController < ApplicationController
     @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
       
       if current_user.has_role? :admin
-        @apptype_requests = ApptypeRequest.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('completed'))
+        @apptype_requests = ApptypeRequest.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('completed'))
       else
-        @apptype_requests = ApptypeRequest.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :conditions => { :apprequestor => current_user.email }, :order => sort_order('completed'))
+        @apptype_requests = ApptypeRequest.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :conditions => { :apprequestor => current_user.email }, :order => sort_order('completed'))
       end
   end
 
