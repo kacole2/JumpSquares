@@ -6,7 +6,7 @@ class Jumpsquare < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('name LIKE ? OR ipordns LIKE ? OR url LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+      where('name ILIKE ? OR ipordns ILIKE ? OR url ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
       scoped
     end
