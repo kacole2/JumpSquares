@@ -10,28 +10,52 @@
     <br>
     <br>
     <p>
-    	<br>
-    	If you go to the AppTypes page, you will see a bunch of different kinds of applications. You can create your own applications as well if there isn't one listed. 
-    	Make sure you have an AppType defined before you try to create a JumpSquare for it. You must select an AppType when creating a new JumpSquare. 
-    	If you don't select an AppType, then the first available AppType will be selected by default.
-    	<br>
-    	<br>
-	</p>
+    	FAQ:
+    	<ul>
+    	<li><%= link_to "How do the AppTypes work?", "#apptypes" %></li>
+    	<li><%= link_to "Why does my screen look like garbage?", "#garbage" %></li>
+    	<li><%= link_to "Why am I not seeing any JumpSquares?", "#notsee" %></li>
+    	<li><%= link_to "What's this ssh:// stuff?", "#ssh" %></li>
+    	<li><%= link_to "Why can I not remove an AppType?", "#removeapp" %></li>
+    	<li><%= link_to "Why does the search only work on one page?", "#search" %></li>
+    	</ul>
+    </p>
+    <br>
     <p>
-    	<b>Why am I not seeing any JumpSquares?</b><br>
-    	Hit "Create a New JumpSquare" button on the home page and fill out. The most important part is that you type the correct URL of where you want the link to be connected. 
+    	<strong><a name="apptypes">How do the AppTypes work?</a></strong><br>
+    	If you go to the AppTypes page, you will see a bunch of different kinds of applications. You can request to have a new application added if it isn't listed. 
+    	Please attach an img url to something that is square in shape. such as 500x500 or 200x200 pixels. Transparent .png imgaes tend to show up best as well.  
+    	 You must select an AppType when creating a new JumpSquare. If you don't select an AppType, then the first available AppType will be selected by default.
+	</p>
+	<br>
+    <p>
+    	<strong><a name="garbage">Why does my screen look like garbage?</a></strong><br>
+    	Are you using Internet Explorer? That's probably why. Use a browser that follows new standardizations such as Firefox, Chrome, Opera, or Safari.
+    </p>
+    <br>
+    <p>
+    	<strong><a name="notsee">Why am I not seeing any JumpSquares?</a></strong><br>
+    	Hit "Create a New JumpSquare" button on the home page and fill it out. The most important part is that you type the correct URL of where you want the link to be connected. 
     	
     </p>
     <br>
     <p>
-    	<b>Why can I not remove an AppType?</b><br>
-    	If you have JumpSquares configured using a specified AppType, then the link will not work. Make sure you have "0" JumpSquares of that specific app type before you try to delete it.
+    	<strong><a name="ssh">What's this ssh:// stuff?</a></strong><br>
+    	I didn't forget about the uber geeks. Switches, storage arrays, or anything else that can be managed via CLI and SSH now has the ability to open a SSH session directly 
+    	from your browser. For it to function correctly, your browser requires the <a href="http://firessh.net/">FireSSH</a> plugin (Available for Firefox and Chrome)
+    </p>
+    <br>
+    <p>
+    	<strong><a name="removeapp">Why can I not remove an AppType?</a></strong><br>
+    	If you are using the hosted version at JumpSquares.net or the authenticated version of the virtual appliance, then the 
+    	AppTypes are in a read-only mode. Only an administrator has the ability to delete an AppType. If you are an administrator 
+    	then make sure you have "0" JumpSquares of that specific app type before you try to delete it. The link will not work if it's not at 0. 
     	
   	</p>
   	<br>
 	<p>
-    	<b>Why does the search only work on one page?</b><br>
-    	Well in fact, the search works on both the JumpSquares page, as well as the AppTypes Page. The search function will only search through items on the page you are viewing. Keep it simple, ya know...
+    	<strong><a name="search">Why does the search only work on one page?</a></strong><br>
+    	Well in fact, the search works on any page. The search function will only search through items on the page you are viewing. Keep it simple, ya know...
     	
   	</p>
   	
