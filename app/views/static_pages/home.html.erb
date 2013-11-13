@@ -125,16 +125,17 @@
 							<li>You are constantly sending emails asking where an application has been installed because you never bookmarked it</li>
 							<li>You have a very large datacenter environment and can't remember all the virutalization, storage, and network addresses</li>
 							<li>There may be 100+ different applications in your environment and you want to keep track of what's out there.</li>
-							<li>JumpSquares is much easier to use as a central location rather than maintaining excel documents or sharepoint sites</li>
+							<li>Maintaining excel documents or sharepoint sites sucks</li>
+							<li>Browser bookmarks can be messy if you have a lot of them</li>
 						   </UL>	
 							</p>
 						<p>
 						 The idea spawned because I had trouble keeping track of 6 VMware environments in our lab. Within those 6 environments, 
-						 there were 100+ Applications to keep track of. Bookmarks would have been messy and I got tired of sending emails asking 
-						 if a new application was installed somewhere. 
+						 there were 100+ Applications. Bookmarks would have been messy and I got tired of sending emails trying to figure out 
+						 what servers hosted which applications. 
 						 </p>
 						 <p>
-						JumpSquares is your personal home for bookmarking environments and keeping track of all your applications by giving you search, sorting, and tagging abilities. A simple concept,
+						JumpSquares is your personal home for a new way to bookmark environments and keeping track of all your applications by giving you search, sorting, and tagging abilities. A simple concept,
 						 but very useful.
 						</p>
 				   </div>
@@ -153,15 +154,15 @@
 						<p>
 						Creating a JumpSquare is very simple.<OL>
 							<LI>Give your application a name</LI> 
-							<LI>Choose an application logo from over 200+ products</LI>
+							<LI>Choose an application logo from over 250+ products</LI>
 							<LI>Enter the jump location with http(s):// or ssh://</LI>
 							<LI>Enter the location of where the application is installed (internal or external)</LI>		
-							<LI>Choose to tag this JumpSquare with anything meaningful (Microsoft, VMware, Staging, Production, Ubuntu, whatever!)</LI>	
+							<LI>Choose to tag this JumpSquare with anything meaningful (Microsoft, VMware, Staging, Production, India, whatever!)</LI>	
 							<LI>Write a description that can contain anything you want</LI>	
 						</OL>
 						<p>
-						On the surface, it's pretty bare but it holds some good information. Hover over the JumpSqaure to reveal the
-						 jump location as well as your description. This example doesn't allow you to edit or delete the JumpSquare, but 
+						On the surface, it's pretty bare but it holds some good information. Hover over the JumpSquare to reveal the
+						 jump location as well as your description (only for desktop users). This example doesn't allow you to edit or delete the JumpSquare, but 
 						 if you own the JumpSquare you can do anything you want.
 						</p>
 					  </div>
@@ -197,9 +198,9 @@
 							<li>Built on twitter bootstrap for rails so it's pretty much mobile-ready</li>
 							<li>Create, Edit, and Delete all your own JumpSquares</li>				
 							<li>Jump locations (links) can be internal or external addresses. Your internal DNS server will do the name resolution</li>
-							<li>Customize the JumpSquare size to your liking. Change the image size as well as the character count</li>
-							<li>Create your own personal Tags</li>
-							<li>Tags create an easy way to create categories of JumpSquares</li>
+							<li>Customize the JumpSquare size to your liking. Change the image size as well as the character count to fit more or less JumpSquares on the screen</li>
+							<li>Create your own Tags and assign multiple tags per JumpSquare</li>
+							<li>Tags create an easy way categorize JumpSquares</li>
 							<li>The hosted version doesn't allow you to upload your own Application Logos, but you can request one with a form after registering</li>
 							<li>View and Edit open Application Logo Type requests</li>						
 							<li>Manage your own account. Deleting your account will erase all your data</li>
@@ -208,9 +209,9 @@
 						   </UL>	
 							</p>
 						<p>
-						 I know some of you may be security cautious, so in addition to the hosted version, I have created two virtual appliances. 
-						 This way, it can be hosted internally and you don't have anything to worry about. But we're supposed to be moving to the cloud anyway, right? 
-						 Register first, give it a go, and see if you really need to deploy your own appliance. 
+						 I know some of you may be security cautious (even though internal DNS will do the name resolution), so in addition to the hosted version, I have created two virtual appliances. 
+						 This way, it can be hosted internally and you don't have anything to worry about. We're supposed to be moving to the cloud anyway, 
+						 so register first, give it a go, and see if you really need to deploy your own appliance. 
 						 <p>
 						 Differences in the two appliance versions: <ul>
 						 <li><strong>"Wiki" version:</strong> removes authentication from the application. My original intention for this program was to create 
@@ -221,10 +222,10 @@
 						 	give "admin" rights to users for Application Logo Type creation as well as many other privelages. There will be a bit more work for you 
 						 	to deploy this internally to setup proper email alerts.
 						 </li>
-						 <li>The appliances will have 200+ AppType Logos included, but will allow you to create your own.</li>
-						 <li>The appliances will not have an "Update" feature. You will have to run a bit of git/ruby code to update the application if 
+						 <li>The appliances will have 250+ AppType Logos included, but will allow you to create your own.</li>
+						 <li>The appliances will not have a "Software Update" feature. You will have to run a bit of git/ruby code to update the application if 
 						 	I ever add additional features. Doing a git -HARD might jack some of your data, so I do not take any responsibility if you do screw something up.</li>
-						 <li>I take no responsibility in keeping the Debian (the appliance OS) appliance up to date with security patches. You're on your own</li>
+						 <li>I take no responsibility in keeping the Debian (OS) appliance up to date with security patches. You're on your own</li>
 						 <li>As a final note, I do not take any responsibility for anything you post on JumpSquares</li>
 						 </ul>
 						 </p>

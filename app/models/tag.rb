@@ -6,7 +6,7 @@ class Tag < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('tagname LIKE ? OR tagcreator LIKE ?', "%#{search}%", "%#{search}%")
+      where('tagname ILIKE ? OR tagcreator ILIKE ?', "%#{search}%", "%#{search}%")
     else
       scoped
     end
