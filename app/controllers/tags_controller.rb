@@ -22,7 +22,7 @@ class TagsController < ApplicationController
     @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
     @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :conditions => { :jscreator => current_user.email }, :order => sort_order('name'))
     if current_user.has_role? :admin
-      @tags = Tag.all
+      @tags = Tag.find(:all, :conditions => { :tagcreator => current_user.email })
     else
       @tags = Tag.find(:all, :conditions => { :tagcreator => current_user.email })
     end
