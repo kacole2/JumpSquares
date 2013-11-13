@@ -13,7 +13,7 @@ class ApptypeRequest < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('apprequestor LIKE ? OR appname LIKE ? OR completed LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+      where('apprequestor ILIKE ? OR appname ILIKE ? OR completed ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
       scoped
     end

@@ -6,7 +6,7 @@ class Jumpsize < ActiveRecord::Base
   
   def self.search(search)
     if search
-      where('jumpsizecreator LIKE ?', "%#{search}%")
+      where('jumpsizecreator ILIKE ?', "%#{search}%")
     else
       scoped
     end
