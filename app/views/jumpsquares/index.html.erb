@@ -30,21 +30,23 @@
 	
 <br>
 <div class="row">
-	<div class="col-xs-4 col-sm-2 col-md-2"
+	<div class="col-xs-3 col-sm-2 col-md-2"
 		 <strong>Tags</strong>
 	 	<% @tags.each do |tag| %>
-	      <tr>    
+	      <tr>
+	        <div style="padding-right: 1px; padding-bottom: 1px">
 	        <% tagcount = tag.jumpsquares.count %>
 	        <% if tagcount > 0 %>
-	        	<td><%= button_to tag.tagname + " [" + tag.jumpsquares.count.to_s + "]", tag_path(tag.id), class: "btn btn-success btn-xs", :method => :get  %></td>
+	        <td><%= button_to tag.tagname + " [" + tag.jumpsquares.count.to_s + "]", tag_path(tag.id), class: "btn btn-success btn-xs", :method => :get  %></td>
 	        <% else %>
-	        <% end %>									        
+	        <% end %>								
+	        </div>
 	      </tr>
 	    <% end %>
     
 	</div>
 
-	<div class="col-xs-8 col-sm-10 col-md-10">
+	<div class="col-xs-9 col-sm-10 col-md-10">
 	<div id="apptypes">
 		
 				
