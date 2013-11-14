@@ -47,3 +47,11 @@ production:
   database: jumpsquares_production
   pool: 5
   password:
+    
+appliance-production:
+  adapter: postgresql
+  encoding: unicode
+  database: jumpsquares_prod
+  pool: 5
+  username: postgres
+  password:
