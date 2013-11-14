@@ -53,5 +53,5 @@ appliance-production:
   encoding: unicode
   database: jumpsquares_prod
   pool: 5
-  username: postgres
-  password:
+  username: jumpgres
+  password: jump123
