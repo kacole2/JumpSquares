@@ -22,11 +22,5 @@
 /config/initializers/app_env_vars.rb
 
 #ignore uploaded pictures
-
 *.log
 
-*.log
-
-*.log
-
-*.log
