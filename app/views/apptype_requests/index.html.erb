@@ -54,10 +54,10 @@
 					        <td><%= apptype_request.appname %></td>
 					        <td><%= apptype_request.imageurl %></td>					        
 					        <td><%= apptype_request.completed %></td>
-					        <td><%= link_to 'Edit', edit_apptype_request_path(apptype_request) %></td>
+					        <td><%= link_to 'Edit', edit_apptype_request_path(apptype_request), class: "btn btn-warning btn-xs" %></td>
 					        <% if current_user.has_role? :admin %>
-					        <td><%= link_to 'Show', apptype_request %></td>
-					        <td><%= link_to 'Destroy', apptype_request, method: :delete %></td>
+					        <td><%= link_to 'Show', apptype_request, class: "btn btn-primary btn-xs" %></td>
+					        <td><%= link_to 'Destroy', apptype_request, method: :delete, class: "btn btn-danger btn-xs" %></td>
 					        <% else %>
                     		<% end %>
 					      </tr>
