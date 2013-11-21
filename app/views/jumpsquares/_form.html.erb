@@ -131,9 +131,8 @@
 				    	the server where an application is installed, you have already made the first step.</p>
 				     <p>By default, 'None' is selected which doesn't create a hyperlink to the server.</p>
 				     <p>If 'RDP' is selected, a 'servername.rdp' file is generated and available for download. Click 'open' from the download prompt and it will 
-				    	automatically open your RDP client. Works on both Mac and PC (not tested on linux).</p>
-				     <p>If 'SSH' is selected, it needs to follow the same rules as using ssh:// for the Jump location. Your browser requires the 
-				    	<a href="http://firessh.net/"><font color="18bc9c">FireSSH</font></a> plugin.</p>
+				    	automatically open your RDP client. Works on both Mac and PC (not tested on linux). Do NOT add 'rdp://' or anything else to the server name.</p>
+				     <p>If 'SSH' is selected, your browser requires the <a href="http://firessh.net/"><font color="18bc9c">FireSSH</font></a> plugin. Do NOT add 'ssh://' to the server name</p>
 				     <p>If 'VNC' is selected, clicking on the link will open up a new tab in your browser pointing to servername:5800. This method has been tested 
 				    	with <a href="http://www.tightvnc.com/"><font color="18bc9c">TightVNC</font></a> and <a href="http://www.ralvnc.com/"><font color="18bc9c">RealVNC</font></a> (Enterprise license was tested, does not work on free license). The VNC software installed on the server requires the ability to render 
 				    	VNC over HTML5 on Port 5800. Java is required for TightVNC and RealVNC. Tested and works on Windows. Tested and failed to load Java on Mac. Port 5800 is the only
