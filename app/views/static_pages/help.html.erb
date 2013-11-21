@@ -66,9 +66,9 @@
     	the server where an application is installed, you have already made the first step.<br>
     	By default, 'None' is selected which doesn't create a hyperlink to the server.<br>
     	If 'RDP' is selected, a 'servername.rdp' file is generated and available for download. Click 'open' from the download prompt and it will 
-    	automatically open your RDP client. Works on both Mac and PC (not tested on linux).<br>
+    	automatically open your RDP client. Works on both Mac and PC (not tested on linux). Do NOT add 'rdp://' or anything else to the server name.<br>
     	If 'SSH' is selected, it needs to follow the same rules as using ssh:// for the Jump location. Your browser requires the 
-    	<a href="http://firessh.net/">FireSSH</a> plugin.<br>
+    	<a href="http://firessh.net/">FireSSH</a> plugin. Do NOT add 'ssh://' to the server name<br>
     	If 'VNC' is selected, clicking on the link will open up a new tab in your browser pointing to servername:5800. This method has been tested 
     	with TightVNC and RealVNC (Enterprise license was tested, does not work on free license). The VNC software installed on the server requires the ability to render 
     	VNC over HTML5 on Port 5800. Java is required for TightVNC and RealVNC. Tested and works on Windows. Tested and failed to load Java on Mac. Port 5800 is the only
