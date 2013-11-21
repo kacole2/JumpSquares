@@ -37,7 +37,8 @@
                     <div class="col-lg-7">
                       <%= f.text_field :url, :class => "form-control" %>
                       <span class="help-block"><i>Web: include http:// or https:// <br>
-                      SSH: include ssh:// (browser requires <a href="http://firessh.net/">FireSSH</a> plugin. Available for Firefox and Chrome)</i></span>
+                      SSH: include ssh:// (browser requires <a href="http://firessh.net/">FireSSH</a> plugin for Firefox)<br>
+                      RDP: include rdp:// (Windows requires <a href="http://rogierg.blogspot.com/2007/03/run-vnc-and-rdp-from-hyperlinks.html">custom registry change</a>. Mac requires <a href="http://cord.sourceforge.net/index.html">CoRD</a>)</i></span>
                     </div>
                   </div>
                   <br>
@@ -45,13 +46,31 @@
                   	<%= f.label :ipordns, "Enter the IP Address or DNS Name of the server:", :class => "col-lg-4 control-label" %>
                     <div class="col-lg-7">
                       <%= f.text_field :ipordns, :class => "form-control" %>
+                    </div>              
+                  </div>
+ 				  <div class="form-group">
+ 				  	<%= f.label :remotetype, "Remote Server Access?", :class => "col-lg-4 control-label" %>
+                    <div class="col-lg-7">
+                      <%= f.radio_button :remotetype, "none",:checked => true, :id=>"none" %>
+                      <label for="none" class="label label-primary">None</label>  |  
+                      <%= f.radio_button :remotetype, "rdp", :id=>"rdp" %>
+                      <label for="rdp" class="label label-primary">RDP</label>  |  
+                      <%= f.radio_button :remotetype, "ssh", :id=>"ssh" %>
+                      <label for="ssh" class="label label-primary">SSH</label>	| 
+                      <%= f.radio_button :remotetype, "vnc", :id=>"vnc" %>
+                      <label for="vnc" class="label label-primary">VNC</label>
+                      <span class="help-block"><i>Server name specified is used as the target for remote access<br>
+                      	RDP: generates a .rdp file. Click 'open'<br>
+                      	SSH: browser requires <a href="http://firessh.net/">FireSSH</a> plugin<br>
+                      	VNC: Requires HTML5 capable VNC server on Port 5800
+                      </i></span>
                     </div>
                   </div>
                   <br>
                   <div class="form-group">
                   	<%= f.label :tag, "Choose a tag (optional)", :class => "col-lg-4 control-label" %>
                     <div class="col-lg-7">
-                      		<%= select_tag :tag, options_from_collection_for_select(Tag.find(:all, :conditions => { :tagcreator => current_user.email }).sort_by{|p| p.tagname.downcase}, :id, :tagname, @jumpsquare.tags.map{ |j| j.id }).html_safe, multiple: true, class: 'form-control' %>                   
+                      <%= select_tag :tag, options_from_collection_for_select(Tag.find(:all, :conditions => { :tagcreator => current_user.email }).sort_by{|p| p.tagname.downcase}, :id, :tagname, @jumpsquare.tags.map{ |j| j.id }).html_safe, multiple: true, class: 'form-control' %>                   
                     </div>
                   </div>
                   <br>
@@ -67,7 +86,7 @@
 	                  	  <%= f.hidden_field :jscreator, :value => current_user.email %>                  	                  
 	                      <%= f.submit class: 'btn btn-primary'%>	                    
 	                  </div> 
-<% end %>	                              
+				<% end %>	                              
 	                  <%= link_to 'Back', :back %> |
 					  <%= link_to 'Home', :userroot %>       
                   </center>
