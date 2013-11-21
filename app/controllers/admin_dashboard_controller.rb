@@ -16,8 +16,10 @@ class AdminDashboardController < ApplicationController
       @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
       @users = User.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('email'))
       @users_unconfirmed_count = User.count(:all, :conditions => { :confirmed_at => nil }) 
-      @users_confirmed_count = @users.count.to_i - @users_unconfirmed_count
-      
+      @users_confirmed_count = @users.count.to_i - @users_unconfirmed_count 
+      @jumpsquare_rdp_count = Jumpsquare.count(:all, :conditions => { :remotetype => 'rdp' })
+      @jumpsquare_ssh_count = Jumpsquare.count(:all, :conditions => { :remotetype => 'ssh' })
+      @jumpsquare_vnc_count = Jumpsquare.count(:all, :conditions => { :remotetype => 'vnc' })
     end
 
 end
