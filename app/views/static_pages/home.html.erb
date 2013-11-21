@@ -26,7 +26,9 @@
 				      		<%= link_to(image_tag("medium_jumpsquares_logo.png"), new_user_registration_path, :class => "popover-with-html", :title => "http://www.jumpsquares.net/users/sign_in", "data-content" => "Go ahead. Register and give it a go", :target => "_blank") %>
 				      	</center>  
 				      	<div class="mediumactions">
-				      		<%= simple_format truncate("heroku", :length => 25) %>
+				      		<%= link_to truncate("heroku", :length => 25), "#" %>
+				      		<br>
+				      		<br>
 					        <%= link_to "edit", "#" %> 	|
 					        <%= link_to "remove", "#" %>
 				      	</div>
@@ -41,7 +43,9 @@
 				      		<%= link_to(image_tag("medium_vcenter.png"), new_user_registration_path, :class => "popover-with-html", :title => "https://mainvcenter.mycompany.com:9443/vsphere-client/", "data-content" => "Yep, you can point to internal addresses. DNS will take care of it.", :target => "_blank") %>
 				      	</center>  
 				      	<div class="mediumactions">
-				      		<%= simple_format truncate("vcenter.mycompany.com", :length => 25) %>
+				      		<%= link_to truncate("vcenter.mycompany.com", :length => 25), "#", :class => "popover-with-html", :title => "RDP", "data-content" => "RDP to vcenter.mycompany.com" %>
+				      		<br>
+				      		<br>
 					        <%= link_to "edit", "#" %> 	|
 					        <%= link_to "remove", "#" %>
 				      	</div>
@@ -56,7 +60,9 @@
 				      		<%= link_to(image_tag("medium_linux3.png"), new_user_registration_path, :class => "popover-with-html", :title => "ssh://mylinuxbox.local", "data-content" => "JumpSquares goes beyond http requests. You can even open up SSH sessions in your browser with compatible plug-ins!", :target => "_blank") %>
 				      	</center>  
 				      	<div class="mediumactions">
-				      		<%= simple_format truncate("mylinuxbox.local", :length => 25) %>
+				      		<%= link_to truncate("mylinuxbox.local", :length => 25), "#", :class => "popover-with-html", :title => "SSH", "data-content" => "SSH to mylinuxbox.local" %>
+				      		<br>
+				      		<br>
 					        <%= link_to "edit", "#" %> 	|
 					        <%= link_to "remove", "#" %>
 				      	</div>
@@ -71,7 +77,9 @@
 				      		<%= link_to(image_tag("medium_openstack.jpg"), new_user_registration_path, :class => "popover-with-html", :title => "http://openstack/project", "data-content" => "Use any name, any logo, and link it to anything internal or external to your network!", :target => "_blank") %>
 				      	</center>  
 				      	<div class="mediumactions">
-				      		<%= simple_format truncate("anyserver.anywhere", :length => 25) %>
+				      		<%= link_to truncate("anyserver.anywhere", :length => 25), "#", :class => "popover-with-html", :title => "VNC", "data-content" => "VNC to anyserver.anywhere" %>
+				      		<br>
+				      		<br>
 					        <%= link_to "edit", "#" %> 	|
 					        <%= link_to "remove", "#" %>
 				      	</div>
@@ -183,13 +191,15 @@
 							<LI>Give your application a name</LI> 
 							<LI>Choose an application logo from over 250+ products</LI>
 							<LI>Enter the jump location with http(s):// or ssh://</LI>
-							<LI>Enter the location of where the application is installed (internal or external)</LI>		
+							<LI>Enter the location of where the application is installed (internal or external)</LI>
+							<LI>Choose an access method (RDP, SSH, or VNC) to the server listed in the previous step</LI>		
 							<LI>Choose to tag this JumpSquare with anything meaningful (Microsoft, VMware, Staging, Production, India, whatever!)</LI>	
 							<LI>Write a description that can contain anything you want</LI>	
 						</OL>
 						<p>
 						On the surface, it's pretty bare but it holds some good information. Hover over the JumpSquare to reveal the
-						 jump location as well as your description (only for desktop users). This example doesn't allow you to edit or delete the JumpSquare, but 
+						 jump location as well as your description (only for desktop users). Hover over the server that was configured to see
+						  the type of remote access that has been configured. This example doesn't allow you to edit or delete the JumpSquare, but 
 						 if you own the JumpSquare you can do anything you want.
 						</p>
 					  </div>
@@ -203,7 +213,9 @@
 										      		<%= link_to(image_tag("medium_sample_logo.jpg"), "http://www.jumpsquares.net", :class => "popover-with-html", :title => "http://www.kendrickcoleman.com", "data-content" => "sample description", :target => "_blank") %>
 										      	</center>  
 									      	<div class="mediumactions">
-									      		<%= simple_format truncate("myserver.local", :length => 25) %>
+									      		<%= link_to truncate("myserver.local", :length => 25), "#", :class => "popover-with-html", :title => "RDP", "data-content" => "RDP to myserver.local" %>
+									      		<br>
+									      		<br>
 										        <%= link_to "edit", "#" %> 	|
 										        <%= link_to "remove", "#" %>
 									      	</div>
@@ -226,6 +238,7 @@
 							<li>Create, Edit, and Delete all your own JumpSquares</li>				
 							<li>Jump locations (links) can be internal or external addresses. Your internal DNS server will do the name resolution</li>
 							<li>Jump locations can be http://, https://, or even ssh:// when using the <a href="http://firessh.net/">FireSSH</a> plugin</li>
+							<li>Quickly access the server where the application is hosted via RDP, SSH, or VNC all within the same JumpSquare</li>
 							<li>Customize the JumpSquare size to your liking. Change the image size as well as the character count to fit more or less JumpSquares on the screen</li>
 							<li>Create your own Tags and assign multiple tags per JumpSquare</li>
 							<li>Tags create an easy way categorize JumpSquares</li>
