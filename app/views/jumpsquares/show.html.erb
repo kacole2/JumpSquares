@@ -35,26 +35,26 @@
 				 <% elsif @jumpsizes.first.size == "xlarge" %>
 					<div class="xlargeactions">
 				 <% end %>	
-			      	<% if jumpsquare.remotetype == 'none' %>
-				    	<%= truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
+			      	<% if @jumpsquare.remotetype == 'none' %>
+				    	<%= truncate(@jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
 				    	<br>
 				    	<br>
-				    <% elsif jumpsquare.remotetype == 'rdp' %>
-				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), createrdpfile_jumpsquare_path(jumpsquare) %>
+				    <% elsif @jumpsquare.remotetype == 'rdp' %>
+				    	<%= link_to truncate(@jumpsquare.ipordns, :length => @jumpsizes.first.length2), createrdpfile_jumpsquare_path(@jumpsquare) %>
 				    	<br>
 				    	<br>
-				    <% elsif jumpsquare.remotetype == 'ssh' %>
-				    	<% sshaddress = "ssh://" + jumpsquare.ipordns.to_s %>
-				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), sshaddress, :target => "_blank" %>
+				    <% elsif @jumpsquare.remotetype == 'ssh' %>
+				    	<% sshaddress = "ssh://" + @jumpsquare.ipordns.to_s %>
+				    	<%= link_to truncate(@jumpsquare.ipordns, :length => @jumpsizes.first.length2), sshaddress, :target => "_blank" %>
 				    	<br>
 				    	<br>
-				    <% elsif jumpsquare.remotetype == 'vnc' %>
-				    	<% vncaddress = "http://" + jumpsquare.ipordns.to_s + ":5800" %>
-				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), vncaddress, :target => "_blank" %>
+				    <% elsif @jumpsquare.remotetype == 'vnc' %>
+				    	<% vncaddress = "http://" + @jumpsquare.ipordns.to_s + ":5800" %>
+				    	<%= link_to truncate(@jumpsquare.ipordns, :length => @jumpsizes.first.length2), vncaddress, :target => "_blank" %>
 				    	<br>
 				    	<br>
 				    <% else %>
-				    	<%= truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
+				    	<%= truncate(@jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
 				    	<br>
 				    	<br>
 				    <% end %>				    	
