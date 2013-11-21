@@ -36,9 +36,9 @@
                   	
                     <div class="col-lg-7">
                       <%= f.text_field :url, :class => "form-control" %>
-                      <span class="help-block"><i>Web: include http:// or https:// <br>
-                      SSH: include ssh:// (browser requires <a href="http://firessh.net/">FireSSH</a> plugin for Firefox)<br>
-                      RDP: include rdp:// (Windows requires <a href="http://rogierg.blogspot.com/2007/03/run-vnc-and-rdp-from-hyperlinks.html">custom registry change</a>. Mac requires <a href="http://cord.sourceforge.net/index.html">CoRD</a>)</i></span>
+                      <center>
+                      <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#linkModal">How to Enter Proper JumpSquare Links</button>
+                      </center>
                     </div>
                   </div>
                   <br>
@@ -59,16 +59,14 @@
                       <label for="ssh" class="label label-primary">SSH</label>	| 
                       <%= f.radio_button :remotetype, "vnc", :id=>"vnc" %>
                       <label for="vnc" class="label label-primary">VNC</label>
-                      <span class="help-block"><i>Server name specified is used as the target for remote access<br>
-                      	RDP: generates a .rdp file. Click 'open'<br>
-                      	SSH: browser requires <a href="http://firessh.net/">FireSSH</a> plugin<br>
-                      	VNC: Requires HTML5 capable VNC server on Port 5800
-                      </i></span>
+                      <br><br><center>
+                      <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#remoteModal">How Remote Server Access Works</button>
+                      </center>
                     </div>
                   </div>
                   <br>
                   <div class="form-group">
-                  	<%= f.label :tag, "Choose a tag (optional):", :class => "col-lg-4 control-label" %>
+                  	<%= f.label :tag, "Choose a tag(s) (optional):", :class => "col-lg-4 control-label" %>
                     <div class="col-lg-7">
                       <%= select_tag :tag, options_from_collection_for_select(Tag.find(:all, :conditions => { :tagcreator => current_user.email }).sort_by{|p| p.tagname.downcase}, :id, :tagname, @jumpsquare.tags.map{ |j| j.id }).html_safe, multiple: true, class: 'form-control' %>                   
                     </div>
@@ -95,5 +93,58 @@
             </div>
           </div>
         </div>
+
+			<div id="linkModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="linkModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">                
+                    <div class="modal-header">
+                   <a class="close" data-dismiss="modal">×</a>
+                   <h3>How to Enter Proper JumpSquare Links</h3>
+                 </div>
+                 <div class="modal-body">
+                   	  <p>Web: include http:// or https://<br>
+                   	  	- ex. https://myvcenter.mydomain.com:9443/vsphere-client/
+                   	  </p>
+                      <p>SSH: include ssh://<br>
+                      	- browser requires <a href="http://firessh.net/"><font color="18bc9c">FireSSH</font></a> plugin for Firefox and Chrome. Only Firefox will work because the Chrome version is a Chrome App<br>
+                      	- ex. ssh://10.40.2.1
+                      </p>
+                      <p>RDP: include rdp://<br>
+                      	- Windows requires <a href="http://rogierg.blogspot.com/2007/03/run-vnc-and-rdp-from-hyperlinks.html"><font color="18bc9c">custom registry change</font></a>. Mac requires <a href="http://cord.sourceforge.net/index.html"><font color="18bc9c">CoRD</font></a></p>
+                 </div>
+                 <div class="modal-footer">
+                   <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                 </div>
+               </div>
+              </div>
+             </div>  
+			
+			<div id="remoteModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="remoteModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">                
+                    <div class="modal-header">
+                   <a class="close" data-dismiss="modal">×</a>
+                   <h3>How Remote Server Access Works</h3>
+                 </div>
+                 <div class="modal-body">
+                   	 <p>You can access the server that is hosting an application by creating two links in the same JumpSquare. When you enter an IP Address or DNS Name of 
+				    	the server where an application is installed, you have already made the first step.</p>
+				     <p>By default, 'None' is selected which doesn't create a hyperlink to the server.</p>
+				     <p>If 'RDP' is selected, a 'servername.rdp' file is generated and available for download. Click 'open' from the download prompt and it will 
+				    	automatically open your RDP client. Works on both Mac and PC (not tested on linux).</p>
+				     <p>If 'SSH' is selected, it needs to follow the same rules as using ssh:// for the Jump location. Your browser requires the 
+				    	<a href="http://firessh.net/"><font color="18bc9c">FireSSH</font></a> plugin.</p>
+				     <p>If 'VNC' is selected, clicking on the link will open up a new tab in your browser pointing to servername:5800. This method has been tested 
+				    	with <a href="http://www.tightvnc.com/"><font color="18bc9c">TightVNC</font></a> and <a href="http://www.ralvnc.com/"><font color="18bc9c">RealVNC</font></a> (Enterprise license was tested, does not work on free license). The VNC software installed on the server requires the ability to render 
+				    	VNC over HTML5 on Port 5800. Java is required for TightVNC and RealVNC. Tested and works on Windows. Tested and failed to load Java on Mac. Port 5800 is the only
+				    	 one that can be used at this time.
+                   	  </p>
+                 </div>
+                 <div class="modal-footer">
+                   <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                 </div>
+               </div>
+              </div>
+             </div>  
 
 </html>
