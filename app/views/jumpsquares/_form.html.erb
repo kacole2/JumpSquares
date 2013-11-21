@@ -37,7 +37,8 @@
                     <div class="col-lg-7">
                       <%= f.text_field :url, :class => "form-control" %>
                       <span class="help-block"><i>Web: include http:// or https:// <br>
-                      SSH: include ssh:// (browser requires <a href="http://firessh.net/">FireSSH</a> plugin. Available for Firefox and Chrome)</i></span>
+                      SSH: include ssh:// (browser requires <a href="http://firessh.net/">FireSSH</a> plugin for Firefox)<br>
+                      RDP: include rdp:// (Windows requires <a href="http://rogierg.blogspot.com/2007/03/run-vnc-and-rdp-from-hyperlinks.html">custom registry change</a>. Mac requires <a href="http://cord.sourceforge.net/index.html">CoRD</a>)</i></span>
                     </div>
                   </div>
                   <br>
@@ -57,8 +58,12 @@
                       <%= f.radio_button :remotetype, "ssh", :id=>"ssh" %>
                       <label for="ssh" class="label label-primary">SSH</label>	| 
                       <%= f.radio_button :remotetype, "vnc", :id=>"vnc" %>
-                      <label for="vnc" class="label label-primary">VNC (port 5800)</label>
-                      <span class="help-block"><i>The server name specified will be used as the target for remote access</i></span>
+                      <label for="vnc" class="label label-primary">VNC</label>
+                      <span class="help-block"><i>Server name specified is used as the target for remote access<br>
+                      	RDP: generates a .rdp file. Click 'open'<br>
+                      	SSH: browser requires <a href="http://firessh.net/">FireSSH</a> plugin<br>
+                      	VNC: Requires HTML5 capable VNC server on Port 5800
+                      </i></span>
                     </div>
                   </div>
                   <br>

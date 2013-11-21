@@ -95,7 +95,7 @@
 				    	<br>
 				    	<br>
 				    <% elsif jumpsquare.remotetype == 'vnc' %>
-				    	<% vncaddress = jumpsquare.ipordns.to_s + ":5800" %>
+				    	<% vncaddress = "http://" + jumpsquare.ipordns.to_s + ":5800" %>
 				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), vncaddress, :target => "_blank" %>
 				    	<br>
 				    	<br>
