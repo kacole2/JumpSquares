@@ -90,6 +90,52 @@ class JumpsquaresController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def createrdpfile
+    jumpsquare = Jumpsquare.find(params[:id])
+    file = Tempfile.new(jumpsquare.ipordns.to_s + '.rdp')
+    file.write("screen mode id:i:2
+desktopwidth:i:1436
+desktopheight:i:925
+session bpp:i:16
+auto connect:i:1
+full address:s:" + jumpsquare.ipordns.to_s + "
+compression:i:1
+keyboardhook:i:2
+audiomode:i:2
+redirectdrives:i:0
+redirectprinters:i:0
+redirectcomports:i:0
+redirectsmartcards:i:0
+displayconnectionbar:i:1
+alternate shell:s:
+shell working directory:s:
+disable wallpaper:i:1
+disable full window drag:i:1
+disable menu anims:i:1
+disable themes:i:1
+bitmapcachepersistenable:i:1
+winposstr:s:0,3,0,0,800,600
+redirectclipboard:i:1
+redirectposdevices:i:0
+drivestoredirect:s:
+autoreconnection enabled:i:1
+authentication level:i:0
+prompt for credentials:i:0
+negotiate security layer:i:1
+remoteapplicationmode:i:0
+allow desktop composition:i:0
+allow font smoothing:i:0
+disable cursor setting:i:0
+gatewayhostname:s:
+gatewayusagemethod:i:0
+gatewaycredentialssource:i:4
+gatewayprofileusagemethod:i:0"
+    )
+    file.close
+    send_file(file.path, :filename => jumpsquare.ipordns.to_s + '.rdp', :type=>'application/rdp')
+    #send_file file.path, :type=>'application/rdp'
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -103,7 +149,7 @@ class JumpsquaresController < ApplicationController
     
     # Never trust parameters from the scary internet, only allow the white list through.
     def jumpsquare_params
-      params.require(:jumpsquare).permit(:name, :apptype, :url, :ipordns, :description, :tag, :jscreator)
+      params.require(:jumpsquare).permit(:name, :apptype, :url, :ipordns, :description, :tag, :jscreator, :remotetype)
     end
 
 end

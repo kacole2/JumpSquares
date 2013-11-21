@@ -24,7 +24,10 @@ LabSquares::Application.routes.draw do
   get "static_pages/settings"
   get "static_pages/home"
   
-  resources :jumpsquares 
+  resources :jumpsquares do
+    member {get "createrdpfile"}
+  end
+  
   resources :apptypes
   match '/help', to: 'static_pages#help', via: 'get', as: :help
   match '/contact', to: 'static_pages#contact', via: 'get', as: :contact
