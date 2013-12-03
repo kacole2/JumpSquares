@@ -190,7 +190,7 @@
 						Creating a JumpSquare is very simple.<OL>
 							<LI>Give your application a name</LI> 
 							<LI>Choose an application logo from over 250+ products</LI>
-							<LI>Enter the jump location with http(s):// or ssh://</LI>
+							<LI>Enter the jump location with http(s)://, ssh://, or even rdp://</LI>
 							<LI>Enter the location of where the application is installed (internal or external)</LI>
 							<LI>Choose an access method (RDP, SSH, or VNC) to the server listed in the previous step</LI>		
 							<LI>Choose to tag this JumpSquare with anything meaningful (Microsoft, VMware, Staging, Production, India, whatever!)</LI>	
@@ -207,13 +207,13 @@
 					                <div id="apptypes">
 					                	<div class="apptype" style="float: left">
 						                	<div class="mediumname">
-						                		<%= link_to(truncate("My Application", :length => 22), "http://www.jumpsquares.net", :class => "popover-with-html", :title => "http://www.kendrickcoleman.com", "data-content" => "sample description", :target => "_blank") %>		
+						                		<%= link_to(truncate("My Application", :length => 22), "http://www.jumpsquares.net", :class => "popover-with-html", :title => "JumpSquare Link URL", "data-content" => "sample description for any kind of link. Can be http(s)://,  ssh:// or even rdp://", :target => "_blank") %>		
 											</div>
 										      	<center>
-										      		<%= link_to(image_tag("medium_sample_logo.jpg"), "http://www.jumpsquares.net", :class => "popover-with-html", :title => "http://www.kendrickcoleman.com", "data-content" => "sample description", :target => "_blank") %>
+										      		<%= link_to(image_tag("medium_sample_logo.jpg"), "http://www.jumpsquares.net", :class => "popover-with-html", :title => "JumpSquare Link URL", "data-content" => "sample description for any kind of link. Can be http(s)://,  ssh:// or even rdp://", :target => "_blank") %>
 										      	</center>  
 									      	<div class="mediumactions">
-									      		<%= link_to truncate("myserver.local", :length => 25), "#", :class => "popover-with-html", :title => "RDP", "data-content" => "RDP to myserver.local" %>
+									      		<%= link_to truncate("myserver.local", :length => 25), "#", :class => "popover-with-html", :title => "Remote Access Link", "data-content" => "RDP, SSH, or VNC to myserver.local" %>
 									      		<br>
 									      		<br>
 										        <%= link_to "edit", "#" %> 	|

@@ -111,6 +111,7 @@
                       </p>
                       <p>RDP: include rdp://<br>
                       	- Windows requires <a href="http://rogierg.blogspot.com/2007/03/run-vnc-and-rdp-from-hyperlinks.html"><font color="18bc9c">custom registry change</font></a>. Mac requires <a href="http://cord.sourceforge.net/index.html"><font color="18bc9c">CoRD</font></a></p>
+                      <p><center><%=image_tag("js_arrows.png", :height => '200', :width => '200')%></center></p>
                  </div>
                  <div class="modal-footer">
                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
@@ -127,8 +128,6 @@
                    <h3>How Remote Server Access Works</h3>
                  </div>
                  <div class="modal-body">
-                   	 <p>You can access the server that is hosting an application by creating two links in the same JumpSquare. When you enter an IP Address or DNS Name of 
-				    	the server where an application is installed, you have already made the first step.</p>
 				     <p>By default, 'None' is selected which doesn't create a hyperlink to the server.</p>
 				     <p>If 'RDP' is selected, a 'servername.rdp' file is generated and available for download. Click 'open' from the download prompt and it will 
 				    	automatically open your RDP client. Works on both Mac and PC (not tested on linux). Do NOT add 'rdp://' or anything else to the server name.</p>
@@ -138,6 +137,7 @@
 				    	VNC over HTML5 on Port 5800. Java is required for TightVNC and RealVNC. Tested and works on Windows. Tested and failed to load Java on Mac. Port 5800 is the only
 				    	 one that can be used at this time.
                    	  </p>
+                   	  <p><center><%=image_tag("js_arrows.png", :height => '200', :width => '200')%></center></p>
                  </div>
                  <div class="modal-footer">
                    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
