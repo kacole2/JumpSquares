@@ -65,13 +65,22 @@
 					<div class="xlargename">
 				 <% end %>
 				 
-						<%= link_to(truncate(jumpsquare.name, :length => @jumpsizes.first.length1), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>		
-					</div>
-			      	<center>
-			      		<% apptype_id = Apptype.find(jumpsquare.apptype) %>
-			      		<%= link_to(image_tag(apptype_id.image_url(@jumpsizes.first.size)), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>
-			      	</center>     	
-			     
+				 	<% if jumpsquare.url == '' %>
+					 		<%= truncate(jumpsquare.name, :length => @jumpsizes.first.length1) %>		
+						</div>
+				      	<center>
+				      		<% apptype_id = Apptype.find(jumpsquare.apptype) %>
+				      		<%= image_tag(apptype_id.image_url(@jumpsizes.first.size)) %>
+				      	</center>
+				 	<% else %>
+							<%= link_to(truncate(jumpsquare.name, :length => @jumpsizes.first.length1), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>		
+						</div>
+				      	<center>
+				      		<% apptype_id = Apptype.find(jumpsquare.apptype) %>
+				      		<%= link_to(image_tag(apptype_id.image_url(@jumpsizes.first.size)), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>
+				      	</center>     	
+			     	<% end %>
+			     	
 			     <% if @jumpsizes.first.size == "xsmall" %>
 					<div class="xsmallactions">
 				 <% elsif @jumpsizes.first.size == "small" %>

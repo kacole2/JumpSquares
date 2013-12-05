@@ -49,7 +49,7 @@
     
 	</div>
 
-	<div class="col-xs-9 col-sm-10 col-md-10">
+	<div class="col-sm-10 col-md-10">
 	<div id="apptypes" >
 	  <% @jumpsquares.each do |jumpsquare| %>
 	  		
@@ -69,12 +69,21 @@
 					<div class="xlargename">
 				 <% end %>
 				 
-						<%= link_to(truncate(jumpsquare.name, :length => @jumpsizes.first.length1), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>		
-					</div>
-			      	<center>
-			      		<% apptype_id = Apptype.find(jumpsquare.apptype) %>
-			      		<%= link_to(image_tag(apptype_id.image_url(@jumpsizes.first.size)), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>
-			      	</center>     	
+					<% if jumpsquare.url == '' %>
+					 		<%= truncate(jumpsquare.name, :length => @jumpsizes.first.length1) %>		
+						</div>
+				      	<center>
+				      		<% apptype_id = Apptype.find(jumpsquare.apptype) %>
+				      		<%= image_tag(apptype_id.image_url(@jumpsizes.first.size)) %>
+				      	</center>
+				 	<% else %>
+							<%= link_to(truncate(jumpsquare.name, :length => @jumpsizes.first.length1), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>		
+						</div>
+				      	<center>
+				      		<% apptype_id = Apptype.find(jumpsquare.apptype) %>
+				      		<%= link_to(image_tag(apptype_id.image_url(@jumpsizes.first.size)), jumpsquare.url, :class => "popover-with-html", :title => jumpsquare.url, "data-content" => jumpsquare.description, :target => "_blank") %>
+				      	</center>     	
+			     	<% end %>     	
 			     
 			     <% if @jumpsizes.first.size == "xsmall" %>
 					<div class="xsmallactions">
@@ -87,12 +96,32 @@
 				 <% elsif @jumpsizes.first.size == "xlarge" %>
 					<div class="xlargeactions">
 				 <% end %>	
-			      
-				    	<%= simple_format truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
+			      <% if jumpsquare.remotetype == 'none' %>
+				    	<%= truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
+				    	<br>
+				    	<br>
+				    <% elsif jumpsquare.remotetype == 'rdp' %>
+				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), createrdpfile_jumpsquare_path(jumpsquare), :class => "popover-with-html", :title => "RDP", "data-content" => "RDP to " + jumpsquare.ipordns %>
+				    	<br>
+				    	<br>
+				    <% elsif jumpsquare.remotetype == 'ssh' %>
+				    	<% sshaddress = "ssh://" + jumpsquare.ipordns.to_s %>
+				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), sshaddress, :class => "popover-with-html", :title => "SSH", "data-content" => "SSH to " + jumpsquare.ipordns, :target => "_blank" %>
+				    	<br>
+				    	<br>
+				    <% elsif jumpsquare.remotetype == 'vnc' %>
+				    	<% vncaddress = "http://" + jumpsquare.ipordns.to_s + ":5800" %>
+				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), vncaddress, :class => "popover-with-html", :title => "VNC", "data-content" => "VNC to " + jumpsquare.ipordns, :target => "_blank" %>
+				    	<br>
+				    	<br>
+				    <% else %>
+				    	<%= truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
+				    	<br>
+				    	<br>
+				    <% end %>
 				        <%= link_to "edit", edit_jumpsquare_path(jumpsquare) %> 	|
 				        <%= link_to "remove", jumpsquare, method: :delete, data: {confirm: "Delete '#{jumpsquare.name}' JumpSquare? "} %>
-			      	</div>
-			      	
+			      	</div>			      	
 			    </div>
 			 <% else %>
 			 <% end %>
