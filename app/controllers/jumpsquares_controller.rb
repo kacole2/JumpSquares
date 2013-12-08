@@ -93,8 +93,7 @@ class JumpsquaresController < ApplicationController
   
   def createrdpfile
     jumpsquare = Jumpsquare.find(params[:id])
-    file = Tempfile.new(jumpsquare.ipordns.to_s + '.rdp')
-    file.write("screen mode id:i:2
+    data = "screen mode id:i:2
 desktopwidth:i:1436
 desktopheight:i:925
 session bpp:i:16
@@ -131,10 +130,8 @@ gatewayhostname:s:
 gatewayusagemethod:i:0
 gatewaycredentialssource:i:4
 gatewayprofileusagemethod:i:0"
-    )
-    file.close
-    send_file(file.path, :filename => jumpsquare.ipordns.to_s + '.rdp', :type=>'application/rdp')
-    #send_file file.path, :type=>'application/rdp'
+    send_data(data, :filename => jumpsquare.ipordns.to_s + '.rdp', :type=>'application/rdp')
+    
   end
 
   private
