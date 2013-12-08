@@ -94,7 +94,6 @@ class JumpsquaresController < ApplicationController
   def createrdpfile
     jumpsquare = Jumpsquare.find(params[:id])
     file = Tempfile.new(jumpsquare.ipordns.to_s + '.rdp')
-    file.path = "#{Rails.root}/tmp"
     file.write("screen mode id:i:2
 desktopwidth:i:1436
 desktopheight:i:925
