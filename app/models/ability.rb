@@ -25,6 +25,7 @@ class Ability
          can :new, [Jumpsquare, Tag, ApptypeRequest]
          can :destroy, [Tag], :tagcreator => user.email
          can :destroy, [Jumpsquare], :jscreator => user.email
+         can :createrdpfile, [Jumpsquare]
          can :destroy, User do |u|
             u.id == user.id
          end
