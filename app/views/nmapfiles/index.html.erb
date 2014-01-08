@@ -42,7 +42,7 @@
                 <thead>
                   <tr>
                     <th>XML Name</th>
-				    <th>Uploaded Date</th>
+				    <th>Uploaded Day/Time</th>
 				    <th>Total Records</th>
 				    <th>Missing JumpSquares</th>
 				    <th>Delete</th>
@@ -77,7 +77,7 @@
 						 	<% end %>
 						      <tr>
 						        <td><%= link_to nmapfile.nmapfilename, nmapfile_xmlviewer_path(nmapfile), class: "btn btn-primary btn-xs btn-block", :method => :get %></td>
-						        <td><%= nmapfile.created_at %></td>
+						        <td><%= nmapfile.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
 						        <td><%= nmapfile.nmapfilerecords %></td>
 						        <td><%= nmapfile.nmapfilematches %></td>						        
 						        <td><%= link_to 'Delete', nmapfile, method: :delete, data: { confirm: "Delete '#{nmapfile.nmapfilename}' Nmap Scan? " }, class: "btn btn-danger btn-xs" %></td>
