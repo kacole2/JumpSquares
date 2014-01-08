@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120184508) do
+ActiveRecord::Schema.define(version: 20140104154832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -58,6 +58,15 @@ ActiveRecord::Schema.define(version: 20131120184508) do
   create_table "jumpsquares_tags", force: true do |t|
     t.integer "jumpsquare_id"
     t.integer "tag_id"
+  end
+
+  create_table "nmapfiles", force: true do |t|
+    t.string   "nmapfilename"
+    t.integer  "nmapfilerecords"
+    t.integer  "nmapfilematches"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "nmapxml"
   end
 
   create_table "roles", force: true do |t|

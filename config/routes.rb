@@ -1,4 +1,8 @@
 LabSquares::Application.routes.draw do
+  resources :nmapfiles do
+    get "xmlviewer"
+  end
+
   resources :jumpsizes
   
   resources :tags

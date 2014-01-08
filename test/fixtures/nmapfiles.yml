@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  nmapfilename: MyString
+  nmapfilerecords: 1
+  nmapfilematches: 1
+
+two:
+  nmapfilename: MyString
+  nmapfilerecords: 1
+  nmapfilematches: 1

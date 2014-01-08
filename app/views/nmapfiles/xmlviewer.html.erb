@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<% provide(:title, @nmapfile.nmapfilename.to_s + " Nmap XML Scan") %>
+
+<div class="row">
+          <div class="col-lg-12">
+            <div class="page-header">
+              <h1 id="tables"><%= @nmapfile.nmapfilename.to_s %> Nmap XML Scan</h1>
+            </div>
+            
+            <center>                               
+			<%= link_to 'Back', :back %> |
+			<%= link_to 'Home', :userroot %>       
+			</center>
+			
+            <div class="bs-example">
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                  <tr>
+                    <th>Scan ID</th>
+				    <th>IP</th>
+				    <th>Reverse DNS Lookup</th>
+				    <th>OS </th>
+				    <th>Open Ports</th>
+				    <th>Create JumpSquare</th>
+				    
+                  </tr>
+                </thead>
+           
+                	<tbody>
+                		<% idnumber = 1 %>
+                		<% @nmapfile.nmapfilerecords = 0 %>
+                		<% @nmapfile.nmapfilematches = 0 %>
+                		<% require 'nmap/xml' %>
+					    <% Nmap::XML.new("#{Rails.root}/public/" + @nmapfile.nmapxml.to_s) do |xml| %>
+					    	<% xml.each_host do |host| %>
+					    		<% if "#{host.status}" == "down" %>
+					    		<% else %>
+					    			<% hip = "#{host.ip}" %>
+					    			<% hname = "#{host.hostnames}".delete('\"\[\]') %>
+					    			<% if @jumpsquares.where(:ipordns => hip).find do %>
+					    				<tr>
+					    				<% end %>
+							    	<% elsif @jumpsquares.where(:ipordns => hname).find do %>
+							    		<tr>
+							    		<% end %>
+					    			<% else %>
+					    				<tr class="danger">
+					    				<% @nmapfile.nmapfilematches += 1 %>
+					    			<% end %>			
+							    		<td> <%= idnumber %> </td>
+							    		<td> <%= hip %> </td>
+							    								    	
+							    	<td>
+							    	<% host.each_hostname do |name| %>
+							    		 <%= "#{name}" %>
+							    	<% end %>
+							    	</td>
+							    	
+							    	<% host.os do |os| %>
+							    	<td>
+							    	 <% executed = false %>
+							    	  <% os.each_match do |match| %>
+							    	   	<% if executed == false %>
+								    	    <% if "#{match.name}".split[0] == "Linux" %>
+								    	     <center><%= image_tag("nmapxmlicons/linux-icon.png", :alt => "Linux") %></center> 
+								    	    <% elsif "#{match.name}".split[0] == "Microsoft" %>
+								    	     <center><%= image_tag("nmapxmlicons/windows-icon.png", :alt => "Microsoft") %></center> 
+								    	    <% elsif "#{match.name}".split[0] == "Apple" %>
+								    	     <center><%= image_tag("nmapxmlicons/mac-icon.png", :alt => "Macintosh") %></center> 
+								    	    <% elsif "#{match.name}".split[0] == "Macintosh" %>
+								    	     <center><%= image_tag("nmapxmlicons/mac-icon.png", :alt => "Macintosh") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "Mac" %>
+								    	     <center><%= image_tag("nmapxmlicons/mac-icon.png", :alt => "Macintosh") %></center>  
+								    	    <% elsif "#{match.name}".split[0] == "Nexus" %>
+								    	     <center><%= image_tag("nmapxmlicons/cisco-icon.png", :alt => "Cisco") %></center> 
+								    	    <% elsif "#{match.name}".split[0] == "NX-OS" %>
+								    	     <center><%= image_tag("nmapxmlicons/cisco-icon.png", :alt => "Cisco") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "Cisco" %>
+								    	     <center><%= image_tag("nmapxmlicons/cisco-icon.png", :alt => "Cisco") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "HP" %>
+								    	     <center><%= image_tag("nmapxmlicons/hp-icon.png", :alt => "HP") %></center> 
+								    	    <% elsif "#{match.name}".split[0] == "3com" %>
+								    	     <center><%= image_tag("nmapxmlicons/3com-icon.png", :alt => "3com") %></center> 
+								    	    <% elsif "#{match.name}".split[0] == "Avaya" %>
+								    	     <center><%= image_tag("nmapxmlicons/avaya-icon.png", :alt => "Avaya") %></center> 
+								    	    <% elsif "#{match.name}".split[0] == "Aruba" %>
+								    	     <center><%= image_tag("nmapxmlicons/aruba-icon.png", :alt => "Aruba") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "F5" %>
+								    	     <center><%= image_tag("nmapxmlicons/f5-icon.png", :alt => "F5") %></center> 
+								    	    <% elsif "#{match.name}".split[0] == "Adtran" %>
+								    	     <center><%= image_tag("nmapxmlicons/adtran-icon.png", :alt => "Adtran") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "Brother" %>
+								    	     <center><%= image_tag("nmapxmlicons/brother-icon.png", :alt => "Brother") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "Dell" %>
+								    	     <center><%= image_tag("nmapxmlicons/dell-icon.png", :alt => "Dell") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "Juniper" %>
+								    	     <center><%= image_tag("nmapxmlicons/juniper-icon.png", :alt => "Juniper") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "Novell" %>
+								    	     <center><%= image_tag("nmapxmlicons/novell-icon.png", :alt => "Novell") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "VMware" %>
+								    	     <center><%= image_tag("nmapxmlicons/vmware-icon.png", :alt => "VMware") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "vmware" %>
+								    	     <center><%= image_tag("nmapxmlicons/vmware-icon.png", :alt => "VMware") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "Vmware" %>
+								    	     <center><%= image_tag("nmapxmlicons/vmware-icon.png", :alt => "VMware") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "ESX" %>
+								    	     <center><%= image_tag("nmapxmlicons/vmware-icon.png", :alt => "VMware") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "ESXi" %>
+								    	     <center><%= image_tag("nmapxmlicons/vmware-icon.png", :alt => "VMware") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "Xerox" %>
+								    	     <center><%= image_tag("nmapxmlicons/xerox-icon.png", :alt => "Xerox") %></center>
+								    	    <% elsif "#{match.name}".split[0] == "FreeBSD" %>
+								    	     <center><%= image_tag("nmapxmlicons/freebsd-icon.png", :alt => "FreeBSD") %></center>
+								    	    <% else %>
+								    	     <center><%= image_tag("nmapxmlicons/unknown-icon.png", :alt => "Unknown") %></center>
+								    	    <% end %>
+							    	   	<% executed = true %> 
+							    	  	<% end %>
+							    	</td>
+							    	 <% end %>
+							    	<% end %>
+							    	<td>
+							    	<% host.each_port do |port| %>
+							    		 [<%= "#{port.number}/#{port.protocol}\t#{port.service}" %>]  
+							    	<% end %>
+							    	</td>
+							    		
+							    		<% if hname == "" %>
+							    		<% @hpasson = hip %>
+							    		<% else %>
+							    		<% @hpasson = hname %>
+							    		<% end %>
+							    		
+							    	<td><%= link_to "Create JumpSquare", new_jumpsquare_path(:ipordns => @hpasson), class: "btn btn-info btn-xs", :method => :get %> </td>
+							    	<% idnumber += 1 %>
+							    	<% @nmapfile.nmapfilerecords += 1 %>
+							    	</tr>						    	
+							    <% end %>
+							<% end %>
+						 <% end %>
+						      						      	  
+				  	</tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+	<center>                               
+	<%= link_to 'Back', :back %> |
+	<%= link_to 'Home', :userroot %>       
+	</center>
+</html>

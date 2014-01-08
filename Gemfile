@@ -7,6 +7,7 @@ gem "mini_magick"
 gem 'therubyracer'
 gem 'thin'
 gem 'will_paginate-bootstrap'
+gem 'ruby-nmap'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
