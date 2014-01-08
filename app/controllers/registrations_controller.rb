@@ -9,7 +9,7 @@ def create
       respond_with_navigational(resource) { render :new }
     else
       flash.delete :recaptcha_error
-      super
+     super
     end
   end
   

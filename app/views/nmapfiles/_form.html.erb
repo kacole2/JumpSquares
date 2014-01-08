@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+		<div class="row">
+          <div class="col-lg-6 col-lg-offset-3">
+            <div class="well">
+            	<%= form_for @nmapfile, html: { multipart: true, :class => "form-horizontal" } do |f| %>
+				  <% if @nmapfile.errors.any? %>
+				    <div id="error_explanation">
+				      <h2><%= pluralize(@nmapfile.errors.count, "error") %> prohibited this Application Type from being saved:</h2>
+				
+				      <ul>
+				      <% @nmapfile.errors.full_messages.each do |msg| %>
+				        <li><%= msg %></li>
+				      <% end %>
+				      </ul>
+				    </div>
+				  <% end %>
+            	   
+                <fieldset>
+                  <legend>Nmap XML</legend>
+                  <div class="form-group">
+                  	<%= f.label "Descriptive Name:", :class => "col-lg-3 control-label" %>       
+                    <div class="col-lg-7">
+                      <%= f.text_field :nmapfilename, :class => "form-control" %>                    	 
+                    </div>
+                  </div>
+                                   
+                  <div class="form-group">
+                  	<%= f.label "Upload Nmap XML File:", :class => "col-lg-3 control-label" %>
+                    <div class="col-lg-7">
+                      <%= f.file_field :nmapxml %>
+                    </div>
+                  </div>                 
+                                  
+                  <br>
+                  <center>
+	                  <div class="form-group">	  
+	                  	  <%= f.hidden_field :nmapfilecreator, :value => current_user.email %>                  
+	                      <%= f.submit class: 'btn btn-primary' %>
+	                  </div>
+	                  <%= link_to 'Back', nmapfiles_path %> |
+	                  <%= link_to 'View Nmap Scans', nmapfiles_path %> | 
+					  <%= link_to 'Home', :userroot %>
+                  </center>	 
+                </fieldset>
+              
+            </div>
+          </div>
+        </div>
+<% end %>
+
+</html>

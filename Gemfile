@@ -9,6 +9,7 @@ gem 'therubyracer'
 #gem 'thin'
 gem 'recaptcha', :require => 'recaptcha/rails'
 gem 'will_paginate-bootstrap'
+gem 'ruby-nmap'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

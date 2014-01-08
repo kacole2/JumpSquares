@@ -9,12 +9,13 @@ class Ability
        if user.has_role? :admin
          can :manage, :all
        else
-         can :index, [Jumpsquare, Tag, Jumpsize, ApptypeRequest]
-         can :create, [Jumpsquare, Tag, ApptypeRequest]
+         can :index, [Jumpsquare, Tag, Jumpsize, ApptypeRequest, Nmapfile]
+         can :create, [Jumpsquare, Tag, ApptypeRequest, Nmapfile]
          can :show, [ApptypeRequest], :apprequestor => user.email
          can :show, [Tag], :tagcreator => user.email
          can :show, [Jumpsquare], :jscreator => user.email
          can :show, [Jumpsize], :jumpsizecreator => user.email
+         can :show, [Nmapfile], :nmapfilecreator => user.email
          can :edit, [Tag], :tagcreator => user.email
          can :edit, [Jumpsquare], :jscreator => user.email
          can :edit, [Jumpsize], :jumpsizecreator => user.email
@@ -22,9 +23,10 @@ class Ability
          can :update, [Tag], :tagcreator => user.email
          can :update, [Jumpsquare], :jscreator => user.email
          can :update, [Jumpsize], :jumpsizecreator => user.email
-         can :new, [Jumpsquare, Tag, ApptypeRequest]
+         can :new, [Jumpsquare, Tag, ApptypeRequest, Nmapfile]
          can :destroy, [Tag], :tagcreator => user.email
          can :destroy, [Jumpsquare], :jscreator => user.email
+         can :destroy, [Nmapfile], :nmapfilecreator => user.email
          can :createrdpfile, [Jumpsquare]
          can :destroy, User do |u|
             u.id == user.id

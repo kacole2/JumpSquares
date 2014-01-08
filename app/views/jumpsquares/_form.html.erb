@@ -45,7 +45,7 @@
                   <div class="form-group">
                   	<%= f.label :ipordns, "Enter the IP Address or DNS Name of the host server:", :class => "col-lg-4 control-label" %>
                     <div class="col-lg-7">
-                      <%= f.text_field :ipordns, :class => "form-control" %>
+                      <%= f.text_field :ipordns, :value => params[:ipordns], :class => "form-control" %>
                     </div>              
                   </div>
  				  <div class="form-group">
