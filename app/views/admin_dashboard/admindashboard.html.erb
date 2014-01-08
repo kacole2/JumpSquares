@@ -36,7 +36,8 @@
 		                <li class="list-group-item">
 		                  <span class="badge"><%= @tags_count %></span>
 		                  Tag Count
-		              </ul>
+		                </li>
+		              	</ul>
           			</div>
      		</div>  
    		  </div>
@@ -50,9 +51,29 @@
 		                  <span class="badge"><%= @apptypes_count %></span>
 		                  AppType Count
 		                </li>
-		                
+		              	</ul>
+          			</div>
+     		</div>  
+   		  </div>
+   		  
+   		  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">    	
+            <div class="panel panel-info">
+				<div class="panel-heading"><center><strong><%= link_to "Nmap Scan XML Files", nmapfiles_path, class: 'linkpanel' %></strong></center></div>
+              		<div class="panel-body">   		
+              			<ul class="list-group">
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @nmapxml_count %></span>
+		                  XML Count
 		                </li>
-		              </ul>
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @nmaptotalrecord_count %></span>
+		                  Total Records
+		                </li>
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @nmapmissingrecord_count %></span>
+		                  Missing Records
+		                </li>
+		              	</ul>
           			</div>
      		</div>  
    		  </div>

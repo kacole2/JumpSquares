@@ -73,6 +73,7 @@
 					    		<% end %>
 								<% end %>
 								<% nmapfile.nmapfilematches = nmapfile.nmapfilerecords - actualmatches %>
+								<% nmapfile.save %>
 						 	<% end %>
 						      <tr>
 						        <td><%= link_to nmapfile.nmapfilename, nmapfile_xmlviewer_path(nmapfile), class: "btn btn-primary btn-xs btn-block", :method => :get %></td>
