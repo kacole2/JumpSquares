@@ -23,3 +23,21 @@
 
 #ignore uploaded pictures
 *.log
+
+tmp/cache/assets/development/sprockets/f7cbd26ba1d28d48de824f0e94586655
+
+tmp/cache/assets/development/sprockets/d771ace226fc8215a3572e0aa35bb0d6
+
+public/uploads/tmp/1389206496-57986-6087/output.xml
+
+public/uploads/tmp/1389206496-57986-6087/preprocessed_output.xml
+
+public/uploads/tmp/1389212140-57986-0841/output.xml
+
+public/uploads/tmp/1389212140-57986-0841/preprocessed_output.xml
+
+public/uploads/nmapfile/nmapxml/44/preprocessed_output.xml
+
+public/uploads/nmapfile/nmapxml/44/output.xml
+
+*.log
