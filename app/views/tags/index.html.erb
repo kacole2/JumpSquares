@@ -37,9 +37,7 @@
                 <thead>
                   <tr>
                     <th>Tag</th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
+                    <th>Actions</th>
                   </tr>
                 </thead>
                 
@@ -47,9 +45,7 @@
 					    <% @tags.each do |tag| %>
 					      <tr>
 					        <td><%= tag.tagname %></td>
-					        <td><%= link_to 'Show', tag, class: "btn btn-primary btn-xs" %></td>
-					        <td><%= link_to 'Edit', edit_tag_path(tag), class: "btn btn-warning btn-xs" %></td>
-					        <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: "Delete '#{tag.tagname}' Tag? " }, class: "btn btn-danger btn-xs" %></td>
+					        <td><%= link_to 'Show', tag, class: "btn btn-primary btn-xs" %> <%= link_to 'Edit', edit_tag_path(tag), class: "btn btn-warning btn-xs" %> <%= link_to 'Destroy', tag, method: :delete, data: { confirm: "Delete '#{tag.tagname}' Tag? " }, class: "btn btn-danger btn-xs" %></td>
 					      </tr>
 					    <% end %>
 					  </tbody>
