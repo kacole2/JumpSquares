@@ -9,7 +9,7 @@ class Apptype < ActiveRecord::Base
     if search
       where('name ILIKE ?', "%#{search}%")
     else
-      scoped
+      all
     end
   end
   

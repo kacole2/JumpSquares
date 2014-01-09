@@ -19,6 +19,7 @@
     	<li><%= link_to "Why can I not remove an AppType?", "#removeapp" %></li>
     	<li><%= link_to "Why does the search only work on one page?", "#search" %></li>
     	<li><%= link_to "How does the Remote Server Access stuff work?", "#remoteaccess" %></li>
+    	<li><%= link_to "How do I use the Nmap Scan utility to quickly add JumpSquares?", "#nmapscan" %></li>
     	</ul>
     </p>
     <br>
@@ -73,6 +74,23 @@
     	with TightVNC and RealVNC (Enterprise license was tested, does not work on free license). The VNC software installed on the server requires the ability to render 
     	VNC over HTML5 on Port 5800. Java is required for TightVNC and RealVNC. Tested and works on Windows. Tested and failed to load Java on Mac. Port 5800 is the only
     	 one that can be used at this time.
+  	</p>
+  	<br>
+  	<p>
+    	<strong><a name="nmapscan">How do I use the Nmap Scan utility to quickly add JumpSquares?</a></strong><br>
+    	<a href="http://nmap.org/"><font color="18bc9c">Nmap</font></a> is a free tool used to perform port scanning on a network. To get started, <a href="http://nmap.org/download.html"><font color="18bc9c">download
+        Nmap</font></a> for Windows, Mac, or Linux and install it on your system. Mac & Linux users: Open up a terminal session and change your current directory to a desktop location or somewhere easy to navigate.
+        For Windows users: Open up a command (cmd)/DOS Window and change to the directory you installed Nmap into (cd "\Program Files (x86)\Nmap"). 
+        On Windows releases prior to Windows 7, specify \Program Files\Nmap instead. If you execute Nmap frequently, please <a href="http://nmap.org/book/inst-windows.html"><font color="18bc9c">read this</font></a>.
+        Type the following (Mac & Linux used may need 'sudo' for root): 
+                      		<dl><b>nmap -sS -O -v 192.168.10.* -oX output.xml</b></dl>       
+        Executing this command will do a stealth scan against the entire 192.168.10.0/24 subnet and save the scan to output.xml. Change the .xml name if preferred. 
+        The subnet style can be replaced with <a href="http://nmap.org/book/man-examples.html"><font color="18bc9c">different paramters</font></a>. The 
+        length of time will depend on the amount of hosts and the amount of open ports. Go grab a beer (or coffee). After the scan has completed, <a href="/nmapfiles/new"><font color="18bc9c">Upload the Nmap Scan XML</font></a>
+         to analyze missing JumpSquare entries based on DNS and IP. If a JumpSquare has not been configured for a DNS or IP address entry, click on "Create JumpSquare", which open the JumpSquare creation form. The DNS or IP 
+         address will be pre-populated for you.
+                      
+    	
   	</p>
   </body>
 </html>

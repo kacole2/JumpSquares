@@ -9,7 +9,7 @@ class Jumpsquare < ActiveRecord::Base
     if search
       where('name ILIKE ? OR ipordns ILIKE ? OR url ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
-      scoped
+      all
     end
   end
        

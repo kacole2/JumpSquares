@@ -9,7 +9,7 @@
               			<ul class="list-group">
 		                <li class="list-group-item">
 		                  <span class="badge"><%= @jumpsquare_count %></span>
-		                  JumpSquare Count
+		                  JumpSquares
 		              	</li>
 		              	<li class="list-group-item">
 		                  <span class="badge"><%= @jumpsquare_rdp_count %></span>
@@ -28,7 +28,7 @@
      		</div>  
    		  </div>
    		  
-   		  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">    	
+   		  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">    	
             <div class="panel panel-info">
 				<div class="panel-heading"><center><strong><%= link_to "Tags", tags_path, class: 'linkpanel' %></strong></center></div>
               		<div class="panel-body">   		
@@ -36,12 +36,13 @@
 		                <li class="list-group-item">
 		                  <span class="badge"><%= @tags_count %></span>
 		                  Tag Count
-		              </ul>
+		                </li>
+		              	</ul>
           			</div>
      		</div>  
    		  </div>
    		  
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">    	
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">    	
             <div class="panel panel-info">
 				<div class="panel-heading"><center><strong><%= link_to "AppTypes", apptypes_path, class: 'linkpanel' %></strong></center></div>
               		<div class="panel-body">   		
@@ -61,8 +62,29 @@
 		                <li class="list-group-item">
 		                  <span class="badge"><%= @all_request_count %></span>
 		                  Total Requests
+		              	</ul>
+          			</div>
+     		</div>  
+   		  </div>
+   		  
+   		  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-3">    	
+            <div class="panel panel-info">
+				<div class="panel-heading"><center><strong><%= link_to "Nmap Scan XML Files", nmapfiles_path, class: 'linkpanel' %></strong></center></div>
+              		<div class="panel-body">   		
+              			<ul class="list-group">
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @nmapxml_count %></span>
+		                  XML Count
 		                </li>
-		              </ul>
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @nmaptotalrecord_count %></span>
+		                  Total Records
+		                </li>
+		                <li class="list-group-item">
+		                  <span class="badge"><%= @nmapmissingrecord_count %></span>
+		                  Missing Records
+		                </li>
+		              	</ul>
           			</div>
      		</div>  
    		  </div>
@@ -131,6 +153,7 @@
                     <th>JumpSquares</th>
                     <th>Tags</th>
                     <th>Open Requests</th>
+                    <th>Nmap XMLs</th>
                   </tr>
                 </thead>
                 
@@ -139,9 +162,10 @@
 					      <tr>
 					        <td><%= user.email %></td>
 
-					        <td><%= @userjscount = Jumpsquare.count(:all, :conditions => { :jscreator => user.email }) %></td>
-					        <td><%= @usertagcount = Tag.count(:all, :conditions => { :tagcreator => user.email }) %></td>
-					        <td><%= @userappreqcount = ApptypeRequest.count(:all, :conditions => { :apprequestor => user.email }) %></td>
+					        <td><%= @userjscount = Jumpsquare.where(:jscreator => user.email).count %></td>
+					        <td><%= @usertagcount = Tag.where(:tagcreator => user.email).count %></td>
+					        <td><%= @userappreqcount = ApptypeRequest.where(:apprequestor => user.email).count %></td>
+					        <td><%= @usernmapxmlcount = Nmapfile.where(:nmapfilecreator => user.email).count %></td>
 					      </tr>
 					    <% end %>
 					  </tbody>

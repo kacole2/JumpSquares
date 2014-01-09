@@ -4,8 +4,8 @@ class UsersController < ApplicationController
   load_and_authorize_resource
   
   def index
-   @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
-   @users = User.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('id'))
+   @jumpsizes = Jumpsize.where(:jumpsizecreator => current_user.email)
+   @users = User.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).order(sort_order('id'))
  #  @users = User.all
   end
   
@@ -28,17 +28,17 @@ class UsersController < ApplicationController
   def destroy
       @user = User.find(params[:id])
       
-      @jumpsize = Jumpsize.find(:all, :conditions => { :jumpsizecreator => @user.email })
+      @jumpsize = Jumpsize.where(:jumpsizecreator => @user.email)
         @jumpsize.each do |j|
           j.destroy
         end
       
-      @tag = Tag.find(:all, :conditions => { :tagcreator => @user.email })
+      @tag = Tag.where(:tagcreator => @user.email)
         @tag.each do |t|
           t.destroy
         end
       
-      @jumpsquare = Jumpsquare.find(:all, :conditions => { :jscreator => @user.email })
+      @jumpsquare = Jumpsquare.where(:jscreator => @user.email)
         @jumpsquare.each do |j|
           j.destroy
         end
