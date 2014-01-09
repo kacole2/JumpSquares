@@ -8,9 +8,9 @@ class AdminDashboardController < ApplicationController
       
       
       
-      @apptypes_count = Apptype.count(:all)    
-      @jumpsquare_count = Jumpsquare.count(:all)    
-      @tags_count = Tag.count(:all)   
+      @apptypes_count = Apptype.all.count
+      @jumpsquare_count = Jumpsquare.all.count    
+      @tags_count = Tag.all.count   
       
       
       
@@ -18,10 +18,10 @@ class AdminDashboardController < ApplicationController
       
       
       
-      @jumpsquare_rdp_count = Jumpsquare.count(:all, :conditions => { :remotetype => 'rdp' })
-      @jumpsquare_ssh_count = Jumpsquare.count(:all, :conditions => { :remotetype => 'ssh' })
-      @jumpsquare_vnc_count = Jumpsquare.count(:all, :conditions => { :remotetype => 'vnc' })
-      @nmapxml_count = Nmapfile.count(:all)
+      @jumpsquare_rdp_count = Jumpsquare.where(:remotetype => 'rdp' ).count
+      @jumpsquare_ssh_count = Jumpsquare.where(:remotetype => 'ssh' ).count
+      @jumpsquare_vnc_count = Jumpsquare.where(:remotetype => 'vnc' ).count
+      @nmapxml_count = Nmapfile.all.count
       @nmapfiles = Nmapfile.all
       @nmaptotalrecord_count = 0
       @nmapmissingrecord_count = 0

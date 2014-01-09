@@ -39,7 +39,7 @@
       
       <center><%= image_tag realapptype.image_url(@jumpsizes.first.size) %>
       	<br>
-      JumpSquares:  <span class="badge"><%= @appcount = Jumpsquare.count(:conditions => ['apptype = ?', realapptype.id]).to_i %></span>
+      JumpSquares:  <span class="badge"><%= @appcount = Jumpsquare.where(['apptype = ?', realapptype.id]).count %></span>
       </div>
       </center>
       <% if @jumpsizes.first.size == "xsmall" %>

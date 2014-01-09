@@ -4,10 +4,8 @@ class NmapfilesController < ApplicationController
   # GET /nmapfiles
   # GET /nmapfiles.json
   def index
-    @jumpsquares = Jumpsquare.all
     @jumpsizes = Jumpsize.all
-    #@nmapfiles = Nmapfile.all
-    @nmapfiles = Nmapfile.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('lower(nmapfilename)'))
+    @nmapfiles = Nmapfile.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).order(sort_order('lower(nmapfilename)'))
   end
 
   # GET /nmapfiles/1
@@ -67,7 +65,6 @@ class NmapfilesController < ApplicationController
   end
   
   def xmlviewer
-    @jumpsquares = Jumpsquare.all
     @nmapfile = Nmapfile.find(params[:nmapfile_id])
   end
   

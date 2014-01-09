@@ -60,10 +60,10 @@
 					    		<% xml.each_host do |host| %>
 					    		<% if "#{host.status}" == "down" %>
 					    		<% else %>
-					    			<% if @jumpsquares.where(:ipordns => "#{host.ip}").find do %>
+					    			<% if Jumpsquare.where(:ipordns => "#{host.ip}").find do %>
 					    				<% actualmatches += 1 %>
 					    				<% end %>
-							    	<% elsif @jumpsquares.where(:ipordns => "#{host.hostnames}".delete('\"\[\]')).find do %>
+							    	<% elsif Jumpsquare.where(:ipordns => "#{host.hostnames}".delete('\"\[\]')).find do %>
 							    		<% actualmatches += 1 %>
 							    		<% end %>
 					    			<% else %>

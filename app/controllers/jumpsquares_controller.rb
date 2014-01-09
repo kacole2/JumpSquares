@@ -6,7 +6,7 @@ class JumpsquaresController < ApplicationController
   def index
   @tags = Tag.all
   @jumpsizes = Jumpsize.all
-  @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('name'))
+  @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).order(sort_order('name'))
   end
   
   # GET /jumpsquares/1

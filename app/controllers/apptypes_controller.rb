@@ -5,7 +5,7 @@ class ApptypesController < ApplicationController
   def index
    @jumpsizes = Jumpsize.all
    #grabs the search function and displays it all by name
-   @apptypes = Apptype.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('lower(name)'))
+   @apptypes = Apptype.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).order(sort_order('lower(name)'))
   end
     
   # GET /apptypes/1

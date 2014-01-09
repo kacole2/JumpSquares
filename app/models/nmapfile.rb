@@ -6,7 +6,7 @@ class Nmapfile < ActiveRecord::Base
     if search
       where('nmapfilename ILIKE ?', "%#{search}%")
     else
-      scoped
+      all
     end
   end
   

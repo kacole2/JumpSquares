@@ -5,14 +5,14 @@ class TagsController < ApplicationController
   # GET /tags.json
   def index
     @jumpsizes = Jumpsize.all
-    @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('tagname'))
+    @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).order(sort_order('lower(tagname)'))
   end
 
   # GET /tags/1
   # GET /tags/1.json
   def show
     @jumpsizes = Jumpsize.all
-    @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('name'))
+    @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).order(sort_order('name'))
     @tags = Tag.all
   end
 

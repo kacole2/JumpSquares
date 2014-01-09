@@ -37,10 +37,10 @@
 					    		<% else %>
 					    			<% hip = "#{host.ip}" %>
 					    			<% hname = "#{host.hostnames}".delete('\"\[\]') %>
-					    			<% if @jumpsquares.where(:ipordns => hip).find do %>
+					    			<% if Jumpsquare.where(:ipordns => hip).find do %>
 					    				<tr>
 					    				<% end %>
-							    	<% elsif @jumpsquares.where(:ipordns => hname).find do %>
+							    	<% elsif Jumpsquare.where(:ipordns => hname).find do %>
 							    		<tr>
 							    		<% end %>
 					    			<% else %>

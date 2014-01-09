@@ -113,7 +113,7 @@
 				    	<br>
 				    	<br>
 				    <% end %>
-				        <%= link_to "edit", edit_jumpsquare_path(jumpsquare) %> 	|
+				        <%= link_to "edit", edit_jumpsquare_path(jumpsquare, :ipordns => jumpsquare.ipordns) %> 	|
 				        <%= link_to "remove", jumpsquare, method: :delete, data: {confirm: "Delete '#{jumpsquare.name}' JumpSquare? "} %>
 			      	</div>
 			    </div>	
