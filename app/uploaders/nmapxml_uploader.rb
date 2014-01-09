@@ -1,11 +1,9 @@
 # encoding: utf-8
-require 'carrierwave/processing/mime_types'
 class NmapxmlUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   # include CarrierWave::MiniMagick
-  include CarrierWave::MimeTypes
 
   # Choose what kind of storage to use for this uploader:
   # storage :file
@@ -45,18 +43,6 @@ class NmapxmlUploader < CarrierWave::Uploader::Base
      %w(xml)
    end
 
-  
-  version :preprocessed do
-    #process :preprocess
-    process :set_content_type
-    def full_filename(for_file)
-      super.chomp(File.extname(super)) + '.xml'
-    end
-    
-    def set_content_type(*args)
-      self.file.instance_variable_set(:@content_type, "application/xml")
-    end
-  end
   # Override the filename of the uploaded files:
   # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename

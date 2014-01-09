@@ -56,7 +56,7 @@
 					    <% nmapfile.nmapfilerecords = 0 %>
                 		<% nmapfile.nmapfilematches = 0 %>
                 		<% actualmatches = 0 %>
-					    	<% Nmap::XML.new("#{Rails.root}/public/" + nmapfile.nmapxml.to_s) do |xml| %>
+					    	<% Nmap::XML.new(nmapfile.nmapxml.to_s) do |xml| %>
 					    		<% xml.each_host do |host| %>
 					    		<% if "#{host.status}" == "down" %>
 					    		<% else %>
