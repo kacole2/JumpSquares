@@ -19,7 +19,11 @@
 </div>
 		<% if current_user.has_role? :admin %>
 		<% else %>
-		<div class="row">AppTypes are Read-Only. Request a New Application Type if you do not see one listed.</div>
+		<div class="row">
+			<div class="col-xs-6 col-sm-4 col-md-2">
+				<span class="label label-warning">AppTypes are Read-Only. Request a New Application Type if you do not see one listed.</span>
+			</div>
+		</div>
 		<% end %>
 <br>	
 <div class="row">
@@ -56,7 +60,7 @@
 							<div class="xlargename">
 						 <% end %>
 				     <center>
-				      JumpSquares:  <span class="badge"><%= @appcount = Jumpsquare.count(:conditions => ['apptype = ?', realapptype.id]).to_i %></span>
+				      JumpSquares:  <span class="badge"><%= @appcount = Jumpsquare.where(['apptype = ?', realapptype.id]).count %></span>
 				     		</div>
 				     </center>
 					     <% if @jumpsizes.first.size == "xsmall" %>

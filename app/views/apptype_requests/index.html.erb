@@ -19,9 +19,14 @@
 			</div>                   
 	   </div>
   	</div>	
-  	<div class="col-xs-6 col-sm-4 col-md-2">
-  		<%= link_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info" %>
-   </div>
+  	<div class="col-xs-6 col-sm-8 col-md-8">
+  		<% if current_user.has_role? :admin %>
+  			<%= link_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info", :method => :get %>
+  			<%= link_to "Create a New Application Type", new_apptype_path, class: "btn btn-info", :method => :get %>
+     	<% else %>
+			<%= link_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info", :method => :get %>
+		<% end %>
+	</div>
 </div>
 
 <div class="row">

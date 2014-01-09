@@ -8,7 +8,7 @@ class Jumpsize < ActiveRecord::Base
     if search
       where('jumpsizecreator ILIKE ?', "%#{search}%")
     else
-      scoped
+      all
     end
   end
   

@@ -6,25 +6,24 @@ class TagsController < ApplicationController
   load_and_authorize_resource
   # GET /tags
   # GET /tags.json
-
   def index 
-    @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
+    @jumpsizes = Jumpsize.where(:jumpsizecreator => current_user.email)
     if current_user.has_role? :admin
-      @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :order => sort_order('tagname'))
+      @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).order(sort_order('tagname'))
     else
-      @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :conditions => { :tagcreator => current_user.email })
+      @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:tagcreator => current_user.email)
     end
   end
   
   # GET /tags/1
   # GET /tags/1.json
   def show   
-    @jumpsizes = Jumpsize.find(:all, :conditions => { :jumpsizecreator => current_user.email })
-    @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).find(:all, :conditions => { :jscreator => current_user.email }, :order => sort_order('name'))
+    @jumpsizes = Jumpsize.where(:jumpsizecreator => current_user.email)
+    @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:jscreator => current_user.email).order(sort_order('name'))
     if current_user.has_role? :admin
-      @tags = Tag.find(:all, :conditions => { :tagcreator => current_user.email })
+      @tags = Tag.where(:tagcreator => current_user.email)
     else
-      @tags = Tag.find(:all, :conditions => { :tagcreator => current_user.email })
+      @tags = Tag.where(:tagcreator => current_user.email)
     end
   end
 

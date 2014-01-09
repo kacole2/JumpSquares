@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
     if search
       where('id ILIKE ? OR email ILIKE ?', "%#{search}%", "%#{search}%")
     else
-      scoped
+      all
     end
   end
   

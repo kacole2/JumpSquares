@@ -8,7 +8,6 @@ class NmapfilesController < ApplicationController
   # GET /nmapfiles.json
   def index
     @jumpsizes = Jumpsize.where(:jumpsizecreator => current_user.email)
-    #@nmapfiles = Nmapfile.all
     @nmapfiles = Nmapfile.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:nmapfilecreator => current_user.email).order(sort_order('lower(nmapfilename)'))
   end
 
@@ -69,8 +68,13 @@ class NmapfilesController < ApplicationController
   end
   
   def xmlviewer
-    #@jumpsquares = Jumpsquare.find(:all, :conditions => { :jscreator => current_user.email })
-    @nmapfile = Nmapfile.find(params[:nmapfile_id])
+   begin
+     @nmapsingle = Nmapfile.where(:nmapfilecreator => current_user.email)
+     @nmapfile = @nmapsingle.find(params[:nmapfile_id])
+   rescue
+     redirect_to nmapfiles_path
+   end
+    
   end
   
   private

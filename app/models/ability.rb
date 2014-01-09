@@ -27,6 +27,7 @@ class Ability
          can :destroy, [Tag], :tagcreator => user.email
          can :destroy, [Jumpsquare], :jscreator => user.email
          can :destroy, [Nmapfile], :nmapfilecreator => user.email
+         can :xmlviewer, [Nmapfile], :nmapfilecreator => user.email
          can :createrdpfile, [Jumpsquare]
          can :destroy, User do |u|
             u.id == user.id
