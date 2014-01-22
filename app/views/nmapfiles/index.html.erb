@@ -52,11 +52,21 @@
                 
                 	<tbody>
                 		<% require 'nmap/xml' %>
+                		<% require 'open-uri' %>
+                		<% require 'net/http' %>
 					    <% @nmapfiles.each do |nmapfile| %>
 					    <% nmapfile.nmapfilerecords = 0 %>
                 		<% nmapfile.nmapfilematches = 0 %>
                 		<% actualmatches = 0 %>
-					    	<% Nmap::XML.new(nmapfile.nmapxml.to_s) do |xml| %>
+	                	<% local_file = File.new("#{Rails.root.to_s}/tmp/output" + rand(1000).to_s + ".xml", "w") %>
+	                		<% Net::HTTP.start("jumpsquares.s3.amazonaws.com") { |http| %>
+	                			<% resp = http.get(nmapfile.nmapxml.to_s) %>
+								<% open(local_file, "a") { |file|  %>
+	  								<% file.write(resp.body) %>
+	  								<% file.close %>
+								<% } } %>
+                		             		           		
+					    	<% Nmap::XML.new(local_file) do |xml| %>
 					    		<% xml.each_host do |host| %>
 					    		<% if "#{host.status}" == "down" %>
 					    		<% else %>
@@ -75,14 +85,15 @@
 								<% nmapfile.nmapfilematches = nmapfile.nmapfilerecords - actualmatches %>
 								<% nmapfile.save %>
 						 	<% end %>
+							
 						      <tr>
 						        <td><%= link_to nmapfile.nmapfilename, nmapfile_xmlviewer_path(nmapfile), class: "btn btn-primary btn-xs btn-block", :method => :get %></td>
 						        <td><%= nmapfile.created_at.strftime("%m/%d/%Y at %I:%M%p") %></td>
 						        <td><%= nmapfile.nmapfilerecords %></td>
 						        <td><%= nmapfile.nmapfilematches %></td>						        
-						        <td><%= link_to 'Delete', nmapfile, method: :delete, data: { confirm: "Delete '#{nmapfile.nmapfilename}' Nmap Scan? " }, class: "btn btn-danger btn-xs" %></td>
-						        
+						        <td><%= link_to 'Delete', nmapfile, method: :delete, data: { confirm: "Delete '#{nmapfile.nmapfilename}' Nmap Scan? " }, class: "btn btn-danger btn-xs" %></td>					        
 						      </tr>
+						    <% File.delete(local_file) %>
 						    <% end %>
 					  </tbody>
                   

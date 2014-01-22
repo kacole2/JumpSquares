@@ -24,6 +24,9 @@
 #ignore uploaded pictures
 *.log
 
+#ignore all temp
+/tmp/*
+
 tmp/cache/assets/development/sprockets/f7cbd26ba1d28d48de824f0e94586655
 
 tmp/cache/assets/development/sprockets/d771ace226fc8215a3572e0aa35bb0d6
@@ -41,3 +44,10 @@ public/uploads/nmapfile/nmapxml/44/preprocessed_output.xml
 public/uploads/nmapfile/nmapxml/44/output.xml
 
 *.log
+#<Net::HTTP::Get:0x007ff08bcaa1d8>
+
+tmp/cache/assets/development/sprockets/13fe41fee1fe35b49d145bcc06610705
+
+#<Net::HTTP::Get:0x007ff08bcaa1d8>
+
+#<Net::HTTP::Get:0x007ff08bcdce58>
