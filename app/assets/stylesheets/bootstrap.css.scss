@@ -6018,11 +6018,12 @@ body.modal-open,
 }
 
 .modal-dialog {
-  z-index: 1050;
-  width: auto;
-  padding: 10px;
-  margin-right: auto;
-  margin-left: auto;
+  position: absolute;
+  left: 50%;
+  margin-left: -312px;
+  height: 500px;
+  top: 50%;
+  margin-top: -350px;
 }
 
 .modal-content {
