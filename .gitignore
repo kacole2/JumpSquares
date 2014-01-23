@@ -41,3 +41,5 @@ public/uploads/nmapfile/nmapxml/44/output.xml
 
 *.log
 
+=======
+/tmp/*
