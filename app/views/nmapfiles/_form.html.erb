@@ -17,6 +17,9 @@
             	   
                 <fieldset>
                   <legend>Nmap XML</legend>
+                  <center>
+                  <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#NmapXMLModal">How to Perform a Nmap Scan and Upload the XML</button>
+                  </center><br>
                   <div class="form-group">
                   	<%= f.label "Descriptive Name:", :class => "col-lg-3 control-label" %>       
                     <div class="col-lg-7">
@@ -47,5 +50,44 @@
           </div>
         </div>
 <% end %>
+
+			<div id="NmapXMLModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="NmapXMLModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">                
+                    <div class="modal-header">
+                   <a class="close" data-dismiss="modal">×</a>
+                   <h3>How to Perform a Nmap Scan and Upload the XML</h3>
+                 </div>
+                 <div class="modal-body">
+                   	  <p><a href="http://nmap.org/"><font color="18bc9c">Nmap</font></a> is a free tool used to perform port scanning on a network. To get started, <a href="http://nmap.org/download.html"><font color="18bc9c">download
+                   	  	Nmap</font></a> for Windows, Mac, or Linux and install it on your system.
+                   	  </p>
+                      <p><u>Mac & Linux users:</u><br>
+                      	Open up a terminal session and change your current directory to a desktop location or somewhere easy to navigate.
+                      </p>
+                      <p><u>For Windows users:</u><br>
+                      	Open up a command (cmd)/DOS Window and change to the directory you installed Nmap into (cd "\Program Files (x86)\Nmap"). 
+                      		On Windows releases prior to Windows 7, specify \Program Files\Nmap instead. If you execute Nmap frequently, please <a href="http://nmap.org/book/inst-windows.html"><font color="18bc9c">read this</font></a>.
+                      </p>
+                      <p><ul>
+                      	<li>Type the following (Mac & Linux used may need 'sudo' for root): </li>
+                      		<dl><b>nmap -sS -O -v 192.168.10.* -oX output.xml</b></dl>
+                      </p></ul>
+                      <p>Executing this command will do a stealth scan against the entire 192.168.10.0/24 subnet and save the scan to output.xml. Change the .xml name if preferred. 
+                      		The subnet style can be replaced with <a href="http://nmap.org/book/man-examples.html"><font color="18bc9c">different paramters</font></a>. The 
+                      		length of time will depend on the amount of hosts and the amount of open ports. Go grab a beer (or coffee).
+                      </p>
+                      <p>After the scan has completed, <a href="/nmapfiles/new"><font color="18bc9c">Upload the Nmap Scan XML</font></a> to analyze missing JumpSquare entries based on DNS and IP. 
+                      	If a JumpSquare has not been configured for a DNS or IP address entry, click on "Create JumpSquare", which 
+                      	open the JumpSquare creation form. The DNS or IP address will be pre-populated for you.
+                      </p>
+                      	
+                 </div>
+                 <div class="modal-footer">
+                   <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+                 </div>
+               </div>
+              </div>
+             </div>
 
 </html>
