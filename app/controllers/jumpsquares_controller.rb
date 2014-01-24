@@ -37,7 +37,7 @@ class JumpsquaresController < ApplicationController
     
     respond_to do |format|
       if @jumpsquare.save
-        format.html { redirect_to @jumpsquare, notice: 'JumpSquare was successfully created.' }
+        format.html { redirect_to :userroot, notice: 'JumpSquare was successfully created.' }
         format.json { render action: 'show', status: :created, location: @jumpsquare }
       else
         format.html { render action: 'new' }
@@ -60,7 +60,7 @@ class JumpsquaresController < ApplicationController
     
     respond_to do |format|
       if @jumpsquare.update(jumpsquare_params)
-        format.html { redirect_to @jumpsquare, notice: 'JumpSquare was successfully updated.' }
+        format.html { redirect_to :userroot, notice: 'JumpSquare was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
