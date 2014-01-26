@@ -18,9 +18,10 @@
                 <fieldset>
                   <legend>Tag</legend>
                   <div class="form-group">
-                  	<%= f.label :tagname, "Tag Name", :class => "col-lg-3 control-label" %>     
+                  	<%= f.label :tagname, "Tag Name:", :class => "col-lg-3 control-label" %>     
                     <div class="col-lg-7">
-                      <%= f.text_field :tagname, :class => "form-control" %>                   	 
+                      <%= f.text_field :tagname, :class => "form-control" %>       
+                       Use single entry or comma separated values. e.g. VMware, Microsoft, London, Network, Security          	 
                     </div>
                   </div>                                                
                   <br>

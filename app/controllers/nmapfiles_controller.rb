@@ -32,7 +32,7 @@ class NmapfilesController < ApplicationController
    
     respond_to do |format|
       if @nmapfile.save
-        format.html { redirect_to @nmapfile, notice: 'nmap file was successfully created.' }
+        format.html { redirect_to nmapfiles_path, notice: 'nmap file was successfully created.' }
         format.json { render action: 'show', status: :created, location: @nmapfile }
       else
         format.html { render action: 'new' }
@@ -46,7 +46,7 @@ class NmapfilesController < ApplicationController
   def update
     respond_to do |format|
       if @nmapfile.update(nmapfile_params)
-        format.html { redirect_to @nmapfile, notice: 'Nmapfile was successfully updated.' }
+        format.html { redirect_to nmapfiles_path, notice: 'Nmapfile was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
