@@ -18,21 +18,21 @@
                 <fieldset>
                   <legend>JumpSquare</legend>
                   <div class="form-group">
-                  	<%= f.label :size, "JumpSquare Image and Text Size", :class => "col-lg-4 control-label" %>   
+                  	<%= f.label :size, "JumpSquare Image and Text Size:", :class => "col-lg-4 control-label" %>   
                     <div class="col-lg-7">
                       <%= f.select :size, ["xsmall", "small", "medium", "large", "xlarge"], {}, html_options = {:class => "form-control"} %>
                     </div>
                   </div>
                   <br>                  
                   <div class="form-group">
-                  	<%= f.label :length1, "Truncated Characters for Name Length", :class => "col-lg-4 control-label" %>
+                  	<%= f.label :length1, "Truncated Characters for Name Length:", :class => "col-lg-4 control-label" %>
                     <div class="col-lg-7">
                       <%= f.number_field :length1, :class => "form-control" %>
                     </div>
                   </div>                 
                   <br>                 
                   <div class="form-group">
-                  	<%= f.label :length2, "Truncated Characters for IP/DNS Length", :class => "col-lg-4 control-label" %>                  	
+                  	<%= f.label :length2, "Truncated Characters for IP/DNS Length:", :class => "col-lg-4 control-label" %>                  	
                     <div class="col-lg-7">
                       <%= f.number_field :length2, :class => "form-control" %>
                     </div>
