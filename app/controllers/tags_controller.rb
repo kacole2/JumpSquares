@@ -41,7 +41,7 @@ class TagsController < ApplicationController
   def create
     @tag = params[:tag][:tagname].split(/,\s*/)
     @tag.each do |t|
-      newtag = Tag.new(:tagname => t)
+      newtag = Tag.new(:tagname => t, :tagcreator => current_user.email)
       newtag.save
     end
     #@tag = Tag.new(tag_params)
