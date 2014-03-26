@@ -12,10 +12,12 @@
  	<div class="navbar-inner">
       <div class="container">
         <div class="navbar-header">
-	         <% if user_signed_in? %>
-	        	<a class="navbar-brand" href="/jumpsquares">JumpSquares</a>
+	         <% if user_signed_in? %>	         	
+	         	<%= link_to image_tag("medium_jumpsquares_logo.png", :height => '25', :width => '25'), :userroot, class: "navbar-brand" %>
+	         	<%= link_to "JumpSquares", :userroot, class: "navbar-brand" %>
 	       	 <% else %>
-	        	<a class="navbar-brand" href="/">JumpSquares</a>
+	        	<%= link_to image_tag("medium_jumpsquares_logo.png", :height => '25', :width => '25'), :root, class: "navbar-brand" %>
+	         	<%= link_to "JumpSquares", :root, class: "navbar-brand" %>
 	         <% end %>
          
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -30,7 +32,7 @@
         <div class="navbar-collapse collapse pull-right nav-collapse" id="navbar-main">              
           <ul class="nav navbar-nav">
 			<li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><font size="6">+</font><span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><span class="glyphicon glyphicon-plus" style="vertical-align:left"></span><span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="settings">
               	<li><%= link_to "JumpSquare", new_jumpsquare_path %></li>
               	<li><%= link_to "Tag", new_tag_path %></li>
@@ -69,10 +71,21 @@
         </div>
         
       <% else %>
+      
 	   <div class="navbar-collapse collapse pull-right" id="navbar-main">              
-		  <ul class="nav navbar-nav">      		 
-	          <li><%= link_to "Register", new_user_registration_path, :method => :get %></li>
-		      <li><%= link_to "Login", new_user_session_path, :method => :get %></li>		            	
+		  <ul class="nav navbar-nav"> 
+		  	  <li><%= link_to "/#videotour" do %>
+	                	<span class="glyphicon glyphicon-film" style="vertical-align:left"></span> Video Tour
+	                <% end %> </li>    
+	          <li><%= link_to "/#why" do %>
+	                	 Why?
+	                <% end %></li> 		 
+	          <li><%= link_to  new_user_registration_path, :method => :get do %>
+	                	<span class="glyphicon glyphicon-pencil" style="vertical-align:left"></span> Register
+	                <% end %></li>
+		      <li><%= link_to  new_user_session_path, :method => :get do %>
+	                	<span class="glyphicon glyphicon-user" style="vertical-align:left"></span> Login
+	                <% end %></li>		            	
 		  </ul> 
 	   </div>
       <% end %>
