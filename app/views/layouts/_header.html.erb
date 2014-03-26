@@ -27,12 +27,24 @@
         <div class="navbar-collapse collapse pull-right nav-collapse" id="navbar-main">              
           <ul class="nav navbar-nav">
 			<li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><font size="6">+</font><span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><span class="glyphicon glyphicon-plus-sign" style="vertical-align:left"></span><span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="settings">
-              	<li><%= link_to "JumpSquare", new_jumpsquare_path %></li>
-              	<li><%= link_to "Tag", new_tag_path %></li>
-              	<li><%= link_to "AppType", new_apptype_path %></li>
-              	<li><%= link_to "Nmap Scan XML", new_nmapfile_path %></li>
+              	<li><%= link_to new_jumpsquare_path do %>
+              		<span class="glyphicon glyphicon-stop" style="vertical-align:left"></span> JumpSquare
+              		<% end %>
+              	</li>
+              	<li><%= link_to new_tag_path do %>
+              		<span class="glyphicon glyphicon-tag" style="vertical-align:left"></span> Tag
+              		<% end %>
+              	</li>
+              	<li><%= link_to new_apptype_path do %>
+              		<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> AppType
+              		<% end %>
+              	</li>
+              	<li><%= link_to new_nmapfile_path do %>
+              		<span class="glyphicon glyphicon-eye-open" style="vertical-align:left"></span> Nmap Scan XML
+              		<% end %>
+              	</li>
               </ul>
             </li>
             
@@ -43,11 +55,26 @@
             <li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings">Settings <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="settings">
-              	<li><%= link_to "Admin Dashboard", :admindashboard %></li>
-              	<li><%= link_to "AppTypes", apptypes_path %></li>
-              	<li><%= link_to "Tags", tags_path %></li>
-              	<li><%= link_to "JumpSquare Size", jumpsizes_path %></li>
-              	<li><%= link_to "Nmap Scans", nmapfiles_path %></li>
+              	<li><%= link_to :admindashboard do %>
+              		<span class="glyphicon glyphicon-stats" style="vertical-align:left"></span> Admin Dashboard
+              		<% end %>
+              	</li>
+              	<li><%= link_to apptypes_path do %>
+              		<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> AppTypes
+              		<% end %>
+              	</li>
+              	<li><%= link_to tags_path do %>
+              		<span class="glyphicon glyphicon-tags" style="vertical-align:left"></span> Tags
+              		<% end %>
+              	</li>
+              	<li><%= link_to jumpsizes_path do %>
+              		<span class="glyphicon glyphicon-th-list" style="vertical-align:left"></span> Size & Length
+              		<% end %>
+              	</li>
+              	<li><%= link_to nmapfiles_path do %>
+              		<span class="glyphicon glyphicon-eye-open" style="vertical-align:left"></span> Nmap Scans
+              		<% end %>
+              	</li>
               </ul>
             </li>
 			
