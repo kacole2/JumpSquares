@@ -19,7 +19,6 @@
 	        	<%= link_to image_tag("medium_jumpsquares_logo.png", :height => '25', :width => '25'), :root, class: "navbar-brand" %>
 	         	<%= link_to "JumpSquares", :root, class: "navbar-brand" %>
 	         <% end %>
-         
           <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -32,39 +31,91 @@
         <div class="navbar-collapse collapse pull-right nav-collapse" id="navbar-main">              
           <ul class="nav navbar-nav">
 			<li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><span class="glyphicon glyphicon-plus" style="vertical-align:left"></span><span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><span class="glyphicon glyphicon-plus-sign" style="vertical-align:left"></span> New<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="settings">
-              	<li><%= link_to "JumpSquare", new_jumpsquare_path %></li>
-              	<li><%= link_to "Tag", new_tag_path %></li>
-              	<li><%= link_to "AppType Request", new_apptype_request_path %></li>
-              	<li><%= link_to "AppType", new_apptype_path %></li>
-              	<li><%= link_to "Nmap Scan XML", new_nmapfile_path %></li>
+              	<li><%= link_to new_jumpsquare_path do %>
+              		<span class="glyphicon glyphicon-stop" style="vertical-align:left"></span> JumpSquare
+              		<% end %>
+              	</li>
+              	<li><%= link_to new_tag_path do %>
+              		<span class="glyphicon glyphicon-tag" style="vertical-align:left"></span> Tag
+              		<% end %>
+              	</li>
+              	<li><%= link_to new_apptype_request_path do %>
+              		<span class="glyphicon glyphicon-asterisk" style="vertical-align:left"></span> AppType Request
+              		<% end %>
+              	</li>
+              	<li><%= link_to new_nmapfile_path do %>
+              		<span class="glyphicon glyphicon-eye-open" style="vertical-align:left"></span> Nmap Scan XML
+              		<% end %>
+              	</li>
+              	<% if current_user.has_role? :admin %>
+		        <li><%= link_to new_apptype_path do %>
+              		<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> New Apptype
+              		<% end %>
+              	</li>
+		        <% end %>
               </ul>
             </li>
             
             <li>
-               <li><%= link_to "Help", :help %></li>
+               <li><%= link_to :help do %>
+              		<span class="glyphicon glyphicon-info-sign" style="vertical-align:left"></span> Help
+              		<% end %>
+              	</li>
             </li>
             
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings">Settings <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><span class="glyphicon glyphicon-cog" style="vertical-align:left"></span> Settings <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="settings">
-              	<li><%= link_to "AppTypes", apptypes_path %></li>
-              	<li><%= link_to "Tags", tags_path %></li>
-              	<li><%= link_to "JumpSquare Size", jumpsizes_path %></li>
-              	<li><%= link_to "Nmap Scans", nmapfiles_path %></li>
+              	<li><%= link_to apptypes_path do %>
+              		<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> AppTypes
+              		<% end %>
+              	</li>
+              	<li><%= link_to tags_path do %>
+              		<span class="glyphicon glyphicon-tags" style="vertical-align:left"></span> Tags
+              		<% end %>
+              	</li>
+              	<li><%= link_to jumpsizes_path do %>
+              		<span class="glyphicon glyphicon-th-list" style="vertical-align:left"></span> Size & Length
+              		<% end %>
+              	</li>
+              	<li><%= link_to nmapfiles_path do %>
+              		<span class="glyphicon glyphicon-eye-open" style="vertical-align:left"></span> Nmap Scans
+              		<% end %>
+              	</li>
               	<% if current_user.has_role? :admin %>
-		        <li><a href="/apptype_requests">All AppType Requests <span class="badge"><%= ApptypeRequest.where(:completed => false ).count %></span></a></li>
+		        <li><%= link_to apptype_requests_path do %>
+              		<span class="glyphicon glyphicon-asterisk" style="vertical-align:left"></span> All AppType Requests
+              		<span class="badge"><%= ApptypeRequest.where(:completed => false ).count %></span>
+              		<% end %>
+              	</li>
 		        <% else %>
-		        <li><a href="/apptype_requests">AppType Requests <span class="badge"><%= ApptypeRequest.where(:apprequestor => current_user.email, :completed => false).count %></span></a></li>
+		        <li><%= link_to apptype_requests_path do %>
+              		<span class="glyphicon glyphicon-asterisk" style="vertical-align:left"></span> AppType Requests
+              		<span class="badge"><%= ApptypeRequest.where(:apprequestor => current_user.email, :completed => false).count %></span>
+              		<% end %>
+              	</li>
 		        <% end %>	
-		        <li><%= link_to "Manage Account", edit_user_registration_path %></li>
+		        <li><%= link_to edit_user_registration_path do %>
+              		<span class="glyphicon glyphicon-user" style="vertical-align:left"></span> Manage Account
+              		<% end %>
+              	</li>
 		        <% if current_user.has_role? :admin %>
-		        <li><%= link_to "Manage Users", users_path %></li>
-		        <li><%= link_to "Admin Dashboard", :admindashboard %></li>
+		        <li><%= link_to users_path do %>
+              		<span class="glyphicon glyphicon-wrench" style="vertical-align:left"></span> Manage Users
+              		<% end %>
+              	</li>
+		        <li><%= link_to :admindashboard do %>
+              		<span class="glyphicon glyphicon-stats" style="vertical-align:left"></span> Admin Dashboard
+              		<% end %>
+              	</li>
 		        <% else %>
-		        <% end %>
-		        <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>            
+		        <% end %>          
+				<li><%= link_to destroy_user_session_path, method: :delete do %>
+              		<span class="glyphicon glyphicon-off" style="vertical-align:left"></span> Logout
+              		<% end %>
+              	</li>
               </ul>
             </li>
 		 </ul>	

@@ -19,12 +19,18 @@
 			</div>                   
 	   </div>
   	</div>	
-  	<div class="col-xs-6 col-sm-8 col-md-8">
+  	<div class="col-xs-6 col-sm-4 col-md-2 pull-right">
   		<% if current_user.has_role? :admin %>
-  			<%= link_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info", :method => :get %>
-  			<%= link_to "Create a New Application Type", new_apptype_path, class: "btn btn-info", :method => :get %>
+  			<%= link_to new_apptype_request_path, class: "btn btn-primary", :method => :get do %>
+	        	<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> Request Application Type
+	    	<% end %> 
+  			<%= link_to new_apptype_path, class: "btn btn-primary", :method => :get do %>
+	        	<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> New Application Type
+	    	<% end %>
      	<% else %>
-			<%= link_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info", :method => :get %>
+			<%= link_to new_apptype_request_path, class: "btn btn-primary", :method => :get do %>
+	        	<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> Request Application Type
+	    	<% end %>
 		<% end %>
 	</div>
 </div>
@@ -33,7 +39,7 @@
           <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           	
             <div class="page-header">
-              <h1 id="tables">AppType Requests</h1>
+              <h1 id="tables"><span class="glyphicon glyphicon-asterisk" style="vertical-align:left"></span> AppType Requests</h1>
             </div>
             <div class="bs-example">
               <table class="table table-striped table-bordered table-hover">
