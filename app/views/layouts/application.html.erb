@@ -14,7 +14,11 @@
   <body>
 		<%= render 'layouts/header' %>
     <div class="container">
-      	
+      		 	 <!--[if IE]>
+<center><b>Are you wondering why this site looks like garbage? <br>
+	It's because you are using Internet Explorer. <br>
+	Use a browser with standards, preferebly Firefox.</b></center>
+	<![endif]-->
       	<center>  	 
 	      	<div class="alert alert-warning alert-dismissable hide" style="width:400px">
 	            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -31,7 +35,15 @@
 			$(".alert").delay(400).addClass("in");
 	      });
 	    </script>
-      	
+      
+      	<script type='text/javascript'>//<![CDATA[
+		$(window).load(function(){
+		$(document).ready(function() {
+		  $('#tooltip1').tooltip();
+		$('#tooltip2').tooltip();
+		});
+		});//]]> 
+		</script>
     </div>
    		<%= render 'layouts/footer' %>
   </body>
