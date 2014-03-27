@@ -97,28 +97,28 @@
 					<% if jumpsquare.remotetype == 'none' %>
 				    	<%= truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
 				    	<br>
-				    	<br>
 				    <% elsif jumpsquare.remotetype == 'rdp' %>
 				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), createrdpfile_jumpsquare_path(jumpsquare), :class => "popover-with-html", :title => "RDP", "data-content" => "RDP to " + jumpsquare.ipordns %>
-				    	<br>
 				    	<br>
 				    <% elsif jumpsquare.remotetype == 'ssh' %>
 				    	<% sshaddress = "ssh://" + jumpsquare.ipordns.to_s %>
 				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), sshaddress, :class => "popover-with-html", :title => "SSH", "data-content" => "SSH to " + jumpsquare.ipordns, :target => "_blank" %>
 				    	<br>
-				    	<br>
 				    <% elsif jumpsquare.remotetype == 'vnc' %>
 				    	<% vncaddress = "http://" + jumpsquare.ipordns.to_s + ":5800" %>
 				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), vncaddress, :class => "popover-with-html", :title => "VNC", "data-content" => "VNC to " + jumpsquare.ipordns, :target => "_blank" %>
 				    	<br>
-				    	<br>
 				    <% else %>
 				    	<%= truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
 				    	<br>
-				    	<br>
 				    <% end %>
-				        <%= link_to "edit", edit_jumpsquare_path(jumpsquare, :ipordns => jumpsquare.ipordns) %> 	|
-				        <%= link_to "remove", jumpsquare, method: :delete, data: {confirm: "Delete '#{jumpsquare.name}' JumpSquare? "} %>
+				        <%= link_to edit_jumpsquare_path(jumpsquare, :ipordns => jumpsquare.ipordns), class: "pull-left", :method => :get do %>
+	        				<span class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit JumpSquare" id='tooltip1' style="vertical-align:left"></span>
+	    				<% end %>
+	    				
+				        <%= link_to jumpsquare, class: "pull-right", :method => :delete, :data => {confirm: "Delete '#{jumpsquare.name}' JumpSquare? "} do %>
+	        				<span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete JumpSquare" id='tooltip2' style="vertical-align:left"></span>
+	    				<% end %>
 			      	</div>
 			    </div>	
 			  <% end %>	
@@ -131,3 +131,12 @@
 <center><%= will_paginate @jumpsquares, renderer: BootstrapPagination::Rails %></center>
 <br>
 </html>
+
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+$(document).ready(function() {
+  $('#tooltip1').tooltip();
+$('#tooltip2').tooltip();
+});
+});//]]> 
+</script>
