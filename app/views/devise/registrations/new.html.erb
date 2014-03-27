@@ -15,9 +15,9 @@
   				<%= devise_error_messages! %>
               
                 <fieldset>
-                  <legend>Registration</legend>
+                  <legend><span class="glyphicon glyphicon-pencil" style="vertical-align:left"></span>  Registration</legend>
                   <div class="form-group">
-                  	<%= f.label :email, "Email Address:", :class => "col-lg-3 control-label" %>        
+                  	<%= f.label :email, "Email Address:", :class => "col-lg-3 control-label" %>      
                     <div class="col-lg-7">
                       <%= f.email_field :email, :autofocus => true, :class => "form-control", :placeholder => "Email"  %>	 
                     </div>

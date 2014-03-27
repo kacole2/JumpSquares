@@ -8,14 +8,19 @@
     						<%= text_field_tag :search, params[:search], {:class => "form-control col-lg-8", :placeholder => "Search"} %>
 					  <% end %>  
 	 </div>	
-	 		<div class="col-xs-6 col-sm-4 col-md-2">
+	 	<div class="col-xs-6 col-sm-4 col-md-2 pull-right">
 	 	<% if current_user.has_role? :admin %>
-  			<%= link_to "Create a New Application Type", new_apptype_path, class: "btn btn-info", :method => :get %>
+  			<%= link_to new_apptype_path, class: "btn btn-primary", :method => :get do %>
+	        	<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> New Application Type
+	    	<% end %>
   	 		</div>
      	<% else %>
-			<%= link_to "Request a New Application Type", new_apptype_request_path, class: "btn btn-info", :method => :get %>
+			<%= link_to new_apptype_request_path, class: "btn btn-primary", :method => :get do %>
+	        	<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> Request New Application Type
+	    	<% end %>
 	 		</div>
 		<% end %>
+	 	 
 </div>
 		<% if current_user.has_role? :admin %>
 		<% else %>
