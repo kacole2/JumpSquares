@@ -27,7 +27,7 @@
         <div class="navbar-collapse collapse pull-right nav-collapse" id="navbar-main">              
           <ul class="nav navbar-nav">
 			<li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><span class="glyphicon glyphicon-plus-sign" style="vertical-align:left"></span><span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><span class="glyphicon glyphicon-plus-sign" style="vertical-align:left"></span> New<span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="settings">
               	<li><%= link_to new_jumpsquare_path do %>
               		<span class="glyphicon glyphicon-stop" style="vertical-align:left"></span> JumpSquare
@@ -49,11 +49,14 @@
             </li>
             
             <li>
-               <li><%= link_to "Help", :help %></li>
+               <li><%= link_to :help do %>
+              		<span class="glyphicon glyphicon-info-sign" style="vertical-align:left"></span> Help
+              		<% end %>
+              	</li>
             </li>
             
             <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings">Settings <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="settings"><span class="glyphicon glyphicon-cog" style="vertical-align:left"></span> Settings <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="settings">
               	<li><%= link_to :admindashboard do %>
               		<span class="glyphicon glyphicon-stats" style="vertical-align:left"></span> Admin Dashboard

@@ -24,7 +24,9 @@
 	   </div>
   	</div>	
   	<div class="col-xs-6 col-sm-4 col-md-2 pull-right">
-  		<%= link_to "Upload Nmap XML File", new_nmapfile_path, class: "btn btn-info", :method => :get %>
+  		<%= link_to new_nmapfile_path, class: "btn btn-primary", :method => :get do %>
+	        <span class="glyphicon glyphicon-eye-open" style="vertical-align:left"></span> Upload Nmap XML
+	    <% end %>
      </div>
 </div>
 	

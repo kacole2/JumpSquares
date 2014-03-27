@@ -24,7 +24,9 @@
 	   </div>
   	</div>	
    <div class="col-xs-6 col-sm-4 col-md-2 pull-right">
-  		<%= link_to "Create a New JumpSquare", new_jumpsquare_path, class: "btn btn-info", :method => :get %>
+  		<%= link_to new_jumpsquare_path, class: "btn btn-primary", :method => :get do %>
+	        <span class="glyphicon glyphicon-stop" style="vertical-align:left"></span> New JumpSquare
+	    <% end %>
    </div>
 </div>
 	

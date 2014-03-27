@@ -9,7 +9,9 @@
 					  <% end %>  
 	 </div>	
 	 <div class="col-xs-6 col-sm-4 col-md-2 pull-right">
-  		<%= link_to "Create a New Application Type", new_apptype_path, class: "btn btn-info", :method => :get %>
+  		<%= link_to new_apptype_path, class: "btn btn-primary", :method => :get do %>
+	        <span class="glyphicon glyphicon-th" style="vertical-align:left"></span> New Application Type
+	    <% end %>
      </div>
 	 
 </div>
