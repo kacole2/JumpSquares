@@ -24,7 +24,7 @@
 	    </div>
     </div>	
     <div class="col-xs-4 col-sm-2 col-md-2">
-	  <center><strong><%= @tag.tagname %></strong></center>
+	  <center><strong><span class="glyphicon glyphicon-tag" style="vertical-align:left"></span> <%= @tag.tagname %></strong></center>
 	  <p>
 	  	<%= link_to edit_tag_path(@tag), class: "pull-left", :method => :get do %>
 	        <span class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit Tag" style="vertical-align:left"></span>
