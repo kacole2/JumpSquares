@@ -33,12 +33,16 @@
 <br>
 <div class="row">
 	<div class="col-sm-2 col-md-2"
-		 <strong>Tags</strong>
+		 <strong><span class="glyphicon glyphicon-tags" style="vertical-align:left"></span> Tags</strong>
 	 	<% @tags.each do |tag| %>
 	      <tr>    
 	        <% tagcount = tag.jumpsquares.count %>
 	        <% if tagcount > 0 %>
-	        	<td><%= button_to tag.tagname + " [" + tag.jumpsquares.count.to_s + "]", tag_path(tag.id), class: "btn btn-success btn-xs", :method => :get  %></td>
+	        	<td>
+	        		<%= button_to tag_path(tag.id), class: "btn btn-success btn-xs", :method => :get do %>
+	        				<span class="glyphicon glyphicon-tag" style="vertical-align:left"></span> <%= tag.tagname + " [" + tag.jumpsquares.count.to_s + "]" %>
+	    			<% end %>
+	        	</td>
 	        <% else %>
 	        <% end %>									        
 	      </tr>

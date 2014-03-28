@@ -24,9 +24,15 @@
 	    </div>
     </div>	
     <div class="col-xs-4 col-sm-2 col-md-2">
-	  <strong><%= @tag.tagname %></strong>
+	  <center><strong><%= @tag.tagname %></strong></center>
 	  <p>
-	  	<%= link_to 'Edit', edit_tag_path(@tag) %> | <%= link_to 'Home', :root %>
+	  	<%= link_to edit_tag_path(@tag), class: "pull-left", :method => :get do %>
+	        <span class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit Tag" style="vertical-align:left"></span>
+	    <% end %>
+	    <%= link_to :root, class: "pull-right", :method => :get do %>
+	        <span class="glyphicon glyphicon-home" data-toggle="tooltip" title="Home" style="vertical-align:left"></span>
+	    <% end %>
+	
 	  </p>
 	</div>
 </div>
@@ -34,16 +40,18 @@
 <br>
 <div class="row">
 	<div class="col-xs-2 col-sm-2 col-md-2"
-		 <strong>Tags</strong>
+		 <strong><span class="glyphicon glyphicon-tags" style="vertical-align:left"></span> Tags</strong>
 	 	<% @tags.each do |tag| %>
 	      <tr>
-	        <div style="padding-right: 1px; padding-bottom: 1px">
 	        <% tagcount = tag.jumpsquares.count %>
-	        <% if tagcount > 0 %>
-	        <td><%= button_to tag.tagname + " [" + tag.jumpsquares.count.to_s + "]", tag_path(tag.id), class: "btn btn-success btn-xs", :method => :get  %></td>
+	        	<% if tagcount > 0 %>
+	        		<td>
+	        			<%= button_to tag_path(tag.id), class: "btn btn-success btn-xs", :method => :get do %>
+	        				<span class="glyphicon glyphicon-tag" style="vertical-align:left"></span> <%= tag.tagname + " [" + tag.jumpsquares.count.to_s + "]" %>
+	    				<% end %>
+	        		</td>
 	        <% else %>
 	        <% end %>								
-	        </div>
 	      </tr>
 	    <% end %>
     
@@ -99,39 +107,37 @@
 			      <% if jumpsquare.remotetype == 'none' %>
 				    	<%= truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
 				    	<br>
-				    	<br>
 				    <% elsif jumpsquare.remotetype == 'rdp' %>
 				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), createrdpfile_jumpsquare_path(jumpsquare), :class => "popover-with-html", :title => "RDP", "data-content" => "RDP to " + jumpsquare.ipordns %>
-				    	<br>
 				    	<br>
 				    <% elsif jumpsquare.remotetype == 'ssh' %>
 				    	<% sshaddress = "ssh://" + jumpsquare.ipordns.to_s %>
 				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), sshaddress, :class => "popover-with-html", :title => "SSH", "data-content" => "SSH to " + jumpsquare.ipordns, :target => "_blank" %>
 				    	<br>
-				    	<br>
 				    <% elsif jumpsquare.remotetype == 'vnc' %>
 				    	<% vncaddress = "http://" + jumpsquare.ipordns.to_s + ":5800" %>
 				    	<%= link_to truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2), vncaddress, :class => "popover-with-html", :title => "VNC", "data-content" => "VNC to " + jumpsquare.ipordns, :target => "_blank" %>
 				    	<br>
-				    	<br>
 				    <% else %>
 				    	<%= truncate(jumpsquare.ipordns, :length => @jumpsizes.first.length2) %>
 				    	<br>
-				    	<br>
 				    <% end %>
-				        <%= link_to "edit", edit_jumpsquare_path(jumpsquare) %> 	|
-				        <%= link_to "remove", jumpsquare, method: :delete, data: {confirm: "Delete '#{jumpsquare.name}' JumpSquare? "} %>
+				        <%= link_to edit_jumpsquare_path(jumpsquare, :ipordns => jumpsquare.ipordns), class: "pull-left", :method => :get do %>
+	        				<span class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit JumpSquare" id='tooltip1' style="vertical-align:left"></span>
+	    				<% end %>
+	    				
+				        <%= link_to jumpsquare, class: "pull-right", :method => :delete, :data => {confirm: "Delete '#{jumpsquare.name}' JumpSquare? "} do %>
+	        				<span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete JumpSquare" id='tooltip2' style="vertical-align:left"></span>
+	    				<% end %>
 			      	</div>			      	
 			    </div>
 			 <% else %>
 			 <% end %>
 		    	
 	 <% end %>
-			 
-	 <div class="clearfix"></div>
-		  
-		  
+				  
 	</div>
+</div>
 </div>
 <center><%= will_paginate @jumpsquares, renderer: BootstrapPagination::Rails %></center>
 <br>

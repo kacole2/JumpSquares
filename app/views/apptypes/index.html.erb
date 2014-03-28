@@ -57,8 +57,14 @@
 				 <% end %>
         <%= link_to edit_apptype_path(realapptype), class: "pull-left", :method => :get do %>
 	        <span class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit AppType" id='tooltip1' style="vertical-align:left"></span>
-	    <% end %>	
-        <%= link_to_if @appcount == 0, "remove", realapptype, method: :delete, data: {confirm: "Delete '#{realapptype.name}' AppType? "}, class: "pull-right" %>   
+	    <% end %>
+	    <% if @appcount == 0 %>
+	    	<%= link_to realapptype, class: "pull-right", :method => :delete, :data => {confirm: "Delete '#{realapptype.name}' AppType? "} do %>
+	        	<span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete AppType" id='tooltip1' style="vertical-align:left"></span>
+	    	<% end %>
+	    <% else %>
+	    <% end %>
+        
       </div>
     </div>
     	
