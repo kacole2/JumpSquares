@@ -34,8 +34,10 @@
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 	<div id="apptypes" >
-	  <% @apptypes.each do |realapptype| %>		
-	    <div class="apptype" style="float: left">			    	
+		  <% @apptypes.each do |realapptype| %>
+		  		
+		    <div class="apptype" style="float: left">
+					    	
 					     <% if @jumpsizes.first.size == "xsmall" %>
 							<div class="xsmallname">
 						 <% elsif @jumpsizes.first.size == "small" %>
@@ -47,28 +49,15 @@
 						 <% elsif @jumpsizes.first.size == "xlarge" %>
 							<div class="xlargename">
 						 <% end %>
-	    	
-				     <%= simple_format truncate(realapptype.name, :length => @jumpsizes.first.length1) %>
-				     		</div>
-				     <center><%= image_tag realapptype.image_url(@jumpsizes.first.size) %></center>
-				     <% if current_user.has_role? :admin %>
-				     	 <br>
-					     <% if @jumpsizes.first.size == "xsmall" %>
-							<div class="xsmallname">
-						 <% elsif @jumpsizes.first.size == "small" %>
-							<div class="smallname">
-						 <% elsif @jumpsizes.first.size == "medium" %>
-							<div class="mediumname">
-						 <% elsif @jumpsizes.first.size == "large" %>
-							<div class="largename">
-						 <% elsif @jumpsizes.first.size == "xlarge" %>
-							<div class="xlargename">
-						 <% end %>
-				     <center>
-				      JumpSquares:  <span class="badge"><%= @appcount = Jumpsquare.where(['apptype = ?', realapptype.id]).count %></span>
-				     		</div>
-				     </center>
-					     <% if @jumpsizes.first.size == "xsmall" %>
+		    	
+		      <%= simple_format truncate(realapptype.name, :length => @jumpsizes.first.length1) %>
+		      
+		      <center><%= image_tag realapptype.image_url(@jumpsizes.first.size) %>
+		      	<br>
+		      JumpSquares:  <span class="badge"><%= @appcount = Jumpsquare.where(['apptype = ?', realapptype.id]).count %></span>
+		      </div>
+		      </center>
+		      <% if @jumpsizes.first.size == "xsmall" %>
 							<div class="xsmallactions">
 						 <% elsif @jumpsizes.first.size == "small" %>
 							<div class="smallactions">
@@ -79,18 +68,21 @@
 						 <% elsif @jumpsizes.first.size == "xlarge" %>
 							<div class="xlargeactions">
 						 <% end %>
-	        
-			         <%= link_to edit_apptype_path(realapptype), class: "pull-left", :method => :get do %>
-	        			<span class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit AppType" id='tooltip1' style="vertical-align:left"></span>
-	    			<% end %>	
-        			<%= link_to_if @appcount == 0, "remove", realapptype, method: :delete, data: {confirm: "Delete '#{realapptype.name}' AppType? "}, class: "pull-right" %>   
-	      
-	      					</div>
-	      			 <% else %>
-	      			 <% end %>
-		</div>   
-  	<% end %> 
+		        <%= link_to edit_apptype_path(realapptype), class: "pull-left", :method => :get do %>
+			        <span class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit AppType" id='tooltip1' style="vertical-align:left"></span>
+			    <% end %>
+			    <% if @appcount == 0 %>
+			    	<%= link_to realapptype, class: "pull-right", :method => :delete, :data => {confirm: "Delete '#{realapptype.name}' AppType? "} do %>
+			        	<span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete AppType" id='tooltip1' style="vertical-align:left"></span>
+			    	<% end %>
+			    <% else %>
+			    <% end %>
+		        
+		      </div>
+		    </div>
+		    	
+		  <% end %>
+		</div>
 	</div>
-  </div>
-
+</div>
 <center><%= will_paginate @apptypes, renderer: BootstrapPagination::Rails %></center>
