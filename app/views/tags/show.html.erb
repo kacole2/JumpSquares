@@ -123,11 +123,11 @@
 				    	<br>
 				    <% end %>
 				        <%= link_to edit_jumpsquare_path(jumpsquare, :ipordns => jumpsquare.ipordns), class: "pull-left", :method => :get do %>
-	        				<span class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit JumpSquare" id='tooltip1' style="vertical-align:left"></span>
+	        				<span class="glyphicon glyphicon-edit" rel="tooltip" title="Edit JumpSquare" id='tooltip1' style="vertical-align:left"></span>
 	    				<% end %>
 	    				
 				        <%= link_to jumpsquare, class: "pull-right", :method => :delete, :data => {confirm: "Delete '#{jumpsquare.name}' JumpSquare? "} do %>
-	        				<span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete JumpSquare" id='tooltip2' style="vertical-align:left"></span>
+	        				<span class="glyphicon glyphicon-trash" rel="tooltip" title="Delete JumpSquare" id='tooltip2' style="vertical-align:left"></span>
 	    				<% end %>
 			      	</div>			      	
 			    </div>
