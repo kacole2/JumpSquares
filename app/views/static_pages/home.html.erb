@@ -259,9 +259,13 @@
 									      	<div class="mediumactions">
 									      		<%= link_to truncate("myserver.local", :length => 25), "#", :class => "popover-with-html", :title => "Remote Access Link", "data-content" => "RDP, SSH, or VNC to myserver.local" %>
 									      		<br>
-									      		<br>
-										        <%= link_to "edit", "#" %> 	|
-										        <%= link_to "remove", "#" %>
+									      		<%= link_to "#", class: "pull-left" do %>
+						        					<span class="glyphicon glyphicon-edit" data-toggle="tooltip" title="Edit JumpSquare" id='tooltip1' style="vertical-align:left"></span>
+						    					<% end %>
+						    				
+									        	<%= link_to "#", class: "pull-right" do %>
+						        					<span class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Delete JumpSquare" id='tooltip2' style="vertical-align:left"></span>
+						    					<% end %>
 									      	</div>
 								        </div>	
 						  	        </div>
