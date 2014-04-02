@@ -36,8 +36,13 @@
 	                  <div class="form-group">	                    
 	                      <%= f.submit class: 'btn btn-primary' %>
 	                  </div>
-	                  <%= link_to 'Back', apptypes_path %> |
-					  <%= link_to 'Home', :userroot %>
+	                  <%= link_to apptypes_path, class: "pull-left", :method => :get do %>
+	        			<span class="glyphicon glyphicon-arrow-left" rel="tooltip" title="Back" style="vertical-align:left"></span> Back
+	    			  <% end %>
+	                     
+	                  <%= link_to :userroot, class: "pull-right", :method => :get do %>
+	        			Home <span class="glyphicon glyphicon-home" rel="tooltip" title="Home" style="vertical-align:left"></span>
+	    			  <% end %>
                   </center>	 
                 </fieldset>
               
