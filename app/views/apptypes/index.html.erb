@@ -32,29 +32,31 @@
 		<% end %>
 <br>	
 
+<<<<<<< HEAD
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<div id="apptypes" >
-		  <% @apptypes.each do |realapptype| %>
-		  		
-		    <div class="apptype" style="float: left">
-					    	
-					     <% if @jumpsizes.first.size == "xsmall" %>
-							<div class="xsmallname">
-						 <% elsif @jumpsizes.first.size == "small" %>
-							<div class="smallname">
-						 <% elsif @jumpsizes.first.size == "medium" %>
-							<div class="mediumname">
-						 <% elsif @jumpsizes.first.size == "large" %>
-							<div class="largename">
-						 <% elsif @jumpsizes.first.size == "xlarge" %>
-							<div class="xlargename">
-						 <% end %>
-		    	
-		      <%= simple_format truncate(realapptype.name, :length => @jumpsizes.first.length1) %>
-		      				</div>
-		      <center><%= image_tag realapptype.image_url(@jumpsizes.first.size) %>
-		  	  <% if current_user.has_role? :admin %>
+	<div id="apptypes" > 
+ 
+  <% @apptypes.each do |realapptype| %>
+  		
+    <div class="apptype" style="float: left">
+			    	
+			     <% if @jumpsizes.first.size == "xsmall" %>
+					<div class="xsmallname">
+				 <% elsif @jumpsizes.first.size == "small" %>
+					<div class="smallname">
+				 <% elsif @jumpsizes.first.size == "medium" %>
+					<div class="mediumname">
+				 <% elsif @jumpsizes.first.size == "large" %>
+					<div class="largename">
+				 <% elsif @jumpsizes.first.size == "xlarge" %>
+					<div class="xlargename">
+				 <% end %>
+    	
+      <%= simple_format truncate(realapptype.name, :length => @jumpsizes.first.length1) %>
+      				</div>
+      <center><%= image_tag realapptype.image_url(@jumpsizes.first.size) %>
+      <% if current_user.has_role? :admin %>
 		      	<br>
 		      			<% if @jumpsizes.first.size == "xsmall" %>
 							<div class="xsmallname">
@@ -99,5 +101,6 @@
 		</div>
 	</div>
 
+  <div class="clear"></div>
 </div>
 <center><%= will_paginate @apptypes, renderer: BootstrapPagination::Rails %></center>
