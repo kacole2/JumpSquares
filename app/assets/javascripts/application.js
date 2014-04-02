@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require twitter/bootstrap
+//= require bootstrap.min
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -19,7 +20,5 @@
 
 
 $(document).ready(function() {
-
-    		$("[rel=tooltip]").tooltip({ placement: 'bottom'});
 
 });
