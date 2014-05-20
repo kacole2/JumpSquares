@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.1.0'
 gem 'carrierwave'
 gem "mini_magick"
 #gem 'therubyracer'
@@ -20,8 +20,8 @@ gem 'unicorn'
 gem "fog", "~> 1.3.1"
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.0'
-gem 'bootstrap-sass-rails'
+gem 'sass-rails', '~> 4.0.3'
+#gem 'bootstrap-sass-rails'
 
 # authentication
 gem 'devise'

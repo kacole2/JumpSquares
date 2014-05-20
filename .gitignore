@@ -46,6 +46,6 @@ public/uploads/nmapfile/nmapxml/44/output.xml
 *.log
 #<Net::HTTP::Get:0x007ff08bcaa1d8>
 
-tmp/cache/assets/development/sprockets/13fe41fee1fe35b49d145bcc06610705
 
-/tmp/*
+tmp/*
+
