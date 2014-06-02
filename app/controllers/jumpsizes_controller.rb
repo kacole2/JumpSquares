@@ -7,7 +7,9 @@ class JumpsizesController < ApplicationController
   # GET /jumpsizes.json
   def index
     if current_user.has_role? :admin
-      @jumpsizes = Jumpsize.search(params[:search]).paginate(:page => params[:page], :per_page => 100).order(sort_order('id'))
+      #uncomment to see ALL jumpsizes
+      #@jumpsizes = Jumpsize.search(params[:search]).paginate(:page => params[:page], :per_page => 100).order(sort_order('id'))
+      @jumpsizes = Jumpsize.where(:jumpsizecreator => current_user.email)
     else
       @jumpsizes = Jumpsize.where(:jumpsizecreator => current_user.email)
     end
