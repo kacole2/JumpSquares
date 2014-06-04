@@ -15,7 +15,7 @@ class ApptypeRequest < ActiveRecord::Base
     if search
       where('apprequestor ILIKE ? OR appname ILIKE ? OR completed ILIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
-      scoped
+      all
     end
   end
 end
