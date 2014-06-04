@@ -6,7 +6,6 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <%# <link href="assets/stylesheets/bootstrap.css.scss" rel="stylesheet"> %>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -27,6 +26,7 @@
        </center>
        
       	<%= yield %>
+     </div>
       	<script>
 	      $(function (){
 	      	$('.dropdown-toggle').dropdown();
