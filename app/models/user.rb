@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   after_create :jumpsizeprofile
 
   def jumpsizeprofile
-    Jumpsize.create(:size => "medium", :length1 => 20, :length2 => 22, :itemsperpage => 100, :jumpsizecreator => self.email)
+    Jumpsize.create(:size => "medium", :length1 => 20, :length2 => 22, :itemsperpage => 100, :jumpsizecreator => self.email, :sortorder => "name")
   end
   
   # Include default devise modules. Others available are:
