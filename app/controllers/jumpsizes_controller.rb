@@ -46,7 +46,7 @@ class JumpsizesController < ApplicationController
   def update
     respond_to do |format|
       if @jumpsize.update(jumpsize_params)
-        format.html { redirect_to @jumpsize, notice: 'Jumpsize was successfully updated.' }
+        format.html { redirect_to :jumpsizes, notice: 'Jumpsize was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -76,6 +76,6 @@ class JumpsizesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def jumpsize_params
-      params.require(:jumpsize).permit(:size, :length1, :length2, :itemsperpage)
+      params.require(:jumpsize).permit(:size, :length1, :length2, :itemsperpage, :sortorder)
     end
 end

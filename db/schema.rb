@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140104154832) do
+ActiveRecord::Schema.define(version: 20140604185504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20140104154832) do
     t.datetime "updated_at"
     t.string   "jumpsizecreator"
     t.integer  "itemsperpage"
+    t.string   "sortorder"
   end
 
   create_table "jumpsquares", force: true do |t|
@@ -67,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140104154832) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nmapxml"
+    t.string   "nmapfilecreator"
   end
 
   create_table "roles", force: true do |t|
