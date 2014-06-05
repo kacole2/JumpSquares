@@ -10,7 +10,7 @@ class JumpsquaresController < ApplicationController
    @tags = Tag.where(:tagcreator => current_user.email)
    @jumpsizes = Jumpsize.where(:jumpsizecreator => current_user.email)
    
-   if @jumpsizes.first.sortorder == ''
+   if @jumpsizes.first.sortorder.blank?
      @jumpsizes.first.sortorder == 'name'
    end
    
