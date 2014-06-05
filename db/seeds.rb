@@ -7,5 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #create the jumpsize settings
-Jumpsize.create(:size => "medium", :length1 => 20, :length2 => 22, :itemsperpage => 100)
+Jumpsize.create(:size => "medium", :length1 => 20, :length2 => 22, :itemsperpage => 100, :sortorder => "name")
 puts "creating the first jumpsize"
