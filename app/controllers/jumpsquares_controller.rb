@@ -7,18 +7,20 @@ class JumpsquaresController < ApplicationController
   # GET /jumpsquares
   # GET /jumpsquares.json
   def index
-
    @tags = Tag.where(:tagcreator => current_user.email)
    @jumpsizes = Jumpsize.where(:jumpsizecreator => current_user.email)
-  
+   
+   if @jumpsizes.first.sortorder == ''
+     @jumpsizes.first.sortorder == 'name'
+   end
+   
    if current_user.has_role? :admin
       #uncomment to see ALL jumpsquares
       #@jumpsquares = Jumpsquare.paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).search(params[:search]).find(:all, :order => sort_order('name'))
-      @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:jscreator => current_user.email).order(sort_order('name'))
+      @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:jscreator => current_user.email).order(sort_order(@jumpsizes.first.sortorder))
     else
-      @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:jscreator => current_user.email).order(sort_order('name'))
+      @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:jscreator => current_user.email).order(sort_order(@jumpsizes.first.sortorder))
     end 
-
   end
   
   # GET /jumpsquares/1

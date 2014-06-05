@@ -42,6 +42,7 @@
 				    <th>Truncated Characters for Name Length</th>
 				    <th>Truncated Characters for IP/DNS Length</th>
 				    <th>Items Per Page</th>
+				    <th>Default Sort Order</th>
 				    
                   </tr>
                 </thead>
@@ -58,6 +59,19 @@
 						        <td><%= jumpsize.length1 %></td>
 						        <td><%= jumpsize.length2 %></td>
 						        <td><%= jumpsize.itemsperpage %></td>
+						              
+						        <% if jumpsize.sortorder == 'name' %>
+							          <td>Name</td>
+							    <%  elsif jumpsize.sortorder == 'ipordns'  %>
+							          <td>IP or DNS</td>
+							    <%  elsif jumpsize.sortorder == 'apptype'  %>
+							          <td>Application Type</td>
+							    <%  elsif jumpsize.sortorder == 'url'  %>
+							          <td>Jump URL</td>
+							    <%  else  %>
+							          <td>Name</td>
+							    <%  end %>
+							          
 						        <td><%= link_to 'Edit', edit_jumpsize_path(jumpsize), class: "btn btn-warning btn-xs" %></td>
 						        
 						      </tr>
