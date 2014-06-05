@@ -12,6 +12,8 @@ class JumpsquaresController < ApplicationController
    
    if @jumpsizes.first.sortorder.nil?
      @jumpsizes.first.sortorder == 'name'
+   else 
+     @jumpsizes.first.sortorder == 'name'
    end
    
    if current_user.has_role? :admin
