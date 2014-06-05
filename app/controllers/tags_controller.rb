@@ -11,9 +11,9 @@ class TagsController < ApplicationController
     if current_user.has_role? :admin
       #uncomment to see ALL tags
       #@tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).order(sort_order('tagname'))
-      @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:tagcreator => current_user.email)
+      @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:tagcreator => current_user.email).order(sort_order('tagname'))
     else
-      @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:tagcreator => current_user.email)
+      @tags = Tag.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:tagcreator => current_user.email).order(sort_order('tagname'))
     end
   end
   
