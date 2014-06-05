@@ -43,7 +43,14 @@
                     <div class="col-lg-7">
                       <%= f.number_field :itemsperpage, :class => "form-control" %>
                     </div>
-                  </div>               
+                  </div>
+                  <br>                 
+                  <div class="form-group">
+                  	<%= f.label :sortorder, "How do you want the JumpSquares to be sorted by default?", :class => "col-lg-4 control-label" %>                  	
+                    <div class="col-lg-7">
+                      <%= f.select :sortorder, [['Name','name'], ['Application Type','apptype'],['IP or DNS','ipordns'],['Jump URL','url']], {}, include_blank: false, :class => "form-control" %>	
+                    </div>
+                  </div>                
                   <center>
 	                  <div class="form-group">	                  	                  
 	                      <%= f.submit "Update JumpSquare Size", class: 'btn btn-primary'%>	                    

@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
 firstadmin = User.create(:email => "admin@jumpsquares.net", :password => "jump123", :password_confirmation => "jump123", :confirmed_at => Time.now)
 firstadmin.add_role :admin
 puts "creating the first admin user admin@jumpsquares.net"
