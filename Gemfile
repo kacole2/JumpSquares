@@ -18,6 +18,7 @@ gem 'pg'
 gem 'rails_12factor', group: :production
 gem 'unicorn'
 gem "fog", "~> 1.22.1"
+gem 'asset_sync'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
