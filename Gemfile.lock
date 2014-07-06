@@ -54,7 +54,8 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     excon (0.36.0)
-    execjs (2.1.0)
+    eventmachine (1.0.3)
+    execjs (2.2.0)
     fog (1.22.1)
       fog-brightbox
       fog-core (~> 1.22)
