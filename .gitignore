@@ -41,5 +41,24 @@ public/uploads/nmapfile/nmapxml/44/output.xml
 
 *.log
 
+<<<<<<< HEAD
 =======
 /tmp/*
+=======
+/tmp/*
+public/uploads/apptype/image/blah/large_Screen_Shot_2014-07-09_at_11.05.30_PM.png
+
+public/uploads/apptype/image/blah/medium_Screen_Shot_2014-07-09_at_11.05.30_PM.png
+
+public/uploads/apptype/image/blah/Screen_Shot_2014-07-09_at_11.05.30_PM.png
+
+public/uploads/apptype/image/blah/small_Screen_Shot_2014-07-09_at_11.05.30_PM.png
+
+public/uploads/apptype/image/blah/xlarge_Screen_Shot_2014-07-09_at_11.05.30_PM.png
+
+public/uploads/apptype/image/blah/xsmall_Screen_Shot_2014-07-09_at_11.05.30_PM.png
+
+public/uploads/tmp/1404965471-27484-0767/Screen_Shot_2014-07-09_at_11.05.30_PM.png
+
+public/uploads/tmp/1404965471-27484-0767/xsmall_Screen_Shot_2014-07-09_at_11.05.30_PM.png
+>>>>>>> master

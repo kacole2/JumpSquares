@@ -30,7 +30,7 @@ development:
   encoding: unicode
   database: jumpsquares_development
   pool: 5
-  username: colemk1
+  username: kcoleman
   password:
     
 test:
@@ -38,7 +38,7 @@ test:
   encoding: unicode
   database: jumpsquares_test
   pool: 5
-  username: colemk1
+  username: kcoleman
   password:
 
 production:
