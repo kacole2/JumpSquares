@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20140604185504) do
 
   # These are extensions that must be enabled in order to support this database
@@ -37,10 +36,10 @@ ActiveRecord::Schema.define(version: 20140604185504) do
     t.string   "size"
     t.integer  "length1"
     t.integer  "length2"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "jumpsizecreator"
     t.integer  "itemsperpage"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "sortorder"
   end
 
@@ -50,10 +49,10 @@ ActiveRecord::Schema.define(version: 20140604185504) do
     t.string   "url"
     t.string   "ipordns"
     t.text     "description"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.string   "tag"
     t.string   "jscreator"
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "remotetype"
   end
 
@@ -85,9 +84,9 @@ ActiveRecord::Schema.define(version: 20140604185504) do
 
   create_table "tags", force: true do |t|
     t.string   "tagname"
+    t.string   "tagcreator"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "tagcreator"
   end
 
   create_table "users", force: true do |t|
