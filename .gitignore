@@ -17,6 +17,10 @@
 *.class
 *.pyc
 *.pyo
+
+# Ignore my Apatana project file
+.project
+
 # Ignore my SMTP un&pw and recaptcha keys
 /config/initializers/app_env_vars.rb
 
