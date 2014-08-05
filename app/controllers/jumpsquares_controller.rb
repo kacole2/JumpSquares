@@ -17,6 +17,7 @@ class JumpsquaresController < ApplicationController
     else
       @jumpsquares = Jumpsquare.search(params[:search]).paginate(:page => params[:page], :per_page => @jumpsizes.first.itemsperpage).where(:jscreator => current_user.email).order(sort_order(@jumpsizes.first.sortorder))
     end 
+
   end
   
   # GET /jumpsquares/1

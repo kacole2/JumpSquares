@@ -2,7 +2,7 @@
 <% provide(:title, 'Admin Dashboard') %>
 
 <div class="row">
-          <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">    	
+          <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">    	
             <div class="panel panel-primary">
 				<div class="panel-heading"><center><strong><span class="glyphicon glyphicon-stop" style="vertical-align:left"></span> <%= link_to "JumpSquares", jumpsquares_path, class: 'linkpanel' %></strong></center></div>
               		<div class="panel-body">   		
@@ -89,7 +89,7 @@
      		</div>  
    		  </div>
   		  
-   		  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">    	
+   		  <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">    	
             <div class="panel panel-primary">
 				<div class="panel-heading"><center><strong><%= link_to "Users", users_path, class: 'linkpanel' %></strong></center></div>
               		<div class="panel-body">   		
@@ -119,7 +119,7 @@
 <div class="row"></div>
 <div class="row"></div>
 <div class="row">
-	 <div class="col-xs-6 col-sm-4 col-md-2">
+	 <div class="col-xs-6 col-sm-4 col-md-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
 	 <div class="clearfix visible-xs"></div>
 	 	<%= form_tag :admindashboard, :method => :get do %>
                       		<%= hidden_field_tag :direction, params[:direction] %>
@@ -140,7 +140,7 @@
 </div>
 <br>
 <div class="row">
-          <div class="col-xs-6 col-sm-12 col-md-12 col-lg-12 ">
+          <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
             <div class="bs-example">
               <table class="table table-striped table-bordered table-hover">
                 <thead>

@@ -1,6 +1,6 @@
 <% provide(:title, 'AppType Settings') %>
 <div class="row">
-	 <div class="col-xs-6 col-sm-4 col-md-2">
+	 <div class="col-xs-6 col-sm-4 col-md-2 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
 	 <div class="clearfix visible-xs"></div>
 	 	<%= form_tag apptypes_path, :method => :get do %>
                       		<%= hidden_field_tag :direction, params[:direction] %>
@@ -8,7 +8,7 @@
     						<%= text_field_tag :search, params[:search], {:class => "form-control col-lg-8", :placeholder => "Search"} %>
 					  <% end %>  
 	 </div>	
-	 	<div class="col-xs-6 col-sm-4 col-md-2 pull-right">
+	 	<div class="col-xs-6 col-sm-4 col-md-2 col-lg-offset-6 col-md-offset-6 col-sm-offset-6">
 	 	<% if current_user.has_role? :admin %>
   			<%= link_to new_apptype_path, class: "btn btn-primary", :method => :get do %>
 	        	<span class="glyphicon glyphicon-th" style="vertical-align:left"></span> New Application Type
@@ -20,7 +20,7 @@
 	    	<% end %>
 	 		</div>
 		<% end %>
-	 	 
+
 </div>
 		<% if current_user.has_role? :admin %>
 		<% else %>
@@ -33,12 +33,11 @@
 <br>	
 
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<div id="apptypes" > 
- 
-  <% @apptypes.each do |realapptype| %>
+	<div class="col-xs12 col-lg-11 col-md-11 col-sm-11 col-lg-offset-1 col-md-offset-1 col-sm-offset-1"
+		<div id="apptypes">
+  			<% @apptypes.each do |realapptype| %>
   		
-    <div class="apptype" style="float: left">
+    		<div class="apptype" style="float: left">
 			    	
 			     <% if @jumpsizes.first.size == "xsmall" %>
 					<div class="xsmallname">
@@ -52,10 +51,13 @@
 					<div class="xlargename">
 				 <% end %>
     	
-      <%= simple_format truncate(realapptype.name, :length => @jumpsizes.first.length1) %>
+
+      			 <%= simple_format truncate(realapptype.name, :length => @jumpsizes.first.length1) %>
       				</div>
-      <center><%= image_tag realapptype.image_url(@jumpsizes.first.size) %>
-      <% if current_user.has_role? :admin %>
+      			 
+      			 <center><%= image_tag realapptype.image_url(@jumpsizes.first.size) %>
+      
+      			<% if current_user.has_role? :admin %>
 		      	<br>
 		      			<% if @jumpsizes.first.size == "xsmall" %>
 							<div class="xsmallname">
@@ -83,14 +85,16 @@
 						    <% elsif @jumpsizes.first.size == "xlarge" %>
 							<div class="xlargeactions">
 						<% end %>
-		        <%= link_to edit_apptype_path(realapptype), class: "pull-left", :method => :get do %>
-			        <span class="glyphicon glyphicon-edit" rel="tooltip" title="Edit AppType" id='tooltip1' style="vertical-align:left"></span>
-			    <% end %>
-			    <% if @appcount == 0 %>
-			    	<%= link_to realapptype, class: "pull-right", :method => :delete, :data => {confirm: "Delete '#{realapptype.name}' AppType? "} do %>
-			        	<span class="glyphicon glyphicon-trash" rel="tooltip" title="Delete AppType" id='tooltip1' style="vertical-align:left"></span>
-			    	<% end %>
-			   	<% end %>
+			        
+			        <%= link_to edit_apptype_path(realapptype), class: "pull-left", :method => :get do %>
+				        <span class="glyphicon glyphicon-edit" rel="tooltip" title="Edit AppType" id='tooltip1' style="vertical-align:left"></span>
+				    <% end %>
+				    
+				    <% if @appcount == 0 %>
+				    	<%= link_to realapptype, class: "pull-right", :method => :delete, :data => {confirm: "Delete '#{realapptype.name}' AppType? "} do %>
+				        	<span class="glyphicon glyphicon-trash" rel="tooltip" title="Delete AppType" id='tooltip1' style="vertical-align:left"></span>
+				    	<% end %>
+				   	<% end %>
 		        			</div>
 		      <% else %>
 		      <% end %>
