@@ -1,0 +1,157 @@
+/*!
+ * A Homepage layout with my nifty CSS skillz
+ *
+ * Copyright 2014 Kendrick Coleman
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * 
+ */
+
+/* ...................
+ * FONTS AND COLORS
+ * ................... */
+.hometitle {
+	font-weight: bold;
+	font-size: 3.3em;
+}
+
+.homeintroone {
+	font-size: 2.7em;
+}
+
+.sectiontitle {
+	color: white;
+	text-align: center;
+	font-size: 3.3em;
+}
+
+.apptype {
+	background: white;
+	margin: 0px;
+}
+.usersquote{
+	color:white;
+	margin-left: auto;
+	margin-right; auto;
+	width: 68%
+}
+
+/* ...................
+ * PAGE SECTIONS
+ * ................... */
+.homecontainerbase {
+
+	padding: 50px 0px 100px;
+	margin-top: -15px;
+	background-repeat: no-repeat;
+}
+
+.homecontainerone {
+	background-image: url('homebg/homebg01.jpg');	
+	background-color: white;
+}
+
+.homecontainertwo{
+	background-image: url('homebg/homebg02.jpg');
+	background-color: black;
+}
+
+.homecontainerthree{
+	background-image: url('homebg/homebg03.jpg');
+	background-color: black;
+}
+
+.homecontainerfour{
+	background-image: url('homebg/homebg04.jpg');
+	background-color: black;
+}
+
+.homecontainerfive{
+	background-image: url('homebg/homebg05.jpg');
+	background-color: black;
+}
+
+.homecontainersix{
+	background-image: url('homebg/homebg06.jpg');
+	background-color: black;
+}
+
+/* ...................
+ * BOXES
+ * ................... */
+.homequote {
+	background-color: #E6E6E6;
+	width: 275px;
+	margin: 10px;
+	border: 2px solid white;
+	border-radius: 3%;
+	padding: 5px 15px 25px;
+	opacity: 0.93;
+	display: inline-block;
+}
+
+.homequote:hover {	
+	border: 2px solid #18bc9c;
+	background-color: white;
+}
+
+.homequote:nth-child(4n) {
+    clear: left; 
+  }
+
+.homequote a {
+	color: #18bc9c;
+}
+
+.homequote a img {
+	width: 85px;
+	height: 85px;
+	padding: 5px;
+	margin: 5px;
+	float: left;
+	border-radius: 50%;
+}
+
+.homequote a img:hover {
+	border: 2px solid #18bc9c;
+	border-radius: 50%;
+}
+
+.hometextcontainer {
+	background-color: #E6E6E6;
+	width: 100%;
+	margin: 10px 10px 50px;
+	border: 2px solid white;
+	border-radius: 1%;
+	padding: 5px 15px 25px;
+	opacity: 0.8;
+	display: inline-block;
+}
+
+.hometextcontainer:hover {
+	background-color: white;
+	opacity: 1;
+}
+
+.sectiontitle span {
+	vertical-align:left
+}
+
+/* ...................
+ * NAVIGATION
+ * ................... */
+.arrows {
+	color: white;
+	font-size: 2em;
+	padding: 2px;
+	margin: 0;
+}
+
+.arrows:hover {
+	color:#18bc9c;
+}
+
+.jointoday {
+	padding: 3px;
+}

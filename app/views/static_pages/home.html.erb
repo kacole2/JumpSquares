@@ -1,23 +1,18 @@
 <% provide(:title) %>
-
-<!DOCTYPE html>
-
-<body>
+<a name="top"><div class="homecontainerbase homecontainerone"></a>
 	 <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 jumbotron">    	                           		
-                <center><h2>A better way to remember where your applications are installed</h2></center>
-                	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 well-sm"> 
-                		<center><h3>with faster access to your datacenter infrastructure.</h3></center>
-                    </div>                  
-     	  </div>  
-     
-	 <div class="row"><center><h2>JumpSquares</h2></center></div>
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">    	                           		
+                <center><h2 class="homeintroone">A <i>better way</i> to remember where your applications are installed <br>
+                <b>with</b> <i>faster access</i> to your datacenter infrastructure.</h2></center>         	    
+	     		<br>
+	     		<br>
+		 		<center><h2 class="hometitle">JumpSquares</h2></center>
+		  </div>
+	 </div>
 	 
 	 <div class="row">
-     		<div class="col-lg-12 col-lg-offset-3 col-md-12 col-md-offset-3 col-sm-12 col-sm-offset-2 ">
-	 	 
-	  	    	<div id="apptypes">
-	                <div class="apptype" style="float: left">
+	 	<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 col-lg-offset-3 col-md-offset-3 col-sm-offset-3"> 
+	                <div class="apptype">
 	                	<div class="mediumname">
 	                		<%= link_to(truncate("JumpSquares Login", :length => 22), new_user_registration_path, :class => "popover-with-html", :title => "http://www.jumpsquares.net/users/sign_in", "data-content" => "Go ahead. Register and give it a go", :target => "_blank") %>		
 						</div>
@@ -36,9 +31,8 @@
 	    					<% end %>
 				      	</div>
 				    </div>	
-	  	    	</div>
-	  	    	<div id="apptypes">
-	                <div class="apptype" style="float: left">
+
+	                <div class="apptype">
 	                	<div class="mediumname">
 	                		<%= link_to(truncate("Main vCenter", :length => 22), new_user_registration_path, :class => "popover-with-html", :title => "https://mainvcenter.mycompany.com:9443/vsphere-client/", "data-content" => "Yep, you can point to internal addresses. DNS will take care of it.", :target => "_blank") %>		
 						</div>
@@ -57,9 +51,8 @@
 	    					<% end %>
 				      	</div>
 				    </div>	
-	  	    	</div>
-	  	    	<div id="apptypes">
-	                <div class="apptype" style="float: left">
+
+	                <div class="apptype">
 	                	<div class="mediumname">
 	                		<%= link_to(truncate("SSH My Linux Box", :length => 22), new_user_registration_path, :class => "popover-with-html", :title => "ssh://mylinuxbox.local", "data-content" => "JumpSquares goes beyond http requests. You can even open up SSH sessions in your browser with compatible plug-ins!", :target => "_blank") %>		
 						</div>
@@ -78,9 +71,8 @@
 	    					<% end %>
 				      	</div>
 				    </div>	
-	  	    	</div>
-	  	    	<div id="apptypes">
-	                <div class="apptype" style="float: left">
+
+	                <div class="apptype">
 	                	<div class="mediumname">
 	                		<%= link_to(truncate("OpenStack Dashboard", :length => 22), new_user_registration_path, :class => "popover-with-html", :title => "http://openstack/project", "data-content" => "Use any name, any logo, and link it to anything internal or external to your network!", :target => "_blank") %>		
 						</div>
@@ -99,159 +91,160 @@
 	    					<% end %>
 				      	</div>
 				    </div>	
-	  	    	</div>
+				    
+				    <div class="apptype">
+	                	<div class="mediumname">
+	                		<%= link_to(truncate("Network Equipment", :length => 22), new_user_registration_path, :class => "popover-with-html", :title => "Put any content here!", "data-content" => "...and any content here! Username, password, anything!", :target => "_blank") %>		
+						</div>
+				      	<center>
+				      		<%= link_to(image_tag("medium_generic_router.png"), new_user_registration_path, :class => "popover-with-html", :title => "Put any content here!t", "data-content" => "...and any content here! Username, password, anything!", :target => "_blank") %>
+				      	</center>  
+				      	<div class="mediumactions">
+				      		<%= link_to truncate("ssh connection", :length => 25), "#", :class => "popover-with-html", :title => "SSH", "data-content" => "SSH to anything.anywhere" %>
+				      		<br>
+							<%= link_to "#", class: "pull-left" do %>
+	        					<span class="glyphicon glyphicon-edit" rel="tooltip" title="Edit JumpSquare" id='tooltip1' style="vertical-align:left"></span>
+	    					<% end %>
+	    				
+				        	<%= link_to "#", class: "pull-right" do %>
+	        					<span class="glyphicon glyphicon-trash" rel="tooltip" title="Delete JumpSquare" id='tooltip2' style="vertical-align:left"></span>
+	    					<% end %>
+				      	</div>
+				    </div>
          	</div>	
      	</div>
-	</div>
+     	<br><br><br>
 	
-<div class="page-header">   
-   <div class="row">	
-   	 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 well well-sm">
-   	 	<div class="row">
-   	 	  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	 	
-   	 		<%=link_to image_tag("twitter-avatars/johnnie1.png"), "https://twitter.com/JohnnieITatDell"  %>	 
-   	 	  </div>
-   	 	  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-	   	 	<a href="https://twitter.com/JohnnieITatDell">@JohnnieITatDell</a>: "JumpSquares is freakishly brilliant."
-	   	  </div>
-	   	</div>
-   	 </div>
-   	 
-   	 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 well well-sm col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-   	 	<div class="row">
-   	 	  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	 	
-   	 		<%=link_to image_tag("twitter-avatars/herseyc.png"), "https://twitter.com/herseyc"  %>	 
-   	 	  </div>
-   	 	  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-	   	 	<a href="https://twitter.com/herseyc">@herseyc</a>: "Fantastic home lab bookmark tool" (<a href="http://www.vhersey.com/2014/03/jumpsquares-fantastic-home-lab-bookmark-tool/"><font color="#18bc9c">blog post</font></a>)
-	   	  </div>
-	   	</div>
-   	 </div>
-   	 
-   	 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12 well well-sm col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-   	 	<div class="row">
-   	 	  <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">	 	
-   	 		<%=link_to image_tag("twitter-avatars/vnelson.png"), "https://twitter.com/vNelsonTX"  %>	 
-   	 	  </div>
-   	 	  <div class="col-lg-8 col-md-8 col-sm-8 col-xs-8">
-	   	 	<a href="https://twitter.com/vNelsonTX">@vNelsonTX</a>: "Really digging JumpSquares, great job!"
-	   	  </div>
-	   	</div>
-   	 </div>
-   </div>
-   <div class="row">
-   	 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 well well-sm col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-   	 	<div class="row">
-   	 	  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">	 	
-   	 		<%=link_to image_tag("twitter-avatars/h0bbel.png"), "https://twitter.com/h0bbel"  %>	 
-   	 	  </div>
-   	 	  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-	   	 	<a href="https://twitter.com/h0bbel">@h0bbel</a>: "We discussed JumpSquares on <a href="http://vsoup.net/2014/01/vsoup-general-purple-is-better-than-agent-purple-any-day-40/#podPressPlayerSpace_1"><font color="#18bc9c">vSoup</font></a> today. I think you should listen to it" (31:30)
-	   	  </div>
-	   	</div>
-   	 </div>
-   	 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 well well-sm col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
-   	 	<div class="row">
-   	 	  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">	 	
-   	 		<%=link_to image_tag("twitter-avatars/mdent.png"), "https://twitter.com/mikedent13"  %>	 
-   	 	  </div>
-   	 	  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-	   	 	<a href="https://twitter.com/mikedent13">@mikedent13</a>: "You’ve changed the way I manage my bookmarks with JumpSquares. Just flat out awesome!"
-	   	  </div>
-	   	</div>
-   	 </div>
-   </div>
-</div>
-
-<div class="page-header">  
-   <div class="row">	
+	<div class="row">	
 	   	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">	            
 	                <%= link_to "#videotour", class: "btn btn-primary btn-lg btn-block" do %>
-	                	<span class="glyphicon glyphicon-film" style="vertical-align:left"></span> Video Tour
+	                	<span class="glyphicon glyphicon-film"></span> video tour
 	                <% end %>
 	    </div>
 	   	<div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
 	                <%= link_to "#why", class: "btn btn-primary btn-lg btn-block" do %>
-	                	Why?
+	                	<span class="glyphicon glyphicon-question-sign"></span> why
 	                <% end %>
 	    </div>
 	    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
 	                <%= link_to "#deeperlook", class: "btn btn-primary btn-lg btn-block" do %>
-	                	A Deeper Look
+	                	<span class="glyphicon glyphicon-picture"></span> how's it look?
 	                <% end %>
 	    </div>
 	    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">	           
 	                <%= link_to "#features", class: "btn btn-primary btn-lg btn-block" do %>
-	                	Features
+	                	<span class="glyphicon glyphicon-ok-circle"></span> features
 	                <% end %>	                	          
 	    </div>
 	    <div class="col-lg-2 col-md-2 col-sm-2 col-xs-6">
 	              	<%= link_to new_user_registration_path, class: "btn btn-primary btn-lg btn-block" do %>
-	                	Get Started <span class="glyphicon glyphicon-thumbs-up" style="vertical-align:left"></span>
+	                	<span class="glyphicon glyphicon-thumbs-up"></span> get started!
 	                <% end %>		              		
 	    </div>
-   </div>     
+   </div>  
+  <a href="#kudos"><span class="arrows glyphicon glyphicon-arrow-down pull-right"></span>   
+</div>	
+
+<a name="kudos"><div class="homecontainerbase homecontainertwo"></a>
+  <h2 class="sectiontitle"><span class="glyphicon glyphicon-heart-empty"></span> kudos</h2> 
+  <p class="usersquote">Over 500 users are experiencing the awesomeness of JumpSquares. <%= link_to("Join Today!", new_user_registration_path, class: "jointoday btn btn-primary") %></p> 
+   <div class="row">
+   	<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-2 col-md-offset-2 col-sm-offset-2">
+	   	<p class="homequote">
+	   		<%=link_to image_tag("twitter-avatars/johnnie1.png"), "https://twitter.com/JohnnieITatDell"%>	
+	   		<a href="https://twitter.com/JohnnieITatDell">@JohnnieITatDell</a>: "JumpSquares is freakishly brilliant."
+	   	</p>
+	   	
+	   	<p class="homequote">
+	   		<%=link_to image_tag("twitter-avatars/herseyc.png"), "https://twitter.com/herseyc"%>	
+	   		<a href="https://twitter.com/herseyc">@herseyc</a>: "Fantastic home lab bookmark tool" (<a href="http://www.vhersey.com/2014/03/jumpsquares-fantastic-home-lab-bookmark-tool/">blog post</a>)
+	   	</p>
+	   	
+	   	<p class="homequote">
+	   		<%=link_to image_tag("twitter-avatars/vnelson.png"), "https://twitter.com/vNelsonTX"%>
+	   		<a href="https://twitter.com/vNelsonTX">@vNelsonTX</a>: "Really digging JumpSquares, great job!"
+	   	</p>
+	   	
+	   	<p class="homequote">
+	   		<%=link_to image_tag("twitter-avatars/h0bbel.png"), "https://twitter.com/h0bbel"%>
+	   		<a href="https://twitter.com/h0bbel">@h0bbel</a>: "We discussed JumpSquares on <a href="http://vsoup.net/2014/01/vsoup-general-purple-is-better-than-agent-purple-any-day-40/#podPressPlayerSpace_1">vSoup</a> today. I think you should listen to it" (31:30)
+	   	</p>
+	   	
+	   	<p class="homequote">
+	   		<%=link_to image_tag("twitter-avatars/mdent.png"), "https://twitter.com/mikedent13"%>
+	   		<a href="https://twitter.com/mikedent13">@mikedent13</a>: "You’ve changed the way I manage my bookmarks with JumpSquares. Just flat out awesome!"
+	   	</p>
+	   	
+	   	<p class="homequote">
+	   		<%=link_to image_tag("twitter-avatars/julien.png"), "https://twitter.com/JMousqueton"%>
+	   		<a href="https://twitter.com/JMousqueton">@JMousqueton</a>: "Thank you for the awesome JumpSquares! My team loves it." &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	   	</p>
+	   	
+	   	<p class="homequote">
+	   		<%=link_to image_tag("twitter-avatars/vmrandy.png"), "https://twitter.com/VMrandy"%>
+	   		<a href="https://twitter.com/VMrandy">@VMRandy</a>: "I use jumpsquares everyday. Managing 5 vCAC Deployments and all the URLs that come with them. Saves me time and sanity!"
+	   	</p>
+	   	
+	</div>
+  </div> 	
+  <a href="#top"><span class="arrows glyphicon glyphicon-arrow-up pull-right"></span><br>
+  <a href="#videotour"><span class="arrows glyphicon glyphicon-arrow-down pull-right"></span> 
+</div>
+
+<a name="videotour"><div class="homecontainerbase homecontainerthree"></a> 
+  <h2 class="sectiontitle"><span class="glyphicon glyphicon-film"></span> video intro</h2>
+	<div class="row">
+	   	<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12"> 
+	    	<div class="flex-video widescreen">
+	    		<iframe width="710" height="399" src="//www.youtube.com/embed/sB4ZRN4iqXM" frameborder="0" allowfullscreen></iframe>
+	    	</div>
+	  	</div>
+	</div> 
+	<a href="#top"><span class="arrows glyphicon glyphicon-arrow-up pull-right"></span><br>
+  	<a href="#why"><span class="arrows glyphicon glyphicon-arrow-down pull-right"></span>
 </div> 
 
-<div class="page-header"> 
+<a name="why"><div class="homecontainerbase homecontainerfour"></a> 
 	<div class="row">
-		 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">    	
-	            <div class="panel panel-primary">
-	            	<div class="panel-heading"><center><strong><a name="videotour"><font color="white"><span class="glyphicon glyphicon-film" style="vertical-align:left"></span> Video Intro</font></a></strong></center></div>
-	              		<div class="panel-body">
-	   						<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12"> 
-	    						<div class="flex-video widescreen">
-	    							<iframe width="710" height="399" src="//www.youtube.com/embed/sB4ZRN4iqXM" frameborder="0" allowfullscreen></iframe>
-	    						</div>
-	  						</div>
-						</div> 
-				</div> 
-		</div>
-	</div> 
-</div> 
-   
-<div class="page-header">  
-   <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">    	
-            <div class="panel panel-primary">
-				<div class="panel-heading"><center><strong><a name="why"><font color="white">Why?</font></a></strong></center></div>
-              		<div class="panel-body">   		
-                		<p>There's no such thing as a single pane of glass. Everything we interact with today has it's own UI. Performance 
+		<h2 class="sectiontitle"><span class="glyphicon glyphicon-question-sign"></span> why</h2>
+			<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+				<div class="hometextcontainer">
+					<p>There's no such thing as a single pane of glass. Everything we interact with today has it's own UI. Performance 
                 			monitoring applications, storage arrays, virtual infrastructures, enterprise application, etc all have their own management 
                 			interfaces.</p>
-                		<p>	So... do you fall into one of these categories? </p><UL>
-							<li>You just started a new job and have no idea where anything is located</li>
-							<li>You hire a contractor to come on-site and you have to point them to every application or baby sit them along the way</li>
-							<li>You are constantly sending emails to your team asking where an application had been installed</li>
-							<li>You have a very large datacenter environment and can't remember all the virtualization, storage, and network addresses</li>
-							<li>There may be 100+ different applications in your environment and you want to keep track of what's out there.</li>
-							<li>Maintaining excel documents and sharepoint sites suck</li>
-							<li>Try organizing a couple hundred browser bookmarks</li>
-						   </UL>	
-							</p>
+                		<p>	So... do you fall into one of these categories? </p>
+                			<UL>
+								<li>You just started a new job and have no idea where anything is located</li>
+								<li>You hire a contractor to come on-site and you have to point them to every application or baby sit them along the way</li>
+								<li>You are constantly sending emails to your team asking where an application had been installed</li>
+								<li>You have a very large datacenter environment and can't remember all the virtualization, storage, and network addresses</li>
+								<li>There may be 100+ different applications in your environment and you want to keep track of what's out there.</li>
+								<li>Maintaining excel documents and sharepoint sites suck</li>
+								<li>Try organizing a couple hundred browser bookmarks</li>
+						   </UL>		
 						<p>
 						 The idea spawned because I had trouble keeping track of 6 VMware environments in our lab. Within those 6 environments, 
 						 there were 100+ Applications. Bookmarks would have been messy and I got tired of sending emails trying to figure out 
 						 what servers hosted which applications. 
-						 </p>
-						 <p>
+						</p>
+						<p>
 						JumpSquares is your personal home for a new way to bookmark environments and keep track of all your applications by using search, sorting, and tagging capabilities. A simple concept,
 						 but very useful.
 						</p>
-				   </div>
-          	</div>
-     	</div>  
-   </div>
+		   
+		   		</div>
+	   		</div>
+	</div>
+	<a href="#top"><span class="arrows glyphicon glyphicon-arrow-up pull-right"></span><br>
+  	<a href="#deeperlook"><span class="arrows glyphicon glyphicon-arrow-down pull-right"></span>
 </div>
- 
-<div class="page-header">
-   <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">    	
-            <div class="panel panel-primary">
-            	<div class="panel-heading"><center><strong><a name="deeperlook"><font color="white">A Deeper Look</font></a></strong></center></div>
-              		<div class="panel-body">
-              		<div class="row">	
-					  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">	
+	   
+<a name="deeperlook"><div class="homecontainerbase homecontainerfive"></a> 
+	<div class="row">
+		<h2 class="sectiontitle"><span class="glyphicon glyphicon-picture"></span> how's it look? </h2>
+			<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+				<div class="hometextcontainer">
+					<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">	
 						<p>
 						Creating a JumpSquare is very simple.<OL>
 							<LI>Give your application a name</LI> 
@@ -262,51 +255,52 @@
 							<LI>Choose to tag this JumpSquare with anything meaningful (Microsoft, VMware, Staging, Production, India, whatever!)</LI>	
 							<LI>Write a description that can contain anything you want</LI>	
 						</OL>
+						</p>
 						<p>
 						On the surface, it's pretty bare but it holds some good information. Hover over the JumpSquare to reveal the
 						 jump location as well as your description (only for desktop users). Hover over the server that was configured to see
 						  the type of remote access that has been configured. This example doesn't allow you to edit or delete the JumpSquare, but 
 						 if you own the JumpSquare you can do anything you want.
 						</p>
-					  </div>
-					     	<div class="col-lg-3  col-md-3 col-sm-3">
-					     		<br><br>
-					                <div id="apptypes">
-					                	<div class="apptype" style="float: left">
-						                	<div class="mediumname">
-						                		<%= link_to(truncate("My Application", :length => 22), "http://www.jumpsquares.net", :class => "popover-with-html", :title => "JumpSquare Link URL", "data-content" => "sample description for any kind of link. Can be http(s)://,  ssh:// or even rdp://", :target => "_blank") %>		
-											</div>
-										      	<center>
-										      		<%= link_to(image_tag("medium_sample_logo.jpg"), "http://www.jumpsquares.net", :class => "popover-with-html", :title => "JumpSquare Link URL", "data-content" => "sample description for any kind of link. Can be http(s)://,  ssh:// or even rdp://", :target => "_blank") %>
-										      	</center>  
-									      	<div class="mediumactions">
-									      		<%= link_to truncate("myserver.local", :length => 25), "#", :class => "popover-with-html", :title => "Remote Access Link", "data-content" => "RDP, SSH, or VNC to myserver.local" %>
-									      		<br>
-									      		<%= link_to "#", class: "pull-left" do %>
-						        					<span class="glyphicon glyphicon-edit" rel="tooltip" title="Edit JumpSquare" id='tooltip1' style="vertical-align:left"></span>
-						    					<% end %>
+					 </div>
+					 <div class="col-lg-3  col-md-3 col-sm-3">
+					    <br><br>
+					 	<div id="apptypes">
+					    	<div class="apptype">
+						     	<div class="mediumname">
+						        	<%= link_to(truncate("My Application", :length => 22), "http://www.jumpsquares.net", :class => "popover-with-html", :title => "JumpSquare Link URL", "data-content" => "sample description for any kind of link. Can be http(s)://,  ssh:// or even rdp://", :target => "_blank") %>		
+								</div>
+								<center>
+									<%= link_to(image_tag("medium_sample_logo.jpg"), "http://www.jumpsquares.net", :class => "popover-with-html", :title => "JumpSquare Link URL", "data-content" => "sample description for any kind of link. Can be http(s)://,  ssh:// or even rdp://", :target => "_blank") %>
+								</center>  
+								<div class="mediumactions">
+									<%= link_to truncate("myserver.local", :length => 25), "#", :class => "popover-with-html", :title => "Remote Access Link", "data-content" => "RDP, SSH, or VNC to myserver.local" %>
+									<br>
+									<%= link_to "#", class: "pull-left" do %>
+						        		<span class="glyphicon glyphicon-edit" rel="tooltip" title="Edit JumpSquare" id='tooltip1' style="vertical-align:left"></span>
+						    		<% end %>
 						    				
-									        	<%= link_to "#", class: "pull-right" do %>
-						        					<span class="glyphicon glyphicon-trash" rel="tooltip" title="Delete JumpSquare" id='tooltip2' style="vertical-align:left"></span>
-						    					<% end %>
-									      	</div>
-								        </div>	
-						  	        </div>
-						    </div>	
-					  </div>	    	
-				    </div>
+									<%= link_to "#", class: "pull-right" do %>
+						        		<span class="glyphicon glyphicon-trash" rel="tooltip" title="Delete JumpSquare" id='tooltip2' style="vertical-align:left"></span>
+						    		<% end %>
+								</div>
+							</div>	
+						 </div>
+					  </div>	
+				</div>	   
 			</div>
-	  </div>
-  </div>
+	</div>
+	<a href="#top"><span class="arrows glyphicon glyphicon-arrow-up pull-right"></span><br>
+  	<a href="#features"><span class="arrows glyphicon glyphicon-arrow-down pull-right"></span>
 </div>
 
-<div class="page-header">  
-   <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">    	
-            <div class="panel panel-primary">
-				<div class="panel-heading"><center><strong><a name="features"><font color="white">Features</font></a></strong></center></div>
-              		<div class="panel-body">   		
-                		<p>Features: </p><UL>
+<a name="features"><div class="homecontainerbase homecontainersix"></a> 
+	<div class="row">
+	<h2 class="sectiontitle"><span class="glyphicon glyphicon-ok-circle"></span> features </h2>
+			<div class="col-lg-8 col-lg-offset-2 col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 col-xs-12">
+				<div class="hometextcontainer">
+					<p>Features: </p>
+						<UL>
 							<li>Built on twitter bootstrap for rails so it's pretty much mobile-ready</li>
 							<li>Create, Edit, and Delete all your own JumpSquares</li>				
 							<li>Jump locations (links) can be internal or external addresses. Your internal DNS server will do the name resolution</li>
@@ -321,36 +315,47 @@
 							<li>All registered user passwords are stored in an encrypted and hashed format</li>
 							<li>The administrator dashboard can't view another users JumpSquares', only the count of how many you have created. Gotta keep that private</li>
 							<li>No "team" features are built-in. Just share a common username between a few individuals so you can act like it's a 'Wiki'</li>
-						   </UL>	
-							</p>
+						</UL>	
 						<p>
-						 I know some of you may be security cautious (even though internal DNS will do the name resolution), so in addition to the hosted version, I have created two virtual appliances. 
+						 I know some of you may be security cautious (even though internal DNS will do the name resolution), so in addition to the hosted version, I have created a virtual appliance. 
 						 This way, it can be hosted internally and you don't have anything to worry about. We're supposed to be moving to the cloud anyway, 
 						 so register first, give it a go, and see if you really need to deploy your own appliance. 
-						 <p>
-						 Differences in the two appliance versions: <ul>
-						 <li><strong>"Wiki" version:</strong> removes authentication from the application. My original intention for this program was to create 
-						 	a mix between Pinterest and a Wiki. Essentially creating a landing page where anyone can create, edit, update, and delete JumpSquares. 
-						 	This allows a team to use it instead of just one individual. 
-						 </li>
-						 <li><strong>"Authentication" version:</strong> is pretty much exactly like this hosted version. It gives you the ability to create users, 
-						 	give "admin" rights to users for Application Logo Type creation as well as many other privileges. There will be a bit more work for you 
-						 	to deploy this internally to setup proper email alerts.
-						 </li>
-						 <li>The appliances will have 250+ AppType Logos included, but will allow you to create your own.</li>
-						 <li>The appliances will not have a "Software Update" feature. You will have to run a bit of git/ruby code to update the application if 
-						 	I ever add additional features. Doing a git -HARD might jack some of your data, so I do not take any responsibility if you do screw something up.</li>
-						 <li>I take no responsibility in keeping the Debian (OS) appliance up to date with security patches. You're on your own</li>
-						 <li>As a final note, I do not take any responsibility for anything you post on JumpSquares</li>
-						 </ul>
 						 </p>
+						 <p>
+						 The appliance version: 
+						 </p>
+						 <ul>
+							 <li><strong>"Wiki" version:</strong> removes authentication from the application. My original intention for this program was to create 
+							 	a mix between Pinterest and a Wiki. Essentially creating a landing page where anyone can create, edit, update, and delete JumpSquares. 
+							 	This allows a team to use it instead of just one individual. 
+							 </li>
+							 <li>Has 250+ AppType Logos included, but will allow you to create your own.</li>
+							 <li>No "Software Update" feature. You will have to run a bit of git/ruby code to update the application when additional features are added. 
+							 	Doing a git -HARD might jack some of your data, so I do not take any responsibility if you do screw something up.</li>
+							 <li>I take no responsibility in keeping the Debian (OS) appliance up to date with security patches. You're on your own</li>
+							 <li>As a final note, I do not take any responsibility for anything you post on JumpSquares</li>
+						 </ul>
+						 
 						 <center><p> Please visit the <a href="http://kendrickcoleman.com/index.php/Ruby-on-Rails-Projects/jumpsquares-a-new-kind-of-bookmark.html"><font color="#18bc9c">JumpSquares Project</font></a> page at <a href="http://www.kendrickcoleman.com"><font color="#18bc9c">kendrickcoleman.com</font></a> to download the appliance versions and read more</p></center>
-				   </div>
-          	</div>
-     	</div>  
-   </div>
+					</div>
+				</div>
+			</div>
+			<a href="#top"><span class="arrows glyphicon glyphicon-arrow-up pull-right"></span><br>
 </div>
 
-</body>
-
-</html>
+<script>
+$(function() {
+  $('a[href*=#]:not([href=#])').click(function() {
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        $('html,body').animate({
+          scrollTop: target.offset().top
+        }, 1000);
+        return false;
+      }
+    }
+  });
+});
+</script>

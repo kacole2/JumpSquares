@@ -64,9 +64,11 @@
 .apptype {
   border: solid 2px #CCC;
   padding: 5px 5px;
-  float: none;
-  margin-right: 15px;
-  margin-bottom: 15px;
+  height: auto;
+  width: auto;
+  float: left;
+  overflow: hidden;
+  margin: .5%;
 }
 
 .apptype .name {
