@@ -8,6 +8,7 @@
  * 
  */
 
+
 /* ...................
  * FONTS AND COLORS
  * ................... */
@@ -48,32 +49,32 @@
 }
 
 .homecontainerone {
-	background-image: url('homebg/homebg01.jpg');	
+	background-image: url(image-path('homebg/homebg01.jpg'));	
 	background-color: white;
 }
 
 .homecontainertwo{
-	background-image: url('homebg/homebg02.jpg');
+	background-image: url(image-path('homebg/homebg02.jpg'));
 	background-color: black;
 }
 
 .homecontainerthree{
-	background-image: url('homebg/homebg03.jpg');
+	background-image: url(image-path('homebg/homebg03.jpg'));
 	background-color: black;
 }
 
 .homecontainerfour{
-	background-image: url('homebg/homebg04.jpg');
+	background-image: url(image-path('homebg/homebg04.jpg'));
 	background-color: black;
 }
 
 .homecontainerfive{
-	background-image: url('homebg/homebg05.jpg');
+	background-image: url(image-path('homebg/homebg05.jpg'));
 	background-color: black;
 }
 
 .homecontainersix{
-	background-image: url('homebg/homebg06.jpg');
+	background-image: url(image-path('homebg/homebg06.jpg'));
 	background-color: black;
 }
 
