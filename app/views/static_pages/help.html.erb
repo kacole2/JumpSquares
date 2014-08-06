@@ -1,96 +1,89 @@
 <% provide(:title, 'Help') %>
-
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><% :title %>	</title>
-  </head>
-  <body>
-    <h2>Some help to get you started</h2>
-    <br>
-    <br>
-    <p>
-    	FAQ:
-    	<ul>
-    	<li><%= link_to "How do the AppTypes work?", "#apptypes" %></li>
-    	<li><%= link_to "Why does my screen look like garbage?", "#garbage" %></li>
-    	<li><%= link_to "Why am I not seeing any JumpSquares?", "#notsee" %></li>
-    	<li><%= link_to "What's this ssh:// stuff?", "#ssh" %></li>
-    	<li><%= link_to "Why can I not remove an AppType?", "#removeapp" %></li>
-    	<li><%= link_to "Why does the search only work on one page?", "#search" %></li>
-    	<li><%= link_to "How does the Remote Server Access stuff work?", "#remoteaccess" %></li>
-    	<li><%= link_to "How do I use the Nmap Scan utility to quickly add JumpSquares?", "#nmapscan" %></li>
-    	</ul>
-    </p>
-    <br>
-    <p>
-    	<strong><a name="apptypes">How do the AppTypes work?</a></strong><br>
-    	If you go to the AppTypes page, you will see a bunch of different kinds of applications. You can request to have a new application added if it isn't listed. 
-    	Please attach an img url to something that is square in shape. such as 500x500 or 200x200 pixels. Transparent .png imgaes tend to show up best as well.  
-    	 You must select an AppType when creating a new JumpSquare. If you don't select an AppType, then the first available AppType will be selected by default.
-	</p>
-	<br>
-    <p>
-    	<strong><a name="garbage">Why does my screen look like garbage?</a></strong><br>
-    	Are you using Internet Explorer? That's probably why. Use a browser that follows new standardizations such as Firefox, Chrome, Opera, or Safari.
-    </p>
-    <br>
-    <p>
-    	<strong><a name="notsee">Why am I not seeing any JumpSquares?</a></strong><br>
-    	Hit "Create a New JumpSquare" button on the home page and fill it out. The most important part is that you type the correct URL of where you want the link to be connected. 
-    	
-    </p>
-    <br>
-    <p>
-    	<strong><a name="ssh">What's this ssh:// stuff?</a></strong><br>
-    	I didn't forget about the uber geeks. Switches, storage arrays, or anything else that can be managed via CLI and SSH now has the ability to open a SSH session directly 
-    	from your browser. For it to function correctly, your browser requires the <a href="http://firessh.net/">FireSSH</a> plugin (Available for Firefox and Chrome)
-    </p>
-    <br>
-    <p>
-    	<strong><a name="removeapp">Why can I not remove an AppType?</a></strong><br>
-    	If you are using the hosted version at JumpSquares.net or the authenticated version of the virtual appliance, then the 
-    	AppTypes are in a read-only mode. Only an administrator has the ability to delete an AppType. If you are an administrator 
-    	then make sure you have "0" JumpSquares of that specific app type before you try to delete it. The link will not work if it's not at 0. 
-    	
-  	</p>
-  	<br>
-	<p>
-    	<strong><a name="search">Why does the search only work on one page?</a></strong><br>
-    	Well in fact, the search works on any page. The search function will only search through items on the page you are viewing. Keep it simple, ya know...
-    	
-  	</p>
-  	<br>
-	<p>
-    	<strong><a name="remoteaccess">How does the Remote Server Access stuff work?</a></strong><br>
-    	You can access the server that is hosting an application by creating two links in the same JumpSquare. When you enter an IP Address or DNS Name of 
-    	the server where an application is installed, you have already made the first step.<br>
-    	By default, 'None' is selected which doesn't create a hyperlink to the server.<br>
-    	If 'RDP' is selected, a 'servername.rdp' file is generated and available for download. Click 'open' from the download prompt and it will 
-    	automatically open your RDP client. Works on both Mac and PC (not tested on linux). Do NOT add 'rdp://' or anything else to the server name.<br>
-    	If 'SSH' is selected, it needs to follow the same rules as using ssh:// for the Jump location. Your browser requires the 
-    	<a href="http://firessh.net/">FireSSH</a> plugin. Do NOT add 'ssh://' to the server name<br>
-    	If 'VNC' is selected, clicking on the link will open up a new tab in your browser pointing to servername:5800. This method has been tested 
-    	with TightVNC and RealVNC (Enterprise license was tested, does not work on free license). The VNC software installed on the server requires the ability to render 
-    	VNC over HTML5 on Port 5800. Java is required for TightVNC and RealVNC. Tested and works on Windows. Tested and failed to load Java on Mac. Port 5800 is the only
-    	 one that can be used at this time.
-  	</p>
-  	<br>
-  	<p>
-    	<strong><a name="nmapscan">How do I use the Nmap Scan utility to quickly add JumpSquares?</a></strong><br>
-    	<a href="http://nmap.org/"><font color="18bc9c">Nmap</font></a> is a free tool used to perform port scanning on a network. To get started, <a href="http://nmap.org/download.html"><font color="18bc9c">download
-        Nmap</font></a> for Windows, Mac, or Linux and install it on your system. Mac & Linux users: Open up a terminal session and change your current directory to a desktop location or somewhere easy to navigate.
-        For Windows users: Open up a command (cmd)/DOS Window and change to the directory you installed Nmap into (cd "\Program Files (x86)\Nmap"). 
-        On Windows releases prior to Windows 7, specify \Program Files\Nmap instead. If you execute Nmap frequently, please <a href="http://nmap.org/book/inst-windows.html"><font color="18bc9c">read this</font></a>.
-        Type the following (Mac & Linux used may need 'sudo' for root): 
-                      		<dl><b>nmap -sS -O -v 192.168.10.* -oX output.xml</b></dl>       
-        Executing this command will do a stealth scan against the entire 192.168.10.0/24 subnet and save the scan to output.xml. Change the .xml name if preferred. 
-        The subnet style can be replaced with <a href="http://nmap.org/book/man-examples.html"><font color="18bc9c">different paramters</font></a>. The 
-        length of time will depend on the amount of hosts and the amount of open ports. Go grab a beer (or coffee). After the scan has completed, <a href="/nmapfiles/new"><font color="18bc9c">Upload the Nmap Scan XML</font></a>
-         to analyze missing JumpSquare entries based on DNS and IP. If a JumpSquare has not been configured for a DNS or IP address entry, click on "Create JumpSquare", which open the JumpSquare creation form. The DNS or IP 
-         address will be pre-populated for you.
-                      
-    	
-  	</p>
-  </body>
-</html>
+<div class="row">
+	<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">    
+	    <h2>Some help to get you started</h2>
+	    <br>
+	    <br>
+	    <p>
+	    	FAQ:
+	    	<ul>
+	    	<li><%= link_to "How do the AppTypes work?", "#apptypes" %></li>
+	    	<li><%= link_to "Why does my screen look like garbage?", "#garbage" %></li>
+	    	<li><%= link_to "Why am I not seeing any JumpSquares?", "#notsee" %></li>
+	    	<li><%= link_to "What's this ssh:// stuff?", "#ssh" %></li>
+	    	<li><%= link_to "Why can I not remove an AppType?", "#removeapp" %></li>
+	    	<li><%= link_to "Why does the search only work on one page?", "#search" %></li>
+	    	<li><%= link_to "How does the Remote Server Access stuff work?", "#remoteaccess" %></li>
+	    	<li><%= link_to "How do I use the Nmap Scan utility to quickly add JumpSquares?", "#nmapscan" %></li>
+	    	</ul>
+	    </p>
+	    <br>
+	    <p>
+	    	<strong><a name="apptypes">How do the AppTypes work?</a></strong><br>
+	    	If you go to the AppTypes page, you will see a bunch of different kinds of applications. You can request to have a new application added if it isn't listed. 
+	    	Please attach an img url to something that is square in shape. such as 500x500 or 200x200 pixels. Transparent .png imgaes tend to show up best as well.  
+	    	 You must select an AppType when creating a new JumpSquare. If you don't select an AppType, then the first available AppType will be selected by default.
+		</p>
+		<br>
+	    <p>
+	    	<strong><a name="garbage">Why does my screen look like garbage?</a></strong><br>
+	    	Are you using Internet Explorer? That's probably why. Use a browser that follows new standardizations such as Firefox, Chrome, Opera, or Safari.
+	    </p>
+	    <br>
+	    <p>
+	    	<strong><a name="notsee">Why am I not seeing any JumpSquares?</a></strong><br>
+	    	Hit "Create a New JumpSquare" button on the home page and fill it out. The most important part is that you type the correct URL of where you want the link to be connected. 
+	    	
+	    </p>
+	    <br>
+	    <p>
+	    	<strong><a name="ssh">What's this ssh:// stuff?</a></strong><br>
+	    	I didn't forget about the uber geeks. Switches, storage arrays, or anything else that can be managed via CLI and SSH now has the ability to open a SSH session directly 
+	    	from your browser. For it to function correctly, your browser requires the <a href="http://firessh.net/">FireSSH</a> plugin (Available for Firefox and Chrome)
+	    </p>
+	    <br>
+	    <p>
+	    	<strong><a name="removeapp">Why can I not remove an AppType?</a></strong><br>
+	    	If you are using the hosted version at JumpSquares.net or the authenticated version of the virtual appliance, then the 
+	    	AppTypes are in a read-only mode. Only an administrator has the ability to delete an AppType. If you are an administrator 
+	    	then make sure you have "0" JumpSquares of that specific app type before you try to delete it. The link will not work if it's not at 0. 
+	    	
+	  	</p>
+	  	<br>
+		<p>
+	    	<strong><a name="search">Why does the search only work on one page?</a></strong><br>
+	    	Well in fact, the search works on any page. The search function will only search through items on the page you are viewing. Keep it simple, ya know...
+	    	
+	  	</p>
+	  	<br>
+		<p>
+	    	<strong><a name="remoteaccess">How does the Remote Server Access stuff work?</a></strong><br>
+	    	You can access the server that is hosting an application by creating two links in the same JumpSquare. When you enter an IP Address or DNS Name of 
+	    	the server where an application is installed, you have already made the first step.<br>
+	    	By default, 'None' is selected which doesn't create a hyperlink to the server.<br>
+	    	If 'RDP' is selected, a 'servername.rdp' file is generated and available for download. Click 'open' from the download prompt and it will 
+	    	automatically open your RDP client. Works on both Mac and PC (not tested on linux). Do NOT add 'rdp://' or anything else to the server name.<br>
+	    	If 'SSH' is selected, it needs to follow the same rules as using ssh:// for the Jump location. Your browser requires the 
+	    	<a href="http://firessh.net/">FireSSH</a> plugin. Do NOT add 'ssh://' to the server name<br>
+	    	If 'VNC' is selected, clicking on the link will open up a new tab in your browser pointing to servername:5800. This method has been tested 
+	    	with TightVNC and RealVNC (Enterprise license was tested, does not work on free license). The VNC software installed on the server requires the ability to render 
+	    	VNC over HTML5 on Port 5800. Java is required for TightVNC and RealVNC. Tested and works on Windows. Tested and failed to load Java on Mac. Port 5800 is the only
+	    	 one that can be used at this time.
+	  	</p>
+	  	<br>
+	  	<p>
+	    	<strong><a name="nmapscan">How do I use the Nmap Scan utility to quickly add JumpSquares?</a></strong><br>
+	    	<a href="http://nmap.org/"><font color="18bc9c">Nmap</font></a> is a free tool used to perform port scanning on a network. To get started, <a href="http://nmap.org/download.html"><font color="18bc9c">download
+	        Nmap</font></a> for Windows, Mac, or Linux and install it on your system. Mac & Linux users: Open up a terminal session and change your current directory to a desktop location or somewhere easy to navigate.
+	        For Windows users: Open up a command (cmd)/DOS Window and change to the directory you installed Nmap into (cd "\Program Files (x86)\Nmap"). 
+	        On Windows releases prior to Windows 7, specify \Program Files\Nmap instead. If you execute Nmap frequently, please <a href="http://nmap.org/book/inst-windows.html"><font color="18bc9c">read this</font></a>.
+	        Type the following (Mac & Linux used may need 'sudo' for root): 
+	                      		<dl><b>nmap -sS -O -v 192.168.10.* -oX output.xml</b></dl>       
+	        Executing this command will do a stealth scan against the entire 192.168.10.0/24 subnet and save the scan to output.xml. Change the .xml name if preferred. 
+	        The subnet style can be replaced with <a href="http://nmap.org/book/man-examples.html"><font color="18bc9c">different paramters</font></a>. The 
+	        length of time will depend on the amount of hosts and the amount of open ports. Go grab a beer (or coffee). After the scan has completed, <a href="/nmapfiles/new"><font color="18bc9c">Upload the Nmap Scan XML</font></a>
+	         to analyze missing JumpSquare entries based on DNS and IP. If a JumpSquare has not been configured for a DNS or IP address entry, click on "Create JumpSquare", which open the JumpSquare creation form. The DNS or IP 
+	         address will be pre-populated for you.	                        	
+	  	</p>
+	</div>
+</div>
