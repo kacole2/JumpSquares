@@ -41,10 +41,10 @@
  * PAGE SECTIONS
  * ................... */
 .homecontainerbase {
-
 	padding: 50px 0px 100px;
 	margin-top: -15px;
 	background-repeat: no-repeat;
+	background-position: center top;
 }
 
 .homecontainerone {
