@@ -11,4 +11,5 @@ CarrierWave.configure do |config|
   config.fog_public     = false                              # optional, defaults to true
   #config.fog_attributes = {'Cache-Control'=>'max-age=315576000'}  # optional, defaults to {}
   config.fog_attributes = {'x-amz-server-side-encryption' => 'AES256','Cache-Control'=>'max-age=315576000'}
+  config.asset_host = "http://cdn.jumpsquares.net"
 end
