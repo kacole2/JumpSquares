@@ -86,7 +86,7 @@
 	width: 275px;
 	margin: 10px;
 	border: 2px solid white;
-	border-radius: 5px;
+	border-radius: 25px;
 	padding: 5px 15px 25px;
 	opacity: 0.93;
 	display: inline-block;
@@ -124,7 +124,7 @@
 	width: 100%;
 	margin: 10px 10px 50px;
 	border: 2px solid white;
-	border-radius: 5px;
+	border-radius: 25px;
 	padding: 5px 15px 25px;
 	opacity: 0.8;
 	display: inline-block;
