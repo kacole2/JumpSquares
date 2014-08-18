@@ -90,6 +90,10 @@
 	padding: 5px 15px 25px;
 	opacity: 0.93;
 	display: inline-block;
+	transition-duration: .5s;
+	perspective: 400px;
+	perspective-origin: 50% 50%;
+	z-index: 100;
 }
 
 .homequote:hover {	
@@ -112,11 +116,24 @@
 	margin: 5px;
 	float: left;
 	border-radius: 50%;
+	transition: 0.4s ease-in-out;
 }
-
-.homequote a img:hover {
-	border: 2px solid #18bc9c;
-	border-radius: 50%;
+/***************************
+ * Playing Around
+.homequote:hover a img {
+	-webkit-transform: scale(1.3) rotate(1turn) translate(-11%) rotate3d(1,0,1,65deg);
+	-moz-transform: scale(1.3) rotate(1turn) translate(-11%) rotate3d(1,0,1,65deg);
+	-ms-transform: scale(1.3) rotate(1turn) translate(-11%) rotate3d(1,0,1,65deg);
+	-o-transform: scale(1.3) rotate(1turn) translate(-11%) rotate3d(1,0,1,65deg);
+	transform: scale(1.3) rotate(1turn) translate(-11%) rotate3d(1,0,1,65deg);
+}
+**************************/
+.homequote:hover a img {
+	-webkit-transform: scale(1.1) translate(-11%);
+	-moz-transform: scale(1.1) translate(-11%);
+	-ms-transform: scale(1.1) translate(-11%);
+	-o-transform: scale(1.1) translate(-11%);
+	transform: scale(1.1) translate(-11%);
 }
 
 .hometextcontainer {
@@ -128,6 +145,7 @@
 	padding: 5px 15px 25px;
 	opacity: 0.8;
 	display: inline-block;
+	transition-duration: .5s;
 }
 
 .hometextcontainer:hover {
